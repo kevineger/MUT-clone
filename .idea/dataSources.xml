@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2186224561">
-    <data-source source="LOCAL" name="Rails mut: development" uuid="a7d9d10a-04cf-4a7f-9bf7-8442946d2bbd">
-      <driver-ref>sqlite.xerial</driver-ref>
+  <component name="DataSourceManagerImpl" format="xml" hash="992149193">
+    <data-source source="LOCAL" name="MySQL - mutrails@localhost" uuid="31905d6f-766a-4fa2-b651-8e219124bf4b">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/mutrails</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc7dfc5dfc4dfc1dfcfdfd3df93df9adf9a</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails mut: development" uuid="07e0bb66-2877-4e8d-8d87-23ecad676d22">
+      <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/mutrails</jdbc-url>
       <user-name>root</user-name>
       <user-password>dfc7dfc5dfc4dfc1dfcfdfd3df93df9adf9a</user-password>
       <libraries />
     </data-source>
-    <data-source source="LOCAL" name="Rails mut: test" uuid="7d87286a-243d-499d-8e4f-b16fdf8f5dec">
+    <data-source source="LOCAL" name="Rails mut: test" uuid="4841dc46-e1e0-4ef7-9811-7da8a60b7b5e">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/db/test.sqlite3</jdbc-url>
       <libraries />
     </data-source>
-    <data-source source="LOCAL" name="Rails mut: production" uuid="5732c72e-c3ec-4941-9a29-da55a41134f4">
+    <data-source source="LOCAL" name="Rails mut: production" uuid="c8d7db83-abe3-4b3c-a031-2d564ea0b4ac">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/db/production.sqlite3</jdbc-url>

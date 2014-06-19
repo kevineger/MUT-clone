@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/radar/forem-bootstrap.git
+  revision: 10be50afc1d0a22af1306076e41624c55fc585be
+  specs:
+    forem-bootstrap (0.0.1)
+      bootstrap-sass (~> 3.1)
+
+GIT
   remote: git://github.com/radar/forem.git
   revision: 11d3b015a4c6930874677e913a3f6e40f0f68587
   branch: rails4
@@ -17,6 +24,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     actionmailer (4.1.1)
       actionpack (= 4.1.1)
       actionview (= 4.1.1)
@@ -45,6 +53,8 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     builder (3.2.2)
     cancancan (1.8.2)
     coffee-rails (4.0.1)
@@ -69,7 +79,7 @@ GEM
     gemoji (1.1.2)
     hike (1.2.3)
     i18n (0.6.9)
-    jbuilder (2.1.0)
+    jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.0)
@@ -81,7 +91,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.3.4)
+    minitest (5.3.5)
     multi_json (1.10.1)
     mysql (2.9.1)
     nokogiri (1.6.2.1)
@@ -158,9 +168,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   coffee-rails (~> 4.0.0)
   devise
   forem!
+  forem-bootstrap!
   jbuilder (~> 2.0)
   jquery-rails
   mysql
