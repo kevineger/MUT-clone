@@ -26,7 +26,7 @@ class ClassifiedPostsController < ApplicationController
   def create
     @classified_post = ClassifiedPost.new(classified_post_params)
     @classified_post.user = current_user
-    @classified_post.classified_category = ClassifiedCategory.first
+
     respond_to do |format|
       if @classified_post.save
         format.html { redirect_to @classified_post, notice: 'Classified post was successfully created.' }
@@ -70,6 +70,6 @@ class ClassifiedPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def classified_post_params
-      params.require(:classified_post).permit(:title,:description,:image,:price)
+      params.require(:classified_post).permit(:title,:description,:image,:price,:classified_category_id)
     end
 end

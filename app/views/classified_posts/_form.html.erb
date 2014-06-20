@@ -12,10 +12,20 @@
   <% end %>
 
   <div>
+    <%= label 'Title: ', :title %>
     <%= f.text_field :title%>
+    <br/>
+    <%= label 'Description: ', :description %>
     <%= f.text_field :description%>
+    <br/>
+    <%= label 'Image: ', :image %>
     <%= f.text_field :image%>
+    <br/>
+    <%= label 'Price: ', :price %>
     <%= f.text_field :price%>
+    <br/>
+    <%= label 'Category Dropdown', :classified_category_id %>
+    <%= collection_select(:classified_post,:classified_category_id, ClassifiedCategory.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>
