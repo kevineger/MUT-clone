@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   resources :testicles
 
-  resources :classified_categories
+  resources :classified_categories, :path => "classifieds" do
+    resources :classified_posts, :path => "posts"
+  end
 
-  resources :classified_posts
 
   # This line mounts Forem's routes at /forums by default.
   # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
