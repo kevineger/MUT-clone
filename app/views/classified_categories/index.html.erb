@@ -1,0 +1,23 @@
+<h1>Listing classified_categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @classified_categories.each do |classified_category| %>
+      <tr>
+        <td><%= link_to 'Show', classified_category %></td>
+        <td><%= link_to 'Edit', edit_classified_category_path(classified_category) %></td>
+        <td><%= link_to 'Destroy', classified_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Classified category', new_classified_category_path %>

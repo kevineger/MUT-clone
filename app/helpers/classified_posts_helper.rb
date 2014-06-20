@@ -1,0 +1,2 @@
+module ClassifiedPostsHelper
+end

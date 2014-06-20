@@ -15,7 +15,6 @@
         <% end %>
       </div>
     <% end %>
-
     <div class='contents'>
       <div class='user col-md-2'>
         <div class='username'>
@@ -32,9 +31,7 @@
         <a href='#post-<%= post.id %>'>
           <%= post_time_tag(post) %>
         </a>
-
-        <p><%= post.text %></p>
-
+        <p><%= forem_format(post.text) %></p>
         <% if post.reply_to %>
           <div class='in-reply-to'>
             <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user.forem_name}", "#post-#{post.reply_to.id}" %>

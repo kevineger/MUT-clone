@@ -1,0 +1,23 @@
+<%= form_for(@classified_post) do |f| %>
+  <% if @classified_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@classified_post.errors.count, "error") %> prohibited this classified_post from being saved:</h2>
+
+      <ul>
+      <% @classified_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.text_field :title%>
+    <%= f.text_field :description%>
+    <%= f.text_field :image%>
+    <%= f.text_field :price%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
