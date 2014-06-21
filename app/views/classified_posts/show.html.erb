@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<h3><%=@classified_post.title%></h3>
+<h5><b>Description</b></h5>
+<p><%=@classified_post.description%> </p>
+<h5><b>Price</b></h5>
+<p><%=@classified_post.price %></p>
 
 <%= link_to 'Edit', edit_classified_post_path(@classified_post) %> |
 <%= link_to 'Back', classified_posts_path %>
