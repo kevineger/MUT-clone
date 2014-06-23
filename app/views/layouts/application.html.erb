@@ -44,7 +44,13 @@
                 <a href = "#" > Account </a>
               </li>
             </ul>
-            <a class="btn btn-sl btn-login btn-primary pull-right" href="#" role="button">Login</a>
+          <p class="navbar-text navbar-right">
+            <% if defined?(current_user.email) %>
+                Logged in as <%= current_user.email %>, <%= link_to 'Logout?', destroy_user_session_path ,:method => :delete%>
+            <% else %>
+                <%= link_to 'Login?', new_user_session_path %>
+            <% end %>
+          </p>
           </div>
         </div>
       </div><!-- /.navbar -->
