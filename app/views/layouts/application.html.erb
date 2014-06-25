@@ -11,10 +11,7 @@
       ================================================== -->
       <div style = "margin-bottom:0px" class = "navbar navbar-inverse navbar-static-top">
         <div class = "container">
-          <a href = "#" class = "pull-left">
-            <%= image_tag("logoMarkWG.png",:class => 'homeLink') %>
-          </a>
-
+          <%= link_to image_tag("logoMarkWG.png",:class => 'homeLink'), forem.root_path, :class=>'pull-left' %>
           <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
             <span class = "icon-bar"></span>
             <span class = "icon-bar"></span>
@@ -26,29 +23,20 @@
 
             <ul class = "nav navbar-nav navbar-left">
               <li class = "active">
-                <a href = "#" > Home </a>
+                <%= link_to 'Home', main_app.root_path %>
               </li>
               <li>
-                <a href = "#" > Forums </a>
-              </li>
-              <li class = "dropdown">
-                <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Classifieds <b class = "caret"></b></a>
-                <ul class = "dropdown-menu">
-                  <li><a href = "#">Classifieds One</a></li>
-                  <li><a href = "#">Classifieds Two</a></li>
-                  <li><a href = "#">Classifieds Three</a></li>
-                  <li><a href = "#">Classifieds Four</a></li>
-                </ul>
+                <%= link_to 'Classifieds', main_app.classified_categories_path %>
               </li>
               <li>
-                <a href = "#" > Account </a>
+                <%= link_to 'Forum', forem.root_path %>
               </li>
             </ul>
           <p class="navbar-text navbar-right">
             <% if defined?(current_user.email) %>
-                Logged in as <%= current_user.email %>, <%= link_to 'Logout?', destroy_user_session_path ,:method => :delete%>
+                Logged in as <%= current_user.email %>, <%= link_to 'Logout?', main_app.destroy_user_session_path ,:method => :delete%>
             <% else %>
-                <%= link_to 'Login?', new_user_session_path %>
+                <%= link_to 'Login?', main_app.new_user_session_path %>
             <% end %>
           </p>
           </div>
