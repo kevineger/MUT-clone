@@ -6,7 +6,6 @@ gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '3.0.5'
 gem 'devise'
 gem 'RedCloth'
-gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use SCSS for stylesheets
