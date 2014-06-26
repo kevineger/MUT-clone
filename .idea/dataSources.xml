@@ -19,7 +19,7 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/mutrails</jdbc-url>
       <user-name>root</user-name>
-      <user-password>dfc7dfc5dfc4dfc1dfcfdfd3df93df9adf9a</user-password>
+      <user-password>dfc8dfcbdfc4dfcbdfc4dfcbdf93df9e</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails mut: test" uuid="4841dc46-e1e0-4ef7-9811-7da8a60b7b5e">
