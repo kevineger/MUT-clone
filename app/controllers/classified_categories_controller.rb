@@ -61,9 +61,9 @@ class ClassifiedCategoriesController < ApplicationController
     end
   end
   def page
-    @category = ClassifiedCategory.where(category: params['category'])
+    @category = where(category: params['category'])
     @page = params['page']
-    @post = ClassifiedPost.first()
+
     @output =  render :partial => 'single', :object => @post
 
   end

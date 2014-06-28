@@ -6,7 +6,7 @@
     <ul id="categories-box" class="nav nav-sidebar">
       <li class="active"><a href="#">All Categories</a></li>
       <% @classified_categories.each do |category|%>
-        <li><a href="" data-id="<%=category.id %>"><%=category.name %></a></li>
+        <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></a></li>
       <% end%>
     </ul>
   </div>
@@ -21,30 +21,8 @@
       </div>
     </div>
     <!-- Individual add item -->
-    <div class="row">
-      <div class="col-sm-4 col-md-4 col-centered">
-        <h4 class="ad-item-title">Ad Item 1.....</h4>
-        <a class="pull-left" href="#">
-          <%= image_tag("picolasCage.jpg", :class => 'featured-pic') %>
-        </a>
-        <p class="ad-item-disc">Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription....</p>
-      </div>
+    <div id="post-grid" class="row">
 
-      <div class="col-sm-4 col-md-4 col-centered">
-        <h4 class="ad-item-title">Ad Item 2.....</h4>
-        <a class="pull-left" href="#">
-          <%= image_tag("picolasCage.jpg", :class => 'featured-pic') %>
-        </a>
-        <p class="ad-item-disc">Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription....</p>
-      </div>
-
-      <div class="col-sm-4 col-md-4 col-centered">
-        <h4 class="ad-item-title">Ad Item 3.....</h4>
-        <a class="pull-left" href="#">
-          <%= image_tag("picolasCage.jpg", :class => 'featured-pic') %>
-        </a>
-        <p class="ad-item-disc">Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription.... Blah Blah Blah Ad Item Discription....</p>
-      </div>
     </div>
   </div>
 </div>
