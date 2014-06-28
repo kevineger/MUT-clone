@@ -4,7 +4,8 @@
       <li><a href="#">Classifieds</a></li>
     </ul>
     <ul id="categories-box" class="nav nav-sidebar">
-      <li class="active"><a href="#">All Categories</a></li>
+      <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => 0), :remote => true %></a></li>
+
       <% @classified_categories.each do |category|%>
         <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></a></li>
       <% end%>
@@ -22,7 +23,7 @@
     </div>
     <!-- Individual add item -->
     <div id="post-grid" class="row">
-
+      <%= render partial: 'classified_posts/posts_fill', locals: {posts: @posts}  %>
     </div>
   </div>
 </div>

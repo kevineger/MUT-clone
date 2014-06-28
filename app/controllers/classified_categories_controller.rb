@@ -5,6 +5,7 @@ class ClassifiedCategoriesController < ApplicationController
   # GET /classified_categories.json
   def index
     @classified_categories = ClassifiedCategory.all
+    @posts = ClassifiedPost.all
   end
 
   # GET /classified_categories/1
