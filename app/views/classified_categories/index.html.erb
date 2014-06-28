@@ -1,17 +1,16 @@
-
 <div class="row">
   <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
       <li><a href="#">Classifieds</a></li>
     </ul>
-    <ul class="nav nav-sidebar">
+    <ul id="categories-box" class="nav nav-sidebar">
       <li class="active"><a href="#">All Categories</a></li>
       <% @classified_categories.each do |category|%>
-        <li><a href="#"><%=category.name %></a></li>
+        <li><a href="" data-id="<%=category.id %>"><%=category.name %></a></li>
       <% end%>
     </ul>
   </div>
-  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <div id="category-section" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
     <div class="row">
       <h1 class="page-header">All Categories</h1>
       <div class="navbar-form navbar-right" role="search">

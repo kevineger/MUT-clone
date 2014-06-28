@@ -4068,4 +4068,7 @@
   <data-source source="LOCAL" name="Rails mut: production" uuid="c8d7db83-abe3-4b3c-a031-2d564ea0b4ac">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="PostgreSQL - iuugalldwbfgoi@ec2-23-21-185-168.compute-1.amazonaws.com" uuid="2c5bc51c-046a-484a-b987-d9bf3d028aa5">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

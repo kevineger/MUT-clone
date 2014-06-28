@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="586997760">
+  <component name="DataSourceManagerImpl" format="xml" hash="455730277">
     <data-source source="LOCAL" name="MySQL - mutrails@localhost" uuid="31905d6f-766a-4fa2-b651-8e219124bf4b">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -19,7 +19,7 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/mutrails</jdbc-url>
       <user-name>root</user-name>
-      <user-password>dfc8dfcbdfc4dfcbdfc4dfcbdf93df9e</user-password>
+      <user-password>dfc7dfc5dfc4dfc1dfcfdfd3df93df9adf9a</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails mut: test" uuid="4841dc46-e1e0-4ef7-9811-7da8a60b7b5e">
@@ -32,6 +32,15 @@
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/db/production.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - iuugalldwbfgoi@ec2-23-21-185-168.compute-1.amazonaws.com" uuid="2c5bc51c-046a-484a-b987-d9bf3d028aa5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-23-21-185-168.compute-1.amazonaws.com:5432/iuugalldwbfgoi</jdbc-url>
+      <user-name>iuugalldwbfgoi</user-name>
+      <user-password>dfdedfe2dfdbdfeedffedfc9dfe0dff2dfe1df99dfebdf9ddfc3dfefdfe7dfc5df87dfe4dfc4dfc4dfc1df9cdf9ddfc5dfd3dffc</user-password>
       <libraries />
     </data-source>
   </component>

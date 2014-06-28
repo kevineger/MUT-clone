@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   resources :testicles
 
-  resources :classified_categories, :path => "classifieds"
+  resources :classified_categories, :path => "classifieds" do
+    member do
+      get 'page'
+    end
+  end
   resources :classified_posts, :path => "posts"
 
   # This line mounts Forem's routes at /forums by default.

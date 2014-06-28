@@ -60,6 +60,13 @@ class ClassifiedCategoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def page
+    @category = ClassifiedCategory.where(category: params['category'])
+    @page = params['page']
+    @post = ClassifiedPost.first()
+    @output =  render :partial => 'single', :object => @post
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
