@@ -1,3 +1,5 @@
+
+<!--
 <%= form_for(@classified_post) do |f| %>
   <% if @classified_post.errors.any? %>
     <div id="error_explanation">
@@ -30,4 +32,45 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+-->
+
+<!-- ---------------------------------------------------------- -->
+<!-- FRONT END DEV - NO BACK -->
+
+<div class="container">
+  <h2 style="text-align:center">Create a Listing</h2>
+  <%= form_for(@classified_post) do |f| %>
+  <div class="col-md-8 col-md-offset-2">
+    <!-- Background container for new post -->
+    <div id="new-post-background"> 
+      <div class="container">
+        <h2 class="field-title">Item Title</h2>
+        <%= f.text_field :title, :class => 'text-field'%>
+      </div>
+      <div class="container">
+        <h2 class="field-title">Select a Category</h2>
+        <select class="category-dropdown">
+          <option value="" disabled selected style="display:none;">Select A Category</option>
+          <%= options_from_collection_for_select(ClassifiedCategory.all, :id, :name) %>
+        </select>
+      </div>
+      <div class="container">
+        <h2 class="field-title">Item Price</h2>
+        <%= f.text_field :price, :class => 'text-field'%>
+      </div>
+      <div class="container">
+        <h2 class="field-title">Item Discription</h2>
+        <%= f.text_area :description, :class => 'text-area'%>
+      </div>
+      <div class="container">
+        <h2 class="field-title">Item Picture</h2>
+        <%= f.file_field :image, :class => 'pic-input'%>
+      </div>
+      <div style="text-align:center">
+        <a class="btn btn-lg btn-primary btn-blue btn-post" href="#" role="button">Post</a>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
