@@ -78,6 +78,15 @@
 	min-width: 600px;
 	font-size: 20px;
 }
+.navbar-blue {
+	background-color: #013861;
+}
+.navbar-blue:hover {
+	background-color: #FFFFFF;
+}
+.navbar-blue:focus {
+	background-color: #013861
+}
 #new-post-background {
 	background-color: #F2F2F2;
 	min-height:600px;
