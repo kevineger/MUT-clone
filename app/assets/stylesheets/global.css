@@ -21,6 +21,16 @@
 	color:#FFFFFF;
 	border:#013861;
 }
+#btn-new-post {
+	position:fixed;
+	bottom:10px;
+	left:10px;
+	color:#000;
+}
+#btn-new-post:hover {
+	background-color: #013861;
+	color:#FFF;
+}
 .btn-login {
   margin-top:8px;
   color:#999999;
@@ -35,6 +45,11 @@
 	text-align:center;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+#btn-search {
+	color: #998D8A;
+	background-color: #004070;
+	border-color: #004070;
 }
 .carousel-indicators li {
 	background-color: #013861;
@@ -68,7 +83,6 @@
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
 }
 .text-area {
-	border: 3px solid #013861;
 	resize:none;
 	min-width: 600px;
 	min-height: 200px;
@@ -77,6 +91,26 @@
 .text-field {
 	min-width: 600px;
 	font-size: 20px;
+}
+.navbar-blue {
+	background-color: #013861;
+}
+ .navbar-blue .navbar-nav > .active{
+   	background: #013861;
+    color: #FFFFFF;
+    font-weight:bold;
+ }
+ .navbar-blue .navbar-nav > .active > a, 
+ .navbar-blue .navbar-nav > .active > a:hover, 
+ .navbar-blue .navbar-nav > .active > a:focus {
+      background: #013861;
+      color: #FFFFFF;
+      font-weight:bold;
+ }
+#navbar-blue-search {
+	background-color: #004070;
+	border-color: #013861;
+	color: #FFFFFF;
 }
 #new-post-background {
 	background-color: #F2F2F2;
