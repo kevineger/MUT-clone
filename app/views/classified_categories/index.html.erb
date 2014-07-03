@@ -4,11 +4,14 @@
       <li><a href="#">Classifieds</a></li>
     </ul>
     <ul id="categories-box" class="nav nav-sidebar">
-      <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => 0), :remote => true %></a></li>
+      <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => 0), :remote => true %></li>
 
       <% @classified_categories.each do |category|%>
-        <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></a></li>
+        <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></li>
       <% end%>
+    </ul>
+    <ul class="nav nav-sidebar" style="background: grey">
+      <li><%= link_to 'New Post',new_classified_post_path %></li>
     </ul>
   </div>
   <div id="category-section" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
