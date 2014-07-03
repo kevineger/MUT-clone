@@ -2,9 +2,9 @@
 	width:400px;
 	height:400px;
 	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom:20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:20px;
 }
 .ad-panel {
 	min-height:640px;
@@ -30,11 +30,20 @@
 .btn-login:hover {
 	background-color:#222222;
 }
+.btn-post {
+	min-width:150px;
+	text-align:center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 .carousel-indicators li {
-  background-color: #013861;
+	background-color: #013861;
 }
 .carousel-indicators .active {
   background-color: #013861;
+}
+.category-dropdown {
+	font-size: 20px;
 }
 .featured-article-jumbotron {
 	background-color:#FFFFFF
@@ -50,6 +59,30 @@
 	width:42px;
 	top:5px;
 	margin-right:10px;
+}
+.field-title {
+	padding-top:10px;
+	padding-right:10px;
+	font-size: 14px;
+	font-variant: small-caps;
+	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+.text-area {
+	border: 3px solid ##013861;
+	resize:none;
+	min-width: 600px;
+	min-height: 200px;
+	font-size: 20px;
+}
+.text-field {
+	min-width: 600px;
+	font-size: 20px;
+}
+#new-post-background {
+	background-color: #F2F2F2;
+	min-height:600px;
+	margin-top:10px;
+	padding-left: 50px;
 }
 .span-ad-container {
 	background-color:blue;
