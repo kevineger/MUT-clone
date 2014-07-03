@@ -61,6 +61,18 @@ class ClassifiedPostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def from_category
+    @category = params[:cat_id]
+    @posts
+    if(@category == '0')
+      @posts = ClassifiedPost.all
+    else
+      @posts = ClassifiedCategory.find(@category).classified_posts
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

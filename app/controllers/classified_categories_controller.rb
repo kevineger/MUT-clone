@@ -5,6 +5,7 @@ class ClassifiedCategoriesController < ApplicationController
   # GET /classified_categories.json
   def index
     @classified_categories = ClassifiedCategory.all
+    @posts = ClassifiedPost.all
   end
 
   # GET /classified_categories/1
@@ -59,6 +60,13 @@ class ClassifiedCategoriesController < ApplicationController
       format.html { redirect_to classified_categories_url, notice: 'Classified category was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  def page
+    @category = where(category: params['category'])
+    @page = params['page']
+
+    @output =  render :partial => 'single', :object => @post
+
   end
 
   private
