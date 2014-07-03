@@ -1,6 +1,6 @@
 <div class="container">
   <h2 style="text-align:center">Create a Listing</h2>
-  <%= form_for(@classified_post) do |f| %>
+  <%= form_for @classified_post, :html => { :multipart => true } do |f| %>
   <div class="col-md-8 col-md-offset-2">
     <!-- Background container for new post -->
     <div id="new-post-background"> 
@@ -10,7 +10,7 @@
       </div>
       <div class="container">
         <h2 class="field-title">Select a Category</h2>
-        <select class="category-dropdown">
+        <select name="classified_post[classified_category_id]" class="category-dropdown">
           <option value="" disabled selected style="display:none;">Select A Category</option>
           <%= options_from_collection_for_select(ClassifiedCategory.all, :id, :name) %>
         </select>
@@ -28,7 +28,7 @@
         <%= f.file_field :image, :class => 'pic-input'%>
       </div>
       <div style="text-align:center">
-        <a class="btn btn-lg btn-primary btn-blue btn-post" href="#" role="button">Post</a>
+        <%= f.submit :class=>'btn btn-lg btn-primary btn-blue btn-post' %>
       </div>
     </div>
   </div>
