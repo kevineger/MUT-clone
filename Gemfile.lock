@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/radar/forem.git
-  revision: 11d3b015a4c6930874677e913a3f6e40f0f68587
+  revision: c69d9113699de5c46963eaad648927feed292648
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -15,7 +15,7 @@ GIT
       decorators (~> 1.0.2)
       friendly_id (~> 5.0.0)
       gemoji (= 1.1.2)
-      rails (>= 4.0.3, <= 4.1.1)
+      rails (>= 4.0.3, <= 4.1.2)
       sanitize (= 2.0.6)
       select2-rails (~> 3.5.4)
       simple_form (~> 3.0.1)
@@ -63,10 +63,10 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
-    bootstrap-sass (3.1.1.1)
+    bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
     builder (3.2.2)
-    cancancan (1.8.2)
+    cancancan (1.8.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -87,7 +87,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
-    execjs (2.2.0)
+    execjs (2.2.1)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
     gemoji (1.1.2)
