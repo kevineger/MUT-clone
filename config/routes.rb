@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   resources :testicles
 
   resources :classified_categories, :path => "classifieds" do

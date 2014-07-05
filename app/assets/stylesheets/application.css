@@ -11,8 +11,9 @@
  * file per style scope.
  *
  *= require bootstrap
- *= require_tree .
+ *= require dashboard.css
+ *= require global.css
+ *= require scaffolds.css.scss
  *= require_self
-
  */
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");

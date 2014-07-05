@@ -1,4 +1,21 @@
 GIT
+  remote: git://github.com/gregbell/active_admin.git
+  revision: 8ec04cfbf8fd23093815a939f19f82b2b8079fd1
+  specs:
+    activeadmin (1.0.0.pre)
+      arbre (~> 1.0)
+      bourbon
+      coffee-rails
+      formtastic (~> 2.3.0.rc3)
+      inherited_resources (~> 1.4.1)
+      jquery-rails
+      jquery-ui-rails
+      kaminari (~> 0.15)
+      rails (>= 3.2, < 4.2)
+      ransack (~> 1.0)
+      sass-rails
+
+GIT
   remote: git://github.com/radar/forem-bootstrap.git
   revision: 10be50afc1d0a22af1306076e41624c55fc585be
   specs:
@@ -61,10 +78,15 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    arbre (1.0.1)
+      activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     cancancan (1.8.4)
     climate_control (0.0.3)
@@ -88,18 +110,31 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
+    formtastic (2.3.0.rc3)
+      actionpack (>= 3.0)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
     gemoji (1.1.2)
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hike (1.2.3)
     i18n (0.6.9)
+    inherited_resources (1.4.1)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0.0.rc)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.0)
+      railties (>= 3.2.16)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -111,6 +146,8 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
+    polyamorous (1.0.0)
+      activerecord (>= 3.0)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -131,8 +168,16 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
+    ransack (1.2.3)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.0.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    responders (1.0.0)
+      railties (>= 3.2, < 5)
     sanitize (2.0.6)
       nokogiri (>= 1.4.4)
     sass (3.2.19)
@@ -182,6 +227,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
+  activeadmin!
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
@@ -189,6 +235,7 @@ DEPENDENCIES
   forem-bootstrap!
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   mysql
   paperclip!
   rails (= 4.1.1)
