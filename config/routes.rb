@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'profile/show'
+
   ActiveAdmin.routes(self)
   resources :testicles
 

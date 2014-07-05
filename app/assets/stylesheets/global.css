@@ -23,8 +23,8 @@
 }
 #btn-new-post {
 	position:fixed;
-	bottom:10px;
-	left:10px;
+	bottom:30px;
+	left:60px;
 	color:#000;
 }
 #btn-new-post:hover {
@@ -81,6 +81,12 @@
 	font-size: 14px;
 	font-variant: small-caps;
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+.grey-wrapper {
+	background-color: #000;
+	border-bottom: 1px solid #FFF;
+	height: 160px;
+	z-index: 2;
 }
 .text-area {
 	resize:none;
