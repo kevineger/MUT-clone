@@ -16,8 +16,9 @@ ClassifiedCategory.create(name: 'Category 7', icon: 'placeholder')
 ClassifiedCategory.create(name: 'Category 8', icon: 'placeholder')
 
 ClassifiedPost.delete_all
-40.times do
-  post = ClassifiedPost.new(title: 'This is a title for post 1',description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mi in elit feugiat faucibus. Sed at feugiat ante. Aenean in velit at arcu pretium ultricies. Ut id porta diam. Suspendisse semper at est ac dictum.',  price: 19.99,classified_category: ClassifiedCategory.first, user: User.first)
+30.times do
+  post = ClassifiedPost.new(title: 'This is a title for post '+i.to_s,description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mi in elit feugiat faucibus. Sed at feugiat ante. Aenean in velit at arcu pretium ultricies. Ut id porta diam. Suspendisse semper at est ac dictum.',  price: 19.99,classified_category: ClassifiedCategory.first, user: User.first)
   post.image = File.open(Rails.root.to_s + '/db/sample.png')
   post.save!
+  i+=1
 end

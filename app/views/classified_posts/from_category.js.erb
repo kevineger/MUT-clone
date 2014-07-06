@@ -1,1 +1,1 @@
-$("#post-grid").html("<%= escape_javascript(render partial: 'posts_fill', locals: { posts: @posts } ) %>");
+$("#post-grid").html("<%= escape_javascript(render partial: 'posts', locals: { posts: @posts , category: 1} ) %>");
