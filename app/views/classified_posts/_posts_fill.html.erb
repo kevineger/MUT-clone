@@ -1,25 +1,16 @@
 <% posts.each do |post| %>
-    <!-- <div class="col-sm-4 col-md-4 col-centered">
-      <h4 class="ad-item-title"><%=post.title%></h4>
-      <a class="pull-left" href="#">
-        <%= image_tag post.image.url(:thumb), :class => 'featured-pic' %>
-      </a>
-      <p class="ad-item-disc"><%=post.description%></p>
-      <p><%=format_timesince post.updated_at%></p>
-    </div> -->
-    <div class="col-sm-4 col-md-4">
-    	<div class="ad-container">
-        <div class="ad-frame">
-  	      <!-- <div class="col-sm-6"> -->
-  	      	<%= image_tag post.image.url(:thumb), :class => 'featured-pic center-pic' %>
-  	      <!-- </div> -->
-  	      <!-- <div class="col-sm-6"> -->
-  	      	<div class="ad-info">
-  	      		<h4 class="ad-item-title"><%=post.title%></h4>
-  	      		<h5>Price: $69</h5>
-  	      		<p><%=format_timesince post.updated_at%></p>
-  	      	</div>
-        </div>
-    	</div>
+<div class="col-sm-4 col-md-4">
+  <%= link_to(post) do %>
+  <div class="ad-container">
+    <div class="ad-frame">
+      <%=image_tag post.image.url(:thumb), :class => 'featured-pic center-pic' %>
+      <div class="ad-info">
+        <h4 class="ad-item-title"><%=post.title%></h4>
+        <h5>Price: $69</h5>
+        <p><%=format_timesince post.updated_at%></p>
+      </div>
     </div>
+  </div>
+  <% end %>
+</div>
 <% end %>

@@ -4,6 +4,9 @@
 	position:relative;
 	text-align: center;
 }
+.ad-frame:hover {
+	background-color:#D8DBED;
+}
 .ad-container {
 	margin-bottom:30px;
 	background-color: #F2F2F2;
@@ -21,9 +24,11 @@
 	bottom:4px;
 	margin-left:15px;
 	text-align: left;
+	color: #000;
 }
 .ad-panel {
-	min-height:640px;
+	/*min-height:640px;*/
+	border-radius: 0;
 	margin-top:20px;
 	text-align:left;
 }
@@ -93,6 +98,13 @@
 	position:absolute;
 	bottom:0px;
 	left:20px;
+}
+.disc {
+	font-size: 16px;
+}
+.disc-container {
+	margin:20px;
+	font-size:60px;
 }
 .featured-article-jumbotron {
 	background-color:#FFFFFF
@@ -165,8 +177,9 @@
 	margin-top:10px;
 	padding-left: 50px;
 }
-#post-grid {
-
+.pic-single {
+	max-height: 450px;
+	max-width: 450px;
 }
 .post-jumbotron {
 	margin:20px;
