@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'font-awesome-rails'
 gem 'mysql'
 gem 'bootstrap-sass'
 gem 'activeadmin', github: 'gregbell/active_admin'

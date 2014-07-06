@@ -11,6 +11,9 @@
 	margin-top:20px;
 	text-align:left;
 }
+.blue {
+	color: #013861;
+}
 .btn-blue {
 	background-color:#013861; 
 	color:#FFFFFF;
@@ -60,6 +63,11 @@
 .category-dropdown {
 	font-size: 20px;
 }
+.category-name {
+	font-size: 30px;
+	margin:0px;
+	padding:0px;
+}
 .featured-article-jumbotron {
 	background-color:#FFFFFF
 }
@@ -82,11 +90,17 @@
 	font-variant: small-caps;
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
 }
-.grey-wrapper {
-	background-color: #000;
-	border-bottom: 1px solid #FFF;
+#grey-wrapper {
+	background: #9DA5AF;
+	background-color: #9DA5AF;
+	border-bottom: 1px solid #013861;
 	height: 160px;
 	z-index: 2;
+}
+#info-container {
+	min-height:800px;
+	width:inherit;
+	background-color: #F2F2F2;
 }
 .text-area {
 	resize:none;
@@ -101,18 +115,18 @@
 .navbar-blue {
 	background-color: #013861;
 }
- .navbar-blue .navbar-nav > .active{
+.navbar-blue .navbar-nav > .active{
    	background: #013861;
     color: #FFFFFF;
     font-weight:bold;
- }
- .navbar-blue .navbar-nav > .active > a, 
- .navbar-blue .navbar-nav > .active > a:hover, 
- .navbar-blue .navbar-nav > .active > a:focus {
-      background: #013861;
-      color: #FFFFFF;
-      font-weight:bold;
- }
+}
+.navbar-blue .navbar-nav > .active > a, 
+.navbar-blue .navbar-nav > .active > a:hover, 
+.navbar-blue .navbar-nav > .active > a:focus {
+	background: #013861;
+    color: #FFFFFF;
+    font-weight:bold;
+}
 #navbar-blue-search {
 	background-color: #004070;
 	border-color: #013861;
@@ -123,6 +137,16 @@
 	min-height:600px;
 	margin-top:10px;
 	padding-left: 50px;
+}
+.post-jumbotron {
+	margin:20px;
+	padding:15px;
+}
+.post-name {
+	padding:0px;
+}
+.post-row {
+	margin-top:20px;
 }
 .span-ad-container {
 	background-color:blue;
@@ -141,4 +165,9 @@
 	margin-left:20px;
 	width:320px;
 	height:640px;
+}
+#user-title {
+	font-size: 25px;
+	padding: 10px;
+	border-bottom: 1px solid #013861;
 }
