@@ -27,10 +27,9 @@
 	color: #000;
 }
 .ad-panel {
-	/*min-height:640px;*/
 	border-radius: 0;
 	margin-top:20px;
-	text-align:left;
+	position:relative;
 }
 .blue {
 	color: #013861;
@@ -112,8 +111,9 @@
 .featured-pic {
 	max-height:200px;
 	max-width:200px;
-	display:inline-block;
-	vertical-align: middle;
+	padding: 15px;
+	/*display:inline-block;
+	vertical-align: middle;*/
 }
 .home-link {
 	position:relative;

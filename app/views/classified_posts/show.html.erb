@@ -10,7 +10,6 @@
         </div>
         <div class="panel-body">
           <%= image_tag @classified_post.image.url(:large), :class => 'pic-single center-pic'%>
-          <!-- <h3><%=@classified_post.classified_category.name%></h3> -->
           <div class="disc-container">
             <p class="disc"><%=@classified_post.description%></p>
             <p>$<%=@classified_post.price %></p>
@@ -22,8 +21,34 @@
       <div class="panel panel-default ad-panel">
         <div class="panel-heading"><%=@classified_post.user.email%></div>
         <div class="panel-body">
-          <%= image_tag 'picolasCage.jpg', :class => 'featured-pic' %>
-          <p>This is where information about the poster will go</p>
+          <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
+          <h4>Kevin Eger</h4>
+          <h5>University of British Columbia</h5>
+
+          <div class="sale-history">
+            <div id="items-listed">
+              <span class="relevant-item-number">
+                10
+              </span>
+              <br>
+              Items Listed
+            </div>
+            <div id="items-sold">
+              <span class="relevant-item-number">
+                9
+              </span>
+              <br>
+              Items Sold
+            </div>
+            <div id="items-bought">
+              <span class="relevant-item-number">
+                3
+              </span>
+              <br>
+              Items Bought
+            </div>
+          </div>
+
           <p> <b>Message this user </b><span class="glyphicon-envelope"></span></p>
         </div>
       </div>
