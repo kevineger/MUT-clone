@@ -62,10 +62,14 @@ class ClassifiedPostsController < ApplicationController
     end
   end
   def from_category
+    page = params[:page]
+    if !page
+      page = 1
+    end
     @category = params[:cat_id]
     @posts
     if(@category == '0')
-      @posts = ClassifiedPost.all
+      @posts = ClassifiedPost.all.paginate(:page => page)
     else
       @posts = ClassifiedCategory.find(@category).classified_posts
     end

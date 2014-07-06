@@ -29,7 +29,11 @@
     </div>
     <!-- Individual add item -->
     <div id="post-grid" class="row">
-      <%= render partial: 'classified_posts/posts_fill', locals: {posts: @posts}  %>
+      <%= render partial: 'classified_posts/posts_fill', locals: {posts: @posts.paginate(:page => 1)}  %>
+    </div>
+    <div class="text-center">
+      <%= will_paginate @posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer', :class => 'pagination'%>
     </div>
   </div>
+
 </div>
