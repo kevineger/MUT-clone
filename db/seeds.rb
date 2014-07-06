@@ -17,8 +17,8 @@ ClassifiedCategory.create(name: 'Category 8', icon: 'placeholder')
 
 ClassifiedPost.delete_all
 i = 0
-100.times do
-  post = ClassifiedPost.new(title: 'This is a title for post '+i.to_s,description: 'This is a really really really really really good description',  price: 19.99,classified_category_id: Random.rand(8), user: User.first)
+30.times do
+  post = ClassifiedPost.new(title: 'This is a title for post '+i.to_s,description: 'This is a really really really really really good description',  price: 19.99,classified_category: ClassifiedCategory.first, user: User.first)
   post.image = File.open(Rails.root.to_s + '/db/sample.png')
   post.save!
   i+=1
