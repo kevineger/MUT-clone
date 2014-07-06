@@ -37,7 +37,7 @@
           
           <p class="navbar-text pull-right">
             <% if defined?(current_user.email) %>
-            Logged in as <%= current_user.email %>, <%= link_to 'Logout', main_app.destroy_user_session_path ,:method => :delete%>
+            Hi <%= current_user.email %>, <%= link_to 'Logout', main_app.destroy_user_session_path ,:method => :delete%>
             <% else %>
             <%= link_to 'Login', main_app.new_user_session_path %>
             <% end %>
