@@ -1,0 +1,17 @@
+<% posts.each do |post| %>
+    <%= link_to(post) do %>
+        <div class="col-sm-4 col-md-4 col-centered">
+          <h4 class="ad-item-title"><%=post.title%></h4>
+          <a class="pull-left" href="#">
+            <%= image_tag post.image.url(:thumb), :class => 'featured-pic' %>
+          </a>
+          <p class="ad-item-disc"><%=post.description%></p>
+          <p><%=format_timesince post.updated_at%></p>
+        </div>
+    <% end %>
+<% end %>
+<div class="text-center">
+
+  <%= will_paginate @posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer',
+      :class => 'pagination', :params => { :category_id => @category, :controller => 'classified_posts', :action => 'from_category'}%>
+</div>

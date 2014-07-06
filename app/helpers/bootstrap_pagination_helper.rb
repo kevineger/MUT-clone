@@ -36,11 +36,9 @@ module BootstrapPaginationHelper
         attributes[:href] = target
       end
       classname = attributes[:class]
+      attributes['data-remote'] = true
       attributes.delete(:classname)
       tag(:li, tag(:a, text, attributes), :class => classname)
-    end
-    def url(target)
-      target
     end
   end
 end
