@@ -5,12 +5,16 @@
   <div class="row row-centered">
     <div class="col-md-6 col-md-offset-2">
       <div class="panel panel-default ad-panel">
-        <div class="panel-heading"><%= @classified_post.title %></div>
+        <div class="panel-heading">
+          <%= @classified_post.title %>
+        </div>
         <div class="panel-body">
-          <p>Category: <%=@classified_post.classified_category.name%></p>
-          <%= image_tag @classified_post.image.url(:medium) %>
-          <p><%=@classified_post.description%></p>
-          <p><%=@classified_post.price %></p>
+          <%= image_tag @classified_post.image.url(:large), :class => 'pic-single center-pic'%>
+          <!-- <h3><%=@classified_post.classified_category.name%></h3> -->
+          <div class="disc-container">
+            <p class="disc"><%=@classified_post.description%></p>
+            <p>$<%=@classified_post.price %></p>
+          </div>
         </div>
       </div>
     </div>

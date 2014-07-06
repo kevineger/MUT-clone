@@ -28,10 +28,15 @@
       </div>
     </div>
     <!-- Individual add item -->
-    <div id="post-grid" class="row">
-      <%= render partial: 'classified_posts/posts', locals: {posts: @posts.paginate(:page => 1)}  %>
+    <div id="post-grid" class="container">
+      <%= render partial: 'classified_posts/posts_fill', locals: {posts: @posts.paginate(:page => 1)}  %>
     </div>
-
+    <div id="back-to-top">
+      <button class="btn-back-to-top btn-lg"><span class="glyphicon glyphicon-chevron-up"></span></button>
+    </div> 
+    <div class="text-center">
+      <%= will_paginate @posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer', :class => 'pagination'%>
+    </div>
   </div>
 
 </div>
