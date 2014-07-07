@@ -1,0 +1,13 @@
+<div id="search-field" class="pull-right">
+  <%= form_tag(from_category_classified_posts_path, method: "get", :class => 'navbar-form', :remote => true) do %>
+    <div class="input-group">
+      <%= hidden_field_tag(:cat_id, @category)%>
+      <%= text_field_tag(:search, nil,:id=>'navbar-blue-search',:class=>'form-control') %>
+      <div class="input-group-btn">
+        <%= button_tag(type: 'submit', class: "btn btn-primary",id: 'btn-search') do %>
+            <span class="glyphicon glyphicon-search"></span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
