@@ -62,18 +62,21 @@ class ClassifiedPostsController < ApplicationController
     end
   end
   def from_category
+    page = params[:page]
+    if !page
+      page = 1
+    end
     @category = params[:cat_id]
     @posts
     if(@category == '0')
-      @posts = ClassifiedPost.all
+      @posts = ClassifiedPost.all.paginate(:page => page)
     else
-      @posts = ClassifiedCategory.find(@category).classified_posts
+      @posts = ClassifiedCategory.find(@category).classified_posts.paginate(:page => page)
     end
     respond_to do |format|
       format.js
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_classified_post

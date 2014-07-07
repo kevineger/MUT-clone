@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
+gem 'font-awesome-rails'
 gem 'mysql'
 gem 'bootstrap-sass'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'forem-bootstrap', github: "radar/forem-bootstrap"
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '3.0.5'
@@ -8,6 +10,7 @@ gem 'devise'
 gem 'RedCloth'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -19,6 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,10 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%=@classified_post.title%></h3>
-<h5><b>Description</b></h5>
-<p><%=@classified_post.description%> </p>
-<h5><b>Price</b></h5>
-<p><%=@classified_post.price %></p>
 
-<%= link_to 'Edit', edit_classified_post_path(@classified_post) %> |
-<%= link_to 'Back', classified_posts_path %>
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-md-6 col-md-offset-2">
+      <div class="panel panel-default ad-panel">
+        <div class="panel-heading">
+          <%= @classified_post.title %>
+        </div>
+        <div class="panel-body">
+          <%= image_tag @classified_post.image.url(:large), :class => 'pic-single center-pic'%>
+          <div class="disc-container">
+            <p class="disc"><%=@classified_post.description%></p>
+            <p>$<%=@classified_post.price %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel panel-default ad-panel">
+        <div class="panel-heading"><%=@classified_post.user.email%></div>
+        <div class="panel-body">
+          <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
+          <h4>Kevin Eger</h4>
+          <h5>University of British Columbia</h5>
+
+          <div class="sale-history">
+            <div id="items-listed">
+              <span class="relevant-item-number">
+                10
+              </span>
+              <br>
+              Items Listed
+            </div>
+            <div id="items-sold">
+              <span class="relevant-item-number">
+                9
+              </span>
+              <br>
+              Items Sold
+            </div>
+            <div id="items-bought">
+              <span class="relevant-item-number">
+                3
+              </span>
+              <br>
+              Items Bought
+            </div>
+          </div>
+
+          <p> <b>Message this user </b><span class="glyphicon-envelope"></span></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <%= link_to 'Edit', edit_classified_post_path(@classified_post) %> |
+    <%= link_to 'Back', classified_posts_path %>
+  </div>
+</div>
+
+

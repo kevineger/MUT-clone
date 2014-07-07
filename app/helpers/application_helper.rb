@@ -11,4 +11,5 @@ module ApplicationHelper
       return (difference/86400).to_i.to_s + " days ago"
     end
   end
+
 end

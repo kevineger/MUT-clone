@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'profile/show'
+
+  ActiveAdmin.routes(self)
   resources :testicles
 
   resources :classified_categories, :path => "classifieds" do
