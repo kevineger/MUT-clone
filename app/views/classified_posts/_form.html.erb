@@ -1,36 +1,39 @@
-<div class="container">
-  <%= form_for @classified_post, :html => { :multipart => true } do |f| %>
-  <div class="col-md-8 col-md-offset-2">
-    <!-- Background container for new post -->
-    <div id="new-post-background"> 
-      <h2 style="text-align:center; padding-top:20px;">Create a Listing</h2>
-      <div class="container">
+<%= form_for @classified_post, :html => { :multipart => true } do |f| %>
+<div class="col-md-6 col-md-offset-3">
+  <div id="new-post-background">
+    <h2 class="form-title">Create a Listing</h2>
+    <form role="form">
+      <div id="item-title" class="form-group">
         <h2 class="field-title">Item Title</h2>
-        <%= f.text_field :title, :class => 'text-field'%>
+        <%= f.text_field :title, :class => 'form-control', :placeholder => "Post Title"%>
       </div>
-      <div class="container">
+      <div id="item-category" class="form-group">
         <h2 class="field-title">Select a Category</h2>
         <select name="classified_post[classified_category_id]" class="category-dropdown">
           <option value="" disabled selected style="display:none;">Select A Category</option>
           <%= options_from_collection_for_select(ClassifiedCategory.all, :id, :name) %>
         </select>
       </div>
-      <div class="container">
+      <div id="item-price" class="form-group">
         <h2 class="field-title">Item Price</h2>
-        <%= f.text_field :price, :class => 'text-field'%>
+        <%= f.text_field :price, :class => 'form-control', :placeholder => "Item Price"%>
       </div>
-      <div class="container">
+      <div id="item-disc" class="from-group">
         <h2 class="field-title">Item Discription</h2>
-        <%= f.text_area :description, :class => 'text-area'%>
+        <%= f.text_area :description, :style => 'resize:none;', :class => 'form-control', :placeholder => "Item Discription", :rows => '6'%>
       </div>
-      <div class="container">
+      <div id="item-pic" class="form-group">
         <h2 class="field-title">Item Picture</h2>
         <%= f.file_field :image, :class => 'pic-input'%>
+        <p class="help-block">Select a picture for your post</p>
       </div>
-      <div style="text-align:center">
-        <%= f.submit :class=>'btn btn-lg btn-primary btn-blue btn-post' %>
+      <div id="item-concent" class="checkbox">
+        <label>
+          <input type="checkbox"> I Agree to the posting guidelines and regulations
+        </label>
       </div>
-    </div>
+      <%= f.submit :type => 'submit', :class=>'btn btn-default btn-lg btn-blue btn-post' %>
+    </form>
   </div>
 </div>
 <% end %>

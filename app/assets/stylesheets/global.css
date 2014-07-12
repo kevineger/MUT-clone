@@ -115,19 +115,17 @@
 	/*display:inline-block;
 	vertical-align: middle;*/
 }
-.home-link {
-	position:relative;
-	height:42px;
-	width:42px;
-	top:5px;
-	margin-right:10px;
-}
 .field-title {
 	padding-top:10px;
 	padding-right:10px;
 	font-size: 14px;
 	font-variant: small-caps;
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+.form-title {
+	text-align:center;
+	padding-top:20px;
+	margin:auto;
 }
 #grey-wrapper {
 	background: #9DA5AF;
@@ -136,35 +134,60 @@
 	height: 160px;
 	z-index: 2;
 }
+.home-link {
+	position:relative;
+	height:42px;
+	width:42px;
+	top:5px;
+	margin-right:10px;
+}
 #info-container {
 	min-height:800px;
 	width:inherit;
 	background-color: #F2F2F2;
 }
+#items-bought {
+	float: left;
+	padding-left: 10px;
+	/*color: #000;*/
+}
+#items-listed {
+	padding-right: 10px;
+	border-right: 1px solid #c3c3c3;
+	float: left;
+	/*color: #000;*/
+}
+#items-sold {
+	padding: 0 10px;
+	border-right: 1px solid #c3c3c3;
+	float: left;
+	/*color: #000;*/
+}
 .text-area {
 	resize:none;
-	min-width: 600px;
+	/*min-width: 600px;*/
 	min-height: 200px;
 	font-size: 20px;
 }
 .text-field {
-	min-width: 600px;
 	font-size: 20px;
+	display:block;
+	width:inherit;
 }
 .navbar-blue {
 	background-color: #013861;
 }
-.navbar-blue .navbar-nav > .active{
-   	background: #013861;
-    color: #FFFFFF;
-    font-weight:bold;
+.navbar-blue .navbar-nav > .active {
+  background: #013861;
+  color: #FFFFFF;
+  font-weight:bold;
 }
 .navbar-blue .navbar-nav > .active > a, 
 .navbar-blue .navbar-nav > .active > a:hover, 
 .navbar-blue .navbar-nav > .active > a:focus {
 	background: #013861;
-    color: #FFFFFF;
-    font-weight:bold;
+  color: #FFFFFF;
+  font-weight:bold;
 }
 #navbar-blue-search {
 	background-color: #004070;
@@ -174,8 +197,8 @@
 #new-post-background {
 	background-color: #F2F2F2;
 	min-height:600px;
-	margin-top:10px;
-	padding-left: 50px;
+	margin:20px;
+	padding:20px;
 }
 .pic-single {
 	max-height: 450px;
@@ -191,6 +214,15 @@
 }
 .post-row {
 	margin-top:20px;
+}
+.sale-history {
+	position: absolute;
+	right: 20px;
+	margin-top: 85px;
+	font-size: 14px;
+	color: rgb(95, 95, 95);
+	float: left;
+	display: block;
 }
 .span-ad-container {
 	background-color:blue;

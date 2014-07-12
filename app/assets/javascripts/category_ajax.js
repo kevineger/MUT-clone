@@ -6,7 +6,7 @@ $(document).ready(function(){
 });
 $(document).ready(function(){
     $('#back-to-top').on('click', function(event){
-    	console.log("testicles");
+    	console.log("Back to top is clicked");
         $("html, body").animate({
  		scrollTop:0
  		},"slow");
