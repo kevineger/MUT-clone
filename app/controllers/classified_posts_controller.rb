@@ -66,7 +66,6 @@ class ClassifiedPostsController < ApplicationController
     if !page
       page = 1
     end
-
     @category = params[:cat_id]
     @search = params[:search]
     @posts
