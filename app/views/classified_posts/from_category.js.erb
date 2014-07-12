@@ -1,2 +1,2 @@
 $("#post-grid").html("<%= escape_javascript(render partial: 'posts', locals: { posts: @posts , category: @category} ) %>");
-$("#navbar-blue-search").html("<%= escape_javascript(render partial: 'layouts/search', locals: {category: 1} ) %>");
+$("#navbar-blue-search").html("<%= escape_javascript(render partial: 'layouts/search', locals: {category: @category} ) %>");
