@@ -66,11 +66,22 @@ class ClassifiedPostsController < ApplicationController
     if !page
       page = 1
     end
+
     @category = params[:cat_id]
-    if !params.has_key? :cat_id
-      @posts = ClassifiedPost.all.paginate(:page => page)
+    @search = params[:search]
+    @posts
+    if(@search==''||!@search)
+      if(@category == ''|| !@category||@category=='0')
+        @posts = ClassifiedPost.all.paginate(:page => page)
+      else
+        @posts = ClassifiedCategory.find(@category).classified_posts.paginate(:page => page)
+      end
     else
-      @posts = ClassifiedCategory.find(@category).classified_posts.paginate(:page => page)
+      if(@category == ''|| !@category||@category=='0')
+        @posts = ClassifiedPost.where(["title like ?", @search]).paginate(:page => page)
+      else
+        @posts = ClassifiedCategory.find(@category).classified_posts.where(["title like ?", @search]).paginate(:page => page)
+      end
     end
     respond_to do |format|
       format.js
