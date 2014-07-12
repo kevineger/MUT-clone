@@ -15,5 +15,5 @@
     </div><% end %>
 <div class="text-center">
   <%= will_paginate @posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer',
-      :class => 'pagination', :params => { :category_id => @category, :controller => 'classified_posts', :action => 'from_category'}%>
+      :class => 'pagination', :params => { :category_id => category, :controller => 'classified_posts', :action => 'from_category'}%>
 </div>

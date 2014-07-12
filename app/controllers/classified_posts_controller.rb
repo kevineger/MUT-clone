@@ -67,8 +67,7 @@ class ClassifiedPostsController < ApplicationController
       page = 1
     end
     @category = params[:cat_id]
-    @posts
-    if(@category == '0')
+    if !params.has_key? :cat_id
       @posts = ClassifiedPost.all.paginate(:page => page)
     else
       @posts = ClassifiedCategory.find(@category).classified_posts.paginate(:page => page)
