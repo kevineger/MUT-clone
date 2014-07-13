@@ -25,7 +25,7 @@
     <div id="post-grid" class="container">
       <%= render partial: 'classified_posts/posts', locals: {posts: @posts.paginate(:page => 1), classified: 0 }  %>
     </div>
-    <div id="back-to-top">
+    <div id="back-to-top" style="display: none;">
       <button class="btn-back-to-top btn-lg"><span class="glyphicon glyphicon-chevron-up"></span></button>
     </div>
   </div>

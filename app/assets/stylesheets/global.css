@@ -1,3 +1,9 @@
+#account-header {
+	min-height: 100px;
+	width:100%;
+	background-color: #D8DBED;
+	position:relative;
+}
 .ad-frame {
 	height:310px;
 	padding:15px;
@@ -163,16 +169,16 @@
 	float: left;
 	/*color: #000;*/
 }
-.text-area {
-	resize:none;
-	/*min-width: 600px;*/
-	min-height: 200px;
-	font-size: 20px;
+#name {
+	vertical-align: middle;
+	position:absolute; 
+	top:50%;
+/*	height:10em; 
+	margin-top:-5em*/
 }
-.text-field {
-	font-size: 20px;
-	display:block;
-	width:inherit;
+#name-header {
+	font-size: 45px;
+	margin:10px;
 }
 .navbar-blue {
 	background-color: #013861;
