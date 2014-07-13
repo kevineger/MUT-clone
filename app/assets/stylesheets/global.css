@@ -1,8 +1,7 @@
-#account-header {
-	min-height: 100px;
-	width:100%;
-	background-color: #D8DBED;
-	position:relative;
+.account-title {
+	font-size: 30px;
+	border-bottom: 1px solid #DDDDDD;
+	margin-top:10px;
 }
 .ad-frame {
 	height:310px;
@@ -40,6 +39,9 @@
 .blue {
 	color: #013861;
 }
+.btn-account {
+	margin:10px;
+}
 .btn-back-to-top {
 	position:fixed;
 	bottom:10px;
@@ -56,11 +58,6 @@
 	color:#FFFFFF;
 	border:#013861;
 }
-.btn-new-post {
-	position:absolute;
-	right:15px;
-	top: 0px;
-}
 .btn-login {
   margin-top:8px;
   color:#999999;
@@ -69,6 +66,11 @@
 }
 .btn-login:hover {
 	background-color:#222222;
+}
+.btn-new-post {
+	position:absolute;
+	right:15px;
+	top: 0px;
 }
 .btn-post {
 	min-width:150px;
@@ -112,7 +114,7 @@
 	font-size:60px;
 }
 .featured-article-jumbotron {
-	background-color:#FFFFFF
+	background-color: #FFF;
 }
 .featured-pic {
 	max-height:200px;
@@ -139,6 +141,12 @@
 	border-bottom: 1px solid #013861;
 	height: 160px;
 	z-index: 2;
+}
+#grey-background {
+	background-color: #F2F2F2;
+	/*min-height:600px;*/
+	margin:20px;
+	padding:20px;
 }
 .home-link {
 	position:relative;
@@ -170,21 +178,20 @@
 	/*color: #000;*/
 }
 #name {
-	vertical-align: middle;
-	position:absolute; 
-	top:50%;
-/*	height:10em; 
-	margin-top:-5em*/
+	font-size: 40px;
+	color: #004070;
 }
-#name-header {
-	font-size: 45px;
-	margin:10px;
+#name-container {
+	margin-top:25px;
+}
+.navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+	background-color: #004070;
+	color: white;
 }
 .navbar-blue {
 	background-color: #013861;
 }
 .navbar-blue .navbar-nav > .active {
-  background: #013861;
   color: #FFFFFF;
   font-weight:bold;
 }
@@ -194,17 +201,19 @@
 	background: #013861;
   color: #FFFFFF;
   font-weight:bold;
+  background-color:#004070;
 }
 #navbar-blue-search {
 	background-color: #004070;
 	border-color: #013861;
 	color: #FFFFFF;
 }
-#new-post-background {
-	background-color: #F2F2F2;
-	min-height:600px;
-	margin:20px;
-	padding:20px;
+#page-header {
+	height: 100px;
+	width:100%;
+	background-color: #D8DBED;
+	position:relative;
+	border-bottom: 1px solid #004070
 }
 .pic-single {
 	max-height: 450px;
@@ -247,6 +256,9 @@
 	margin-left:20px;
 	width:320px;
 	height:640px;
+}
+tr {
+	padding-top:50px;
 }
 #user-title {
 	font-size: 25px;

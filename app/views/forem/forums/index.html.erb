@@ -1,12 +1,20 @@
-<div id='forums_container'>
-  <h1 id='forums_title'><%= t('.title') %></h1>
-
-  <%= render @categories %>
+<!-- Forum Header -->
+<div id="page-header">
+	<div class="col-md-3 col-md-offset-2">
+		<div id="name-container">
+			<div id="name">
+				Forum Center
+			</div>
+		</div>
+	</div>
 </div>
+<!-- .forum-header -->
+
+<%= render @categories %>
 
 <br>
 <footer id='admin_link'>
-  <% if forem_admin? %>
-    <%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
-  <% end %>
+	<% if forem_admin? %>
+	<%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
+	<% end %>
 </footer>
