@@ -1,6 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="container">
   <div class="row row-centered">
     <div class="col-md-6 col-md-offset-2">
@@ -21,44 +18,14 @@
       <div class="panel panel-default ad-panel">
         <div class="panel-heading"><%=@classified_post.user.email%></div>
         <div class="panel-body">
-
           <!-- <div class="row"> -->
             <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
             <h4>Kevin Eger</h4>
             <h5>University of British Columbia</h5>
-            <h5><span class="glyphicon glyphicon-envelope"></span> Message this user</h5>
-
-            <!-- <div style="text-align:center; position:relative;" class="row">
-              <div class="sale-history">
-                <div id="items-listed">
-                  <span class="relevant-item-number">
-                    10
-                  </span>
-                  <br>
-                  <p>Items Listed</p>
-                </div>
-                <div id="items-sold">
-                  <span class="relevant-item-number">
-                    9
-                  </span>
-                  <br>
-                  <p>Items Sold</p>
-                </div>
-                <div id="items-bought">
-                  <span class="relevant-item-number">
-                    3
-                  </span>
-                  <br>
-                  <p>Items Bought</p>
-                </div>
-              </div>
-            </div> -->
-          <!-- </div> -->
-
+            <h5><span class="glyphicon glyphicon-envelope"></span><%=link_to 'Message This User',new_message_path %></h5>
         </div>
       </div>
     </div>
-
   </div>
   <div class="row">
     <%= link_to 'Edit', edit_classified_post_path(@classified_post) %> |

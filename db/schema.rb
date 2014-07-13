@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704031943) do
+ActiveRecord::Schema.define(version: 20140713042136) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20140704031943) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "conversations", force: true do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.string   "classified_post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "forem_categories", force: true do |t|
@@ -145,8 +153,11 @@ ActiveRecord::Schema.define(version: 20140704031943) do
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
 
-  create_table "testicles", force: true do |t|
-    t.string   "size"
+  create_table "messages", force: true do |t|
+    t.string   "name"
+    t.string   "body"
+    t.integer  "user_id"
+    t.integer  "conversation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -171,5 +182,10 @@ ActiveRecord::Schema.define(version: 20140704031943) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_conversations", force: true do |t|
+    t.integer "message_id"
+    t.integer "user_id"
+  end
 
 end

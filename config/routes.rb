@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :conversations
+
+  resources :messages
+
+
   get 'profile/show'
 
   ActiveAdmin.routes(self)
-  resources :testicles
-
   resources :classified_categories, :path => "classifieds" do
     member do
       get 'page'
@@ -21,7 +24,6 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
   mount Forem::Engine, :at => '/forums'
-
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

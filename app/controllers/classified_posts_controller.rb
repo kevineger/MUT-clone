@@ -26,7 +26,6 @@ class ClassifiedPostsController < ApplicationController
   def create
     @classified_post = ClassifiedPost.new(classified_post_params)
     @classified_post.user = current_user
-
     respond_to do |format|
       if @classified_post.save
         format.html { redirect_to @classified_post, notice: 'Classified post was successfully created.' }
@@ -77,9 +76,9 @@ class ClassifiedPostsController < ApplicationController
       end
     else
       if(@category == ''|| !@category||@category=='0')
-        @posts = ClassifiedPost.where(["title like ?", @search]).paginate(:page => page)
+        @posts = ClassifiedPost.where(["title like ?", "%#{@search}%"]).paginate(:page => page)
       else
-        @posts = ClassifiedCategory.find(@category).classified_posts.where(["title like ?", @search]).paginate(:page => page)
+        @posts = ClassifiedCategory.find(@category).classified_posts.where(["title like ?", "%#{@search}%"]).paginate(:page => page)
       end
     end
     respond_to do |format|
