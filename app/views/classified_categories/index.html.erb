@@ -6,24 +6,21 @@
     </ul>
 
     <ul id="categories-box" class="nav nav-sidebar">
-      <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => 0), :remote => true %></li>
+      <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => nil), :remote => true %></li>
       <% @classified_categories.each do |category|%>
         <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></li>
       <% end%>
     </ul>
 
-    <%= button_to 'Create a posting',new_classified_post_path, :id=> "btn-new-post", :class=> "btn btn-md", :method=> "get" %>
-
   </div>
   <!--.sidebar  -->
-
   <div id="category-section" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
     <div style="position: relative;" class="container">
       <h1 class="page-header">All Categories <%= button_to 'Create a posting',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue btn-new-post", :method=> "get" %> </h1>
     </div>
     <!-- Individual add item -->
     <div id="post-grid" class="container">
-      <%= render partial: 'classified_posts/posts', locals: {posts: @posts.paginate(:page => 1), classified: 0 }  %>
+      <%= render partial: 'classified_posts/posts', locals: {category: nil,posts: @posts.paginate(:page => 1)}  %>
     </div>
     <div id="back-to-top" style="display: none;">
       <button class="btn-back-to-top btn-lg"><span class="glyphicon glyphicon-chevron-up"></span></button>
