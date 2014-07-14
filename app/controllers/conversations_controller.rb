@@ -15,6 +15,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/new
   def new
     @conversation = Conversation.new
+    @conversation.messages.build
   end
 
   # GET /conversations/1/edit
@@ -69,6 +70,6 @@ class ConversationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:name)
+      params.require(:conversation).permit(:name,:subject,  messages_attributes: [:body])
     end
 end

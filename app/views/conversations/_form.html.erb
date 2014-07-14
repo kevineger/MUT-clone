@@ -1,22 +1,22 @@
 <%= form_for(@conversation) do |f| %>
-  <% if @conversation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@conversation.errors.count, "error") %> prohibited this conversation from being saved:</h2>
-    <% end %>
-      <ul>
-        <%= f.fields_for @message do |t| %>
-            <%= t.text_field :subject%>
-        <% end %>
-      <% @conversation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="col-md-6 col-md-offset-3">
+  <div id="new-post-background">
+    <h2 class="form-title">Create A Post</h2>
+    <div class="form-group">
+      <h2 class="field-title">To</h2>
+      <%= f.text_field :subject, :class => 'form-control', :placeholder => "Jake Davies", :disabled=> true%>
     </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div id="subject" class="form-group">
+        <h2 class="field-title">Message Subject</h2>
+        <%= f.text_field :subject, :class => 'form-control', :placeholder => "Subject"%>
+      </div>
+    <%= f.fields_for :messages do |t| %>
+    <div class="form-group">
+      <h2 class="field-title">Message Body</h2>
+        <%= t.text_area :body, :class => 'form-control', :rows => 6, :placeholder => "Body"%>
+    </div>
+    <% end %>
+    <%= f.submit :type => 'submit', :class=>'btn btn-default btn-lg btn-blue btn-post'%>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
