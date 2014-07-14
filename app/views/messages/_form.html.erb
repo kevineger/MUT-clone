@@ -4,9 +4,13 @@
         <h2 class="form-title">Create a Listing</h2>
         <form role="form">
           <div id="item-title" class="form-group">
+
+            <%= f.fields_for :conversation do |builder| %>
+                <h2 class="field-title">Subject</h2>
+                <%= builder.text_field :subject, :class => 'form-control', :placeholder => "Subject"%>
+            <% end %>
             <h2 class="field-title">Body</h2>
-            <%= f.text_field :subject, :class=> 'form-control',:placeholder => "Subject" %>
-            <%= f.text_field :body, :class => 'form-control', :placeholder => "Body"%>
+            <%= f.text_area :body, :class => 'form-control', :placeholder => "Body", :rows => '6'%>
           </div>
           <%= f.submit :type => 'submit', :class=>'btn btn-default btn-lg btn-blue btn-post' %>
         </form>
