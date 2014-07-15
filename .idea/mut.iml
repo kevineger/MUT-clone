@@ -266,6 +266,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v4.1.1, RVM: ruby-2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arbre (v1.0.1, RVM: ruby-2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v5.0.1.20140414130214, RVM: ruby-2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk (v1.47.0, RVM: ruby-2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.7, RVM: ruby-2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.2.0.0, RVM: ruby-2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bourbon (v3.2.3, RVM: ruby-2.1.2) [gem]" level="application" />
