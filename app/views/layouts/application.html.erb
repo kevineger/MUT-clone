@@ -49,7 +49,9 @@
                     <%= link_to 'Login', main_app.new_user_session_path %>
                   </p>
                 <% end %>
-            <%= render partial: 'layouts/search', locals: {category: nil} %>
+            <div id="search-field" class="pull-right">
+                <%= render partial: 'layouts/search', locals: {category: nil} %>
+            </div>
           </div>
         </div>
       </div><!-- /.navbar -->
