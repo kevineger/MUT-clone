@@ -1,14 +1,14 @@
 <%= form_for(@conversation) do |f| %>
 <div class="col-md-6 col-md-offset-3">
   <div id="new-post-background">
-    <h2 class="form-title">Create A Post</h2>
+    <h2 class="form-title">Send Message</h2>
     <div class="form-group">
       <h2 class="field-title">To</h2>
-      <%= f.text_field :subject, :class => 'form-control', :placeholder => "Jake Davies", :disabled=> true%>
+      <%= f.text_field :user_id, :class => 'form-control', :value=> @send_to.id, :readonly=> true%>
     </div>
       <div id="subject" class="form-group">
         <h2 class="field-title">Message Subject</h2>
-        <%= f.text_field :subject, :class => 'form-control', :placeholder => "Subject"%>
+        <%= f.text_field :subject, :class => 'form-control', :value=> @subject, :readonly=> true%>
       </div>
     <%= f.fields_for :messages do |t| %>
     <div class="form-group">
