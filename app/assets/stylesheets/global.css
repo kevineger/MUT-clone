@@ -198,7 +198,7 @@
 .navbar-blue .navbar-nav > .active > a, 
 .navbar-blue .navbar-nav > .active > a:hover, 
 .navbar-blue .navbar-nav > .active > a:focus {
-	background: #013861;
+    background: #013861;
   color: #FFFFFF;
   font-weight:bold;
   background-color:#004070;
