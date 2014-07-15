@@ -10,6 +10,7 @@ gem 'devise'
 gem 'mailboxer'
 gem 'RedCloth'
 gem 'aws-sdk'
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 
