@@ -25,15 +25,6 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  config.paperclip_defaults = {
-      :storage => :s3,
-      :s3_credentials => {
-          :bucket => ENV['mut-heroku-rails-paperclip'],
-          :access_key_id => ENV['AKIAJ6FF7BNRUTRX2D3A'],
-          :secret_access_key => ENV['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']
-      }
-  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

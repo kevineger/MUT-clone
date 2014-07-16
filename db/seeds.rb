@@ -14,12 +14,6 @@ ClassifiedCategory.create(name: 'Category 5', icon: 'placeholder')
 ClassifiedCategory.create(name: 'Category 6', icon: 'placeholder')
 ClassifiedCategory.create(name: 'Category 7', icon: 'placeholder')
 ClassifiedCategory.create(name: 'Category 8', icon: 'placeholder')
-user = User.new(
-    :email                 => "jgdavies24@gmail.com",
-    :password              => "PWxAaw8N",
-    :password_confirmation => "PWxAaw8N"
-)
-user.save
 
 ClassifiedPost.delete_all
 i=0
