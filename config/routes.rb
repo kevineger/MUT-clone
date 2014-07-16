@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   get 'profile/show'
+  get 'profile/show2'
 
   ActiveAdmin.routes(self)
   resources :classified_categories, :path => "classifieds" do

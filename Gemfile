@@ -9,6 +9,7 @@ gem 'will_paginate', '3.0.5'
 gem 'devise'
 gem 'mailboxer'
 gem 'RedCloth'
+gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 

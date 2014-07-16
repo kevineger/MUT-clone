@@ -49,9 +49,7 @@
   <hr>
   <div class="col-lg-offset-1 col-lg-10">
     <div class="media">
-      <a class="pull-left" href="#">
-        <%= image_tag @classified_post.image.url(:thumb), :class => 'featured-pic' %>
-      </a>
+      <%= image_tag @classified_post.image.url(:thumb), :class => 'featured-pic pull-left' %>
       <div class="media-body">
         <h3 class="media-heading">Recent Classified Post</h3>
         <hr/>

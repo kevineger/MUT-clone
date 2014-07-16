@@ -14,7 +14,6 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
-    @message.build_conversation
   end
 
   # GET /messages/1/edit

@@ -2747,6 +2747,11 @@
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
+    <table name="conversations_users" schema="" catalog="mutrails" type="TABLE">
+      <column name="conversation_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <index name="index_conversations_users_on_conversation_id_and_user_id" unique="false" columns="conversation_id,user_id"/>
+    </table>
     <table name="forem_categories" schema="" catalog="mutrails" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
@@ -2877,12 +2882,6 @@
       <primary-key name="PRIMARY" columns="id"/>
       <index name="index_users_on_email" unique="true" columns="email"/>
       <index name="index_users_on_reset_password_token" unique="true" columns="reset_password_token"/>
-    </table>
-    <table name="users_conversations" schema="" catalog="mutrails" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="message_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="SYSTEM TABLE">
       <column name="Host" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
