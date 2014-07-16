@@ -1,9 +1,13 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @conversation.name %>
-</p>
-
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
-<%= link_to 'Back', conversations_path %>
+<h3><%=@conversation.subject%></h3>
+<% @conversation.messages.each do |t|  %>
+  <hr/>
+  <p><%=t.body%></p>
+  <p>Sent From <%= t.user.email %></p>
+<% end %>
+  <hr/>
+<%= render '/messages/form', :locals =>{:message=>@message}%>
+</div>
