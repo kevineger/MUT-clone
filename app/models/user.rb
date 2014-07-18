@@ -7,5 +7,4 @@ class User < ActiveRecord::Base
   def forem_name
     email
   end
-
 end
