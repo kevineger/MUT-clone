@@ -26,6 +26,8 @@
           <input type="checkbox"> I Agree to the Terms of Service
         </label>
       </div>
+      <label style="color:red;"><%= flash[:alert] %></label>
+      <%= recaptcha_tags %>
       <%= f.submit "Sign Up",:type => 'submit', :class=>'btn btn-default btn-lg btn-blue btn-post' %>
     </form>
   </div>

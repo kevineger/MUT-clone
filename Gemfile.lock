@@ -192,6 +192,7 @@ GEM
       polyamorous (~> 1.0.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    recaptcha (0.3.6)
     responders (1.0.0)
       railties (>= 3.2, < 5)
     sanitize (2.0.6)
@@ -258,6 +259,7 @@ DEPENDENCIES
   mysql
   paperclip!
   rails (= 4.1.1)
+  recaptcha
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
