@@ -3,6 +3,8 @@
     <form role="form">
       <div id="item-title" class="form-group">
         <%= f.text_area :body, :class => 'form-control', :placeholder => "Type your message here", :rows => '6'%>
+        <%= f.hidden_field :conversation_id, :value =>@conversation.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
       </div>
       <%= f.submit 'Send',:type => 'submit', :class=>'btn btn-default btn-lg btn-blue btn-post' %>
     </form>

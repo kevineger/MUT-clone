@@ -77,6 +77,6 @@ class ConversationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:name,:subject, :user_id,  messages_attributes: [:body])
+      params.require(:conversation).permit(:name,:subject, :user_id,  messages_attributes: [:body,:user_id])
     end
 end

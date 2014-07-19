@@ -23,9 +23,10 @@ class MessagesController < ApplicationController
 
   # POST /messages.json
   def create
+    @converstion = Conversation.find(message_params[:conversation_id])
     @message = Message.create(message_params)
     respond_to do |format|
-      format.html { redirect_to @message, notice: 'Message was successfully created.' }
+      format.html { redirect_to @converstion, notice: 'Message Sent' }
     end
   end
   # PATCH/PUT /messages/1
@@ -57,6 +58,6 @@ class MessagesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:name, :body, :subject, conversations_attributes: [:subject])
+      params.require(:message).permit(:body, :user_id, :conversation_id)
     end
 end
