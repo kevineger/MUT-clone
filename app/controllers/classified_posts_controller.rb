@@ -4,14 +4,12 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts
   # GET /classified_posts.json
   def index
-    @classified_posts = ClassifiedPost.all
+    @classified_posts = current_user.classified_posts
   end
-
   # GET /classified_posts/1
   # GET /classified_posts/1.json
   def show
   end
-
   # GET /classified_posts/new
   def new
     @classified_post = ClassifiedPost.new

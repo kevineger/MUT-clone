@@ -7,8 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body style="overflow-x: hidden; margin-top:50px;">
-      <!-- Top Navbar
-      ================================================== -->
+      <!-- Top Navbar ================================================== -->
       <div style = "margin-bottom:0px" class = "navbar navbar-blue navbar-inverse navbar-fixed-top">
         <div class="col-md-10 col-md-offset-1">
           <div class = "container">
@@ -35,8 +34,13 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Profile</a></li>
-                    <li><a href="#">Messages <span class="badge">6</span></a></li>
+                    <li>
+                      <%= link_to conversations_path do %>
+                        Messages <span class="badge pull-right">5</span>
+                      <% end %>
+                    </li>
                     <li><a href="#">Notifications</a></li>
+                    <li><%= link_to 'My Posts', classified_posts_path%></li>
                     <li class="divider"></li>
                     <li>
                       <%= link_to 'Logout', main_app.destroy_user_session_path ,:method => :delete%>
@@ -55,11 +59,9 @@
           </div>
         </div>
       </div><!-- /.navbar -->
-
       <div id="back-to-top" style="display: none;">
         <button class="btn-back-to-top btn-lg"><span class="glyphicon glyphicon-chevron-up"></span></button>
       </div>
-
       <%= yield %>
       <div class="row">
         <center><small>Copyright 2014. My Uni.</small></center>
@@ -68,4 +70,4 @@
         <br/>
       </div><!--/row-->
     </body>
-    </html>
+</html>

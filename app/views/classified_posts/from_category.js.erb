@@ -1,2 +1,3 @@
 $("#post-grid").html("<%= escape_javascript(render partial: 'posts', locals: { posts: @posts , category: @category} ) %>");
 $("#search-field").html("<%= escape_javascript(render partial: 'layouts/search', locals: {category: @category} ) %>");
+window.scrollTo(0,0);

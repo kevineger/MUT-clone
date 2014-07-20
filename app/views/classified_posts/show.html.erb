@@ -23,7 +23,7 @@
             <h4>Kevin Eger</h4>
             <h5>University of British Columbia</h5>
             <% if defined? current_user.email %>
-                <h5><span class="glyphicon glyphicon-envelope"></span><%=link_to 'Message This User',new_conversation_path(:user => current_user.id, :post => @classified_post.id) %></h5>
+                <h5><span class="glyphicon glyphicon-envelope"></span><%=link_to 'Message This User',new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) %></h5>
             <% end %>
         </div>
       </div>
