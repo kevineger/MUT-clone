@@ -13,6 +13,9 @@
         <td><%= link_to 'Show', classified_post %></td>
         <td><%= link_to 'Edit', edit_classified_post_path(classified_post) %></td>
         <td><%= link_to 'Destroy', classified_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if is_expired?(classified_post) %>
+            <td><%= link_to 'Relist', relist_classified_post_path(classified_post), method: :post, remote: true%></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -1,9 +1,7 @@
 class ClassifiedPost < ActiveRecord::Base
   belongs_to :classified_category
   belongs_to :user
-
   self.per_page = 21
-
   has_attached_file :image,
                     :styles => { :thumb => "100x100>", :small => "250x250" ,:large => "500x500"},
                     :default_url => "/images/:style/missing.png"

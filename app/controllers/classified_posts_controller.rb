@@ -18,12 +18,19 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts/1/edit
   def edit
   end
+  def relist
+    @classified_post = ClassifiedPost.find(params[:id])
+    @classified_post.expiry = Time.now
+    @classified_post.save
+    render nothing: true
+  end
 
   # POST /classified_posts
   # POST /classified_posts.json
   def create
     @classified_post = ClassifiedPost.new(classified_post_params)
     @classified_post.user = current_user
+    @classified_post.expiry = Time.now
     respond_to do |format|
       if @classified_post.save
         format.html { redirect_to @classified_post, notice: 'Classified post was successfully created.' }
@@ -68,15 +75,15 @@ class ClassifiedPostsController < ApplicationController
     @posts
     if(@search==''||!@search)
       if(@category == ''|| !@category||@category=='0')
-        @posts = ClassifiedPost.all.paginate(:page => page)
+        @posts = ClassifiedPost.where('expiry > ?', 30.days.ago).paginate(:page => page)
       else
-        @posts = ClassifiedCategory.find(@category).classified_posts.paginate(:page => page)
+        @posts = ClassifiedCategory.find(@category).classified_posts.where('expiry > ?', 30.days.ago).paginate(:page => page)
       end
     else
       if(@category == ''|| !@category||@category=='0')
-        @posts = ClassifiedPost.where(["title like ?", "%#{@search}%"]).paginate(:page => page)
+        @posts = ClassifiedPost.where(["title like ?", "%#{@search}%"]).where('expiry > ?', 30.days.ago).paginate(:page => page)
       else
-        @posts = ClassifiedCategory.find(@category).classified_posts.where(["title like ?", "%#{@search}%"]).paginate(:page => page)
+        @posts = ClassifiedCategory.find(@category).classified_posts.where(["title like ?", "%#{@search}%"]).where('expiry > ?', 30.days.ago).paginate(:page => page)
       end
     end
     respond_to do |format|
