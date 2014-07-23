@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :classified_posts
   has_and_belongs_to_many :conversations
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   def forem_name
     email
   end
