@@ -22,15 +22,16 @@ Rails.application.configure do
   config.assets.debug = true
 
 
-  config.action_mailer.default_url_options = { :host => 'myunitrade.com' }
+  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
   ActionMailer::Base.smtp_settings = {
-      :address        => "smtp.sendgrid.net",
+      :address        => "smtp.mailgun.org",
       :port           => "25",
       :authentication => :plain,
-      :user_name      => 'zargmelon',
-      :password       => '',
-      :domain         => ''
+      :user_name      => 'postmaster@sandbox76a8bdd5d8dc4b84b39eae59ceeabf34.mailgun.org',
+      :password       => 'password',
+      :domain         => 'sandbox76a8bdd5d8dc4b84b39eae59ceeabf34.mailgun.org'
   }
+  ActionMailer::Base.delivery_method = :smtp
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
