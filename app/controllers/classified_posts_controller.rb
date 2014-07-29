@@ -1,6 +1,6 @@
 class ClassifiedPostsController < ApplicationController
   before_action :set_classified_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create, :new]
   # GET /classified_posts
   # GET /classified_posts.json
   def index

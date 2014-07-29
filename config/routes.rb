@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :conversations
+  resources :conversations, :except => [:edit, :update]
 
-  resources :messages
+  resources :messages, :only => [:create]
 
 
   get 'profile/show'
