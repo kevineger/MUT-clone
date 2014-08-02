@@ -8,6 +8,7 @@ gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '3.0.5'
 gem 'devise'
 gem 'mailboxer'
+gem 'has_scope'
 gem 'RedCloth'
 gem 'aws-sdk'
 gem 'sendgrid'
