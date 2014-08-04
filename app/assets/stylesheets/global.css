@@ -11,6 +11,13 @@ h1 {
 h4 {
 	color:#333;
 }
+.navbar-nav > li > a {
+	color:#ccc !important;
+}
+.navbar-nav > li > a:hover {
+	color:#FFF!important;
+	background-color:#003C69!important;
+}
 .ad-frame {
 	height:310px;
 	padding:10px;
@@ -269,7 +276,7 @@ i.tw {
 #navbar-blue-search {
 	background-color: #004070;
 	border-color: #013861;
-	color: #FFFFFF;
+	color: #FFF;
 }
 .no-padding {
 	padding: 0 !important;
@@ -375,7 +382,7 @@ tr {
 	padding: 10px 0 10px 10px; 
 	text-decoration: none; 
 	display: block;
-	color:#A9A9A9; 
+	color:#CCC; 
 }
 #menu-list > .active > a {
 	color: #FFFFFF;
