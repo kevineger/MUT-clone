@@ -1,0 +1,51 @@
+<div class= "row">
+	<!-- Account Header -->
+	<div class="col-md-12">
+		<div id="page-header">
+			<div class="col-md-3 col-md-offset-2">
+				<div id="name-container">
+					<div id="name">
+						Kevin Eger
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+		<div class="account-title">Your Posts</div>
+		<div style="border-right: 1px solid #DDDDDD;" class="col-md-9 border-right">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Title</th>
+						<th>Discription</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>01/08/2014</td>
+						<td>Kevin's Book</td>
+						<td>This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table.</td>
+						<td>Edit</td>
+						<td>Delete</td>
+					</tr>
+					<tr>
+						<td>01/08/2014</td>
+						<td>Kevin's Book</td>
+						<td>This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table.</td>
+						<td>Edit</td>
+						<td>Delete</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-3">
+			<%= button_to 'Create a posting',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue btn-account", :method=> "get" %>
+			<button class="btn btn-md btn-blue btn-account">Account Info</button>
+		</div>
+	</div>
+</div>

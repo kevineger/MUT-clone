@@ -1,3 +1,8 @@
+body {
+	background: #ffffff;
+	background-image: url('../images/ZenBG-1.png'), url('ZenBG-2.png');
+	background-repeat: repeat-x, repeat;
+}
 .account-title {
 	font-size: 30px;
 	border-bottom: 1px solid #DDDDDD;
@@ -5,7 +10,7 @@
 }
 .ad-frame {
 	height:310px;
-	padding:15px;
+	padding:10px;
 	position:relative;
 	text-align: center;
 }
@@ -13,7 +18,9 @@
 	background-color:#D8DBED;
 }
 .ad-container {
-	margin-bottom:30px;
+	margin-left:-10px;
+	margin-right:-10px;
+	margin-bottom:10px;
 	background-color: #F2F2F2;
 }
 .ad-full-pic {
@@ -38,6 +45,9 @@
 }
 .blue {
 	color: #013861;
+}
+.box-nav {
+	position:fixed;
 }
 .btn-account {
 	margin:10px;
@@ -83,6 +93,10 @@
 	background-color: #004070;
 	border-color: #004070;
 }
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+  color:#013861;
+}
 .carousel-indicators li {
 	background-color: #013861;
 }
@@ -101,10 +115,21 @@
 	display:block;
 	margin:auto;
 }
+#classifieds-container {
+	padding-top: 50px;
+}
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
 .contact-seller {
 	position:absolute;
 	bottom:0px;
 	left:20px;
+}
+#currently-browsing {
+	display:block;
+	text-align: center;
 }
 .disc {
 	font-size: 16px;
@@ -113,15 +138,16 @@
 	margin:20px;
 	font-size:60px;
 }
-.featured-article-jumbotron {
-	background-color: #FFF;
+.featured-carousel {
+	margin:50px;
 }
 .featured-pic {
 	max-height:200px;
 	max-width:200px;
-	padding: 15px;
-	/*display:inline-block;
-	vertical-align: middle;*/
+}
+.featured-title {
+	font-size:200%;
+	text-align:center;
 }
 .field-title {
 	padding-top:10px;
@@ -148,10 +174,13 @@
 	margin:20px;
 	padding:20px;
 }
+.home-feature {
+	margin:10px;
+}
 .home-link {
 	position:relative;
 	height:42px;
-	width:42px;
+	/*width:42px;*/
 	top:5px;
 	margin-right:10px;
 }
@@ -159,6 +188,9 @@
 	min-height:800px;
 	width:inherit;
 	background-color: #F2F2F2;
+}
+.input-mini {
+	width:60px;
 }
 #items-bought {
 	float: left;
@@ -180,6 +212,9 @@
 #name {
 	font-size: 40px;
 	color: #004070;
+}
+.navbar-inner {
+	text-align: center;
 }
 #name-container {
 	margin-top:25px;
@@ -230,6 +265,14 @@
 .post-row {
 	margin-top:20px;
 }
+.price-box {
+	padding:10px;
+	display:block;
+	text-align: center;
+}
+.price-search {
+	margin-left:10px;
+}
 .sale-history {
 	position: absolute;
 	right: 20px;
@@ -264,4 +307,36 @@ tr {
 	font-size: 25px;
 	padding: 10px;
 	border-bottom: 1px solid #013861;
+}
+
+
+
+/*...............*/
+
+.menu {
+    width: 100%;
+}
+
+#menu-list {
+    background-color: #000;
+    font-size: 16px; 
+    padding: 0;
+}
+
+#menu-list > li {
+    display: block;
+}
+
+
+#menu-list > li > a {
+    font-family: 'Raleway', sans-serif; 
+    padding: 10px 0 10px 8px; 
+    text-decoration: none; 
+    display: block;
+    color: #fff; 
+}
+
+#menu-list > .active > a,
+#menu-list > li > a:hover { 
+    background-color: rgba(255,255,255,0.25);
 }
