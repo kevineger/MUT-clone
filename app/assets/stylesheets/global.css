@@ -354,7 +354,7 @@ tr {
 	width: 100%;
 }
 
-#menu-list {
+.menu-list {
 	background-color: #013861;
 	font-size: 16px; 
 	padding-left: 0;
@@ -362,24 +362,24 @@ tr {
 	padding-bottom:7px
 }
 
-#menu-list > li {
+.menu-list > li {
 	display: block;
 }
 
 
-#menu-list > li > a {
-	font-family: 'Raleway', sans-serif; 
+.menu-list > li > a {
+	font-family: 'Raleway', sans-serif;
 	padding: 10px 0 10px 10px; 
 	text-decoration: none; 
 	display: block;
 	color:#A9A9A9; 
 }
-#menu-list > .active > a {
+.menu-list > .active > a {
 	color: #FFFFFF;
 	font-weight:bold;
 	background-color:#004070;
 }
-#menu-list > li > a:hover {
+.menu-list > li > a:hover {
 	color:#FFF;
 	background-color:#003C69;
 }

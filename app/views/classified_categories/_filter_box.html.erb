@@ -3,10 +3,10 @@
     <!-- Category Menu -->
     <div class="row">
       <div class="menu visible-md visible-lg">
-        <ul id="menu-list">
+        <ul id="category-filter" class="menu-list">
           <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => nil), :remote => true %></li>
           <% categories.each do |category|%>
-              <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></li>
+              <li><a href="#" data-category="<%=category.id%>"><%=category.name %></a></li>
           <% end%>
         </ul>
       </div><!-- /.sidebar-menu -->
@@ -14,17 +14,17 @@
     <!-- Sort Menu -->
     <div class="row">
       <div class="menu visible-md visible-lg">
-        <ul id="menu-list">
-          <li class="active"><a href="#">Date: Most Recent</a></li>
-          <li class=""><a href="#">Price: Lowest First</a></li>
-          <li class=""><a href="#">Price: Highest First</a></li>
+        <ul id="sort-filter" class="menu-list">
+          <li class="active"><a href="#" data-sort="1">Date: Most Recent</a></li>
+          <li class=""><a href="#" data-sort="2">Price: Lowest First</a></li>
+          <li class=""><a href="#" data-sort="2">Price: Highest First</a></li>
         </ul>
       </div><!-- /.sort-menu -->
     </div>
     <!-- Price Menu -->
     <div class="row">
       <div class="menu visible-md visible-lg">
-        <ul id="menu-list">
+        <ul id="price-filter" class="menu-list">
           <div class="form-inline price-box">
             <input id="low" type="text" class="input-mini" placeholder="Low">
             ~
@@ -35,14 +35,5 @@
       </div><!-- /.price-menu -->
     </div>
     <!-- Pagination -->
-    <div class="row col-centered">
-      <ul class="pagination">
-        <li><a href="#">&laquo;</a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">&raquo;</a></li>
-      </ul>
-    </div>
   </div>
 </div>

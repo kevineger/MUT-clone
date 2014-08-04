@@ -13,8 +13,36 @@
   </div>
 </div>
 <script>
-    function filter(){
-        $.get('/posts',
-                { category: 2}, null, "script")
+    function filter(target){
+        $.get(target,
+                {category: $('a',$('.active','#category-filter')).data('category'), sort: $('a',$('.active','#sort-filter')).data('sort'), price_low: $('#low').val(), price_high:$('#high').val()}, null, "script")
     }
+    $(document).ready(function () {
+        $('#category-filter').on('click', 'a', function(){
+            console.log('triggered');
+            $('.active', '#category-filter').removeClass('active');
+            $(this).closest('li').addClass('active');
+            filter('/posts'+$('a.active','.pagination').text());
+        });
+    });
+    $(document).ready(function () {
+        $('#sort-filter').on('click', 'a', function(){
+            console.log('triggered');
+            $('.active', '#sort-filter').removeClass('active');
+            $(this).closest('li').addClass('active');
+            filter('/posts'+$('a.active','.pagination').text());
+        });
+    });
+    $(document).ready(function () {
+        $('#price-go').on('click', function(){
+            filter($('a.active', '.pagination').data('target'));
+        });
+    });
+    $(document).ready(function () {
+        $('a','.pagination').on('click', function(e){
+            console.log('button-clicked')
+            filter($(this).data('target'));
+            e.preventDefault();
+        });
+    });
 </script>

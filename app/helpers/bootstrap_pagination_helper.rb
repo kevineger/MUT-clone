@@ -33,10 +33,10 @@ module BootstrapPaginationHelper
         target = url(target)
       end
       unless target == "#"
-        attributes[:href] = target
+        attributes[:href] = '#'
       end
       classname = attributes[:class]
-      attributes['data-remote'] = true
+      attributes['data-target'] = target
       attributes.delete(:classname)
       tag(:li, tag(:a, text, attributes), :class => classname)
     end
