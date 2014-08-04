@@ -197,6 +197,8 @@ h4 {
 }
 i.fb {
 	color: #3b5998;
+	margin-right:4px;
+	margin-left:4px;
 }
 i.tw {
 	color:#00aced;
@@ -213,6 +215,7 @@ i.tw {
 	text-align:center;
 	border: 0;
 	padding: 5px;
+	color:#FFF;
 }
 .input-mini:focus {
 	color:#FFF;
@@ -221,32 +224,11 @@ i.tw {
 	-webkit-padding: 1px;
 	border:transparent;
 }
-#items-bought {
-	float: left;
-	padding-left: 10px;
-	/*color: #000;*/
-}
-#items-listed {
-	padding-right: 10px;
-	border-right: 1px solid #c3c3c3;
-	float: left;
-	/*color: #000;*/
-}
-#items-sold {
-	padding: 0 10px;
-	border-right: 1px solid #c3c3c3;
-	float: left;
-	/*color: #000;*/
+.input-mini:visited {
+	color:#FFF;
 }
 #message-user {
 	margin-bottom:0;
-}
-.navbar-inner {
-	text-align: center;
-}
-.navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-	background-color: #004070;
-	color: white;
 }
 .navbar-blue {
 	background-color: #013861;
@@ -266,13 +248,28 @@ i.tw {
 #navbar-blue-search {
 	background-color: #004070;
 	border-color: #013861;
-	color: #FFFFFF;
+	color: #FFF;
+}
+.navbar-inner {
+	text-align: center;
+}
+.navbar-nav > li > a {
+	color:#ccc !important;
+}
+.navbar-nav > li > a:hover {
+	color:#FFF!important;
+	background-color:#003C69!important;
+}
+.navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+	background-color: #004070!important;
+	color: white;
+}
+.nav-tabs > li > a,
+.nav-tabs > li > a:active {
+	color:#000!important;
 }
 .no-padding {
 	padding: 0 !important;
-}
-#page-header {
-
 }
 .pic-single {
 	max-height: 450px;
@@ -309,6 +306,9 @@ i.tw {
 	border-left:1px solid #DDD;
 	border-right:1px solid #DDD;
 	border-bottom:1px solid #DDD;
+}
+#profile-picture {
+	margin-top:100px;
 }
 .sale-history {
 	position: absolute;
@@ -372,7 +372,7 @@ tr {
 	padding: 10px 0 10px 10px; 
 	text-decoration: none; 
 	display: block;
-	color:#A9A9A9; 
+	color:#CCC; 
 }
 .menu-list > .active > a {
 	color: #FFFFFF;
