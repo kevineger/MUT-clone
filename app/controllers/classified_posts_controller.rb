@@ -4,7 +4,11 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts
   # GET /classified_posts.json
   def index
-    @classified_posts = current_user.classified_posts
+    @classified_posts = ClassifiedPost.all.paginate(:page => 1)
+    @classified_categories = ClassifiedCategory.all
+    respond_to do |format|
+      format.js
+    end
   end
   # GET /classified_posts/1
   # GET /classified_posts/1.json

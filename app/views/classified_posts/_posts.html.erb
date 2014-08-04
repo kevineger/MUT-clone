@@ -16,6 +16,6 @@
 
 <!-- Old Paginate at bottom of screen -->
 <div class="">
-  <%= will_paginate @posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer',
-      :class => 'pagination', :params => { :category_id => category, :controller => 'classified_posts', :action => 'from_category'}%>
+  <%= will_paginate posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer',
+      :class => 'pagination'%>
 </div>
