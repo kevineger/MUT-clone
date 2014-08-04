@@ -6,9 +6,10 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts
   # GET /classified_posts.json
   def index
-    @classified_posts = ClassifiedPost.all.paginate(:page => 1)
+    @classified_posts = apply_scopes(ClassifiedPost).all.paginate(:page => 1)
     @classified_categories = ClassifiedCategory.all
     respond_to do |format|
+      format.html
       format.js
     end
   end
@@ -19,6 +20,7 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts/new
   def new
     @classified_post = ClassifiedPost.new
+    @categories = ClassifiedCategory.all
   end
 
   # GET /classified_posts/1/edit

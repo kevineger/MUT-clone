@@ -121,9 +121,6 @@ h4 {
 	display:block;
 	margin:auto;
 }
-#classifieds-container {
-	padding-top: 50px;
-}
 .col-centered {
 	float: none;
 	margin: 0 auto;
@@ -183,7 +180,7 @@ h4 {
 }
 #grey-background {
 	background-color: #F5F5F5;
-	margin:20px;
+	/*margin:20px;*/
 	padding:20px;
 	border:1px solid #DDD;
 	border-radius:4px;
