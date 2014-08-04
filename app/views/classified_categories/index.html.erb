@@ -1,8 +1,6 @@
   <div id="classifieds-container" class="container">
     <div class="row">
 
-      <!--   <h1 class="page-header">All Categories <%= button_to 'Create a posting',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue btn-new-post", :method=> "get" %> </h1> -->
-
       <div class="col-md-2">
         <div class="box-nav">
           <!-- Category Menu -->
@@ -11,7 +9,7 @@
               <ul id="menu-list">
                 <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => nil), :remote => true %></li>
                 <% @classified_categories.each do |category|%>
-                <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></li>
+                  <li><%= link_to category.name, from_category_classified_posts_path(:cat_id => category.id), :remote => true %></li>
                 <% end%>
               </ul>
             </div><!-- /.sidebar-menu -->
