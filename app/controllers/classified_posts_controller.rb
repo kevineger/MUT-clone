@@ -1,6 +1,8 @@
 class ClassifiedPostsController < ApplicationController
   before_action :set_classified_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :new]
+  has_scope :category
+  has_scope :search_text
   # GET /classified_posts
   # GET /classified_posts.json
   def index
@@ -74,22 +76,7 @@ class ClassifiedPostsController < ApplicationController
     if !page
       page = 1
     end
-    @category = params[:cat_id]
-    @search = params[:search]
-    @posts
-    if(@search==''||!@search)
-      if(@category == ''|| !@category||@category=='0')
-        @posts = ClassifiedPost.where('expiry > ?', 30.days.ago).paginate(:page => page)
-      else
-        @posts = ClassifiedCategory.find(@category).classified_posts.where('expiry > ?', 30.days.ago).paginate(:page => page)
-      end
-    else
-      if(@category == ''|| !@category||@category=='0')
-        @posts = ClassifiedPost.where(["title like ?", "%#{@search}%"]).where('expiry > ?', 30.days.ago).paginate(:page => page)
-      else
-        @posts = ClassifiedCategory.find(@category).classified_posts.where(["title like ?", "%#{@search}%"]).where('expiry > ?', 30.days.ago).paginate(:page => page)
-      end
-    end
+    @posts = apply_scopes(ClassifiedPost).paginate(:page => page)
     respond_to do |format|
       format.js
     end
