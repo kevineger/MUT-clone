@@ -2,15 +2,15 @@
 	<div id="profile-container">
 		<h3>Kevin Eger</h3>
 		<ul class="nav nav-tabs" role="tablist">
-			<li><a href="#">Posts</a></li>
-			<li class="active"><a href="#">Profile</a></li>
-			<li><a href="#">Messages</a></li>
-			<li class="pull-right"><%= button_to 'Create a Post',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue", :method=> "get" %></li>
+			<li class="active tab"><a id="posts-tab" href="#">Posts</a></li>
+			<li  class="tab"><a id="profile-tab"href="#">Profile</a></li>
+			<li class="tab"><a id="messages-tab" href="#">Messages</a></li>
+			<li  class="pull-right"><%= button_to 'Create a Post',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue", :method=> "get" %></li>
 		</ul>
 
 		<div class="profile-container-inner">
 			<!-- Posts Tab -->
-			<!-- <div id="profile-posts">
+			<div id="profile-posts">
 				<table style="margin-bottom:0px;" class="table table-striped">
 					<thead>
 							<tr>
@@ -38,9 +38,9 @@
 							</tr>
 						</tbody>
 				</table>
-			</div> -->
+			</div>
 
-			<!-- Profile Tab -->
+			 <!--Profile Tab-->
 			<div id="profile-profile">
 				<div class="row">
 					<div class="col-lg-12">
@@ -58,7 +58,7 @@
 				        <h2 class="field-title">School</h2>
 								<div class="dropdown">
 								  <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-profile" data-toggle="dropdown">
-								  Select your University  
+								  Select your University
 								  <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-profile">
@@ -106,7 +106,8 @@
 				</div>
 			</div>
 
-			<div id="profile-messages">
+          <!--Messages Tab-->
+			<div style="height:700px" id="profile-messages">
 
 			</div>
 
@@ -115,3 +116,49 @@
 	</div>
 </div>
 
+<script>
+  $(document).ready(function(){
+      hideAll();
+      console.log(window.location.hash);
+      switch (window.location.hash) {
+          case '#profile':
+              $('#profile-tab').parent().addClass('active');
+              $('#profile-profile').show();
+              break;
+          case '#messages':
+              $('#messages-tab').parent().addClass('active');
+              $('#profile-messages').show();
+              break;
+          default :
+              $('#posts-tab').parent().addClass('active');
+              $('#profile-posts').show();
+              break;
+      }
+  });
+  $(document).ready(
+      $('.nav-tabs').on('click','a', function(){
+          console.log('test');
+        var tab = $(this).text();
+        hideAll();
+        switch (tab) {
+
+            case 'Profile':
+                $('#profile-profile').show();
+                break;
+            case 'Posts':
+                $('#profile-posts').show();
+                break;
+            case 'Messages':
+                $('#profile-messages').show();
+                break;
+        }
+          $(this).closest('li').addClass('active');
+      })
+  );
+  function hideAll(){
+      $('#profile-profile').hide();
+      $('#profile-messages').hide();
+      $('#profile-posts').hide();
+      $('.tab').removeClass('active');
+  }
+</script>

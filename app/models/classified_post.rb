@@ -7,6 +7,11 @@ class ClassifiedPost < ActiveRecord::Base
   # scope :price_lower, -> (price_upper) { where }
   scope :category, -> (category) {where classified_category_id: category}
   scope :search_text, -> (title) { where("title like ?", "%#{title}%")}
+  scope :price_low, -> (price_low) { where("price > ?", price_low)}
+  scope :price_high, -> (price_high) { where("price < ?", price_high)}
+  scope :recent, -> {order('created_at DESC')}
+  scope :sort_high, -> {order('price DESC')}
+  scope :sort_low, ->{order('price ASC')}
   self.per_page = 21
   has_attached_file :image,
                     :styles => { :thumb => "100x100>", :small => "250x250" ,:large => "500x500"},

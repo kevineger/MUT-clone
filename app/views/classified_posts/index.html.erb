@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-10">
       <!-- Individual add item -->
-      <div id="post-grid" class="row">
+      <div id="post-grid">
         <%= render partial: 'classified_posts/posts', locals: {posts: @classified_posts}  %>
       </div>
     </div>
@@ -15,14 +15,20 @@
 <script>
     function filter(target){
         $.get(target,
-                {category: $('a',$('.active','#category-filter')).data('category'), sort: $('a',$('.active','#sort-filter')).data('sort'), price_low: $('#low').val(), price_high:$('#high').val()}, null, "script")
+                {
+                    category: $('a',$('.active','#category-filter')).data('category'),
+                    sort: $('a',$('.active','#sort-filter')).data('sort'),
+                    price_low: $('#low').val(),
+                    price_high:$('#high').val(),
+                    search_text:$('#navbar-blue-search').val()
+                }, null, "script")
     }
     $(document).ready(function () {
         $('#category-filter').on('click', 'a', function(){
             console.log('triggered');
             $('.active', '#category-filter').removeClass('active');
             $(this).closest('li').addClass('active');
-            filter('/posts'+$('a.active','.pagination').text());
+            filter('/posts');
         });
     });
     $(document).ready(function () {
@@ -30,7 +36,7 @@
             console.log('triggered');
             $('.active', '#sort-filter').removeClass('active');
             $(this).closest('li').addClass('active');
-            filter('/posts'+$('a.active','.pagination').text());
+            filter('/posts');
         });
     });
     $(document).ready(function () {
@@ -40,9 +46,15 @@
     });
     $(document).ready(function () {
         $('a','.pagination').on('click', function(e){
-            console.log('button-clicked')
+            console.log('button-clicked');
             filter($(this).data('target'));
             e.preventDefault();
         });
+    });
+    $(document).ready(function(){
+       $('.navbar-form').on('submit',function(e){
+           e.preventDefault();
+           filter();
+       });
     });
 </script>

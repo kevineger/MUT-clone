@@ -1,8 +1,18 @@
 class ClassifiedPostsController < ApplicationController
   before_action :set_classified_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :new]
-  has_scope :category
-  has_scope :search_text
+  has_scope :category, :search_text, :price_high, :price_low
+  has_scope :recent, :type => :boolean, default: nil, allow_blank: true
+  has_scope :sort do |controller, scope,value|
+    case value
+      when '1'
+        scope.recent
+      when '2'
+        scope.sort_high
+      when '3'
+        scope.sort_low
+    end
+  end
   # GET /classified_posts
   # GET /classified_posts.json
   def index

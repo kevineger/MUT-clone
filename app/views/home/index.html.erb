@@ -5,12 +5,15 @@
     <div class="col-lg-8 col-lg-offset-2">
       <div style="padding-top:150px;" class="row">
         <h1>Search U of C Textbooks</h1> 
-        <div id="home-search" class="input-group input-group-lg">
-          <input id="featured-form" type="text" class="form-control ">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Search</button>
-          </span>
-        </div>
+
+          <%= form_tag(main_app.classified_posts_path, method: "get") do %>
+            <div id="home-search" class="input-group input-group-lg">
+              <input name="search_text" type="text" class="form-control ">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Search</button>
+              </span>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>
@@ -28,119 +31,28 @@
 
         <div class="carousel-inner">
           <div class="item active">
-            <div class="col-md-10 col-md-offset-1">
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <% @posts.paginate(:page => 1, :per_page => 3).each do |post| %>
+                <%= render partial: '/home/featured', locals: {post:post} %>
+            <% end %>
           </div>
 
           <div class="item">
-            <div class="col-md-10 col-md-offset-1">
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <% @posts.paginate(:page => 2, :per_page => 3).each do |post| %>
+                <%= render partial: '/home/featured', locals: {post:post} %>
+            <% end %>
           </div>
 
           <div class="item">
-            <div class="col-md-10 col-md-offset-1">
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-              <a id="post_X" title="HTML &amp; CSS" href="#">
-                <div class="col-md-4">
-                  <div class="row">
-                    <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-                  </div>
-                  <div class="row">
-                    <h4 class="featured-title">HTML &amp; CSS</h4>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <% @posts.paginate(:page => 3, :per_page => 3).each do |post| %>
+                <%= render partial: '/home/featured', locals: {post:post} %>
+            <% end %>
           </div>
-
         </div>
       </div>
-
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-
     </div><!-- /.carousel -->
   </div>
-
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="btn-group">

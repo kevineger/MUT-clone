@@ -1,12 +1,9 @@
 <div id="search-field" class="pull-right">
-  <%= form_tag(main_app.from_category_classified_posts_path, method: "get", :class => 'navbar-form', :remote => true) do %>
+  <%= form_tag(main_app.classified_posts_path, method: "get", :class => 'navbar-form') do %>
     <div class="input-group">
-      <%= hidden_field_tag(:cat_id, category)%>
-      <%= text_field_tag(:search, nil,:id=>'navbar-blue-search',:class=>'form-control', :placeholder=>'Search') %>
+      <%= text_field_tag(:search_text, nil,:id=>'navbar-blue-search',:class=>'form-control', :placeholder=>'Search') %>
       <div class="input-group-btn">
-        <%= button_tag(type: 'submit', class: "btn",id: 'btn-search') do %>
-            <span class="glyphicon glyphicon-search"></span>
-        <% end %>
+        <button class="btn btn-default" id="btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
       </div>
     </div>
   <% end %>
