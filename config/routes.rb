@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   resources :messages, :only => [:create]
 
 
-  get 'profile/show'
-  get 'profile/info'
-  get 'profile/show2'
-  get 'profile/my_profile'
+  get 'profile/:id', to: 'profile#show'
+  get '/profile/info/:id', to: 'profile#info'
 
   ActiveAdmin.routes(self)
   resources :classified_categories, :path => "classifieds" do
