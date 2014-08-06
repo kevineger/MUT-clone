@@ -5,9 +5,11 @@
   <div class="row">
 
     <!-- Navigation Sidebar -->
-
     <!-- Ad Information -->
-    <div class="col-md-6 col-md-offset-2">
+    <div class="col-md-2">
+      <%= render partial: 'classified_categories/filter_box', locals: {categories: @categories} %>
+    </div>
+    <div class="col-md-6">
       <div class="panel panel-default ad-panel">
         <div class="panel-heading">
           <%= @classified_post.title %>
@@ -21,7 +23,6 @@
         </div>
       </div>
     </div>
-
     <!-- User Information -->
     <div class="col-md-3">
       <div class="panel panel-default ad-panel">

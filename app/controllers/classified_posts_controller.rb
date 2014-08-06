@@ -26,6 +26,7 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts/1
   # GET /classified_posts/1.json
   def show
+    @categories = ClassifiedCategory.all
   end
   # GET /classified_posts/new
   def new
