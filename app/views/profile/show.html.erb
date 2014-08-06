@@ -2,163 +2,33 @@
 	<div id="profile-container">
 		<h3>Kevin Eger</h3>
 		<ul class="nav nav-tabs" role="tablist">
-			<li class="active tab"><a id="posts-tab" href="#">Posts</a></li>
-			<li  class="tab"><a id="profile-tab"href="#">Profile</a></li>
-			<li class="tab"><a id="messages-tab" href="#">Messages</a></li>
+			<li id="posts-tab" class="active tab"><%= link_to 'Posts', user_classified_posts_path, :remote => true%></li>
+
+            <% if current_user %>
+              <li  id="profile-tab" class="tab"><%= link_to 'Profile', profile_my_profile_path, :remote => true%></li>
+			    <li id="messages-tab" class="tab"><%= link_to 'Messages', conversations_path, :remote => true%></li>
+            <% else %>
+              <li  id="profile-tab" class="tab"><%= link_to 'Profile', profile_info_path, :remote => true%></li>
+            <% end %>
 			<li  class="pull-right"><%= button_to 'Create a Post',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue", :method=> "get" %></li>
 		</ul>
-
 		<div class="profile-container-inner">
-			<!-- Posts Tab -->
-			<div id="profile-posts">
-				<table style="margin-bottom:0px;" class="table table-striped">
-					<thead>
-							<tr>
-								<th>Date</th>
-								<th>Title</th>
-								<th>Discription</th>
-								<th>Edit</th>
-								<th>Delete</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>01/08/2014</td>
-								<td>Kevin's Book</td>
-								<td>This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table.</td>
-								<td>Edit</td>
-								<td>Delete</td>
-							</tr>
-							<tr>
-								<td>01/08/2014</td>
-								<td>Kevin's Book</td>
-								<td>This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table. This is the discription of my book. It is a really good book. It has a really long discription so I can test the table.</td>
-								<td>Edit</td>
-								<td>Delete</td>
-							</tr>
-						</tbody>
-				</table>
-			</div>
-
-			 <!--Profile Tab-->
-			<div id="profile-profile">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="col-lg-8">
-							<form role="form">
-				        <div id="item-title" class="form-group">
-				          <h2 class="field-title">First Name</h2>
-				          <input type ="text" class="form-control" placeholder="Big">
-				        </div>
-				        <div id="item-title" class="form-group">
-				          <h2 class="field-title">Last Name</h2>
-				          <input type ="text" class="form-control" placeholder="Dick">
-				        </div>
-
-				        <h2 class="field-title">School</h2>
-								<div class="dropdown">
-								  <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-profile" data-toggle="dropdown">
-								  Select your University
-								  <span class="caret"></span>
-								  </button>
-								  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-profile">
-								    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">U of C</a></li>
-								    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">UBCO</a></li>
-								    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">U of A</a></li>
-								  </ul>
-								</div>
-
-				        <div id="item-title" class="form-group">
-				          <h2 class="field-title">Email</h2>
-				          <input type ="text" class="form-control" placeholder="big.dick@dicks.com">
-				        </div>
-				        <div id="item-title" class="form-group">
-				          <h2 class="field-title">Password</h2>
-				          <input type ="text" class="form-control">
-				        </div>
-				      </form>
-
-						</div>
-						<div class="col-lg-4">
-							<div id="profile-picture">
-								<img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-								  <div style="margin-top:15px;" class="row">
-								    <div class="col-md-12 text-center">
-								      <div class="btn-group">
-								        <a class="btn btn-default btn-lg" target="_blank" title="View Facebook Profile" href="http://www.facebook.com">
-								          <i class="fa fa-facebook fa-lg fb"></i>
-								        </a>
-								        <a class="btn btn-default btn-lg" target="_blank" title="View Twitter Profile" href="http://www.twitter.com">
-								          <i class="fa fa-twitter fa-lg tw"></i>
-								        </a>
-								      </div>
-								    </div>
-								  </div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-lg-1 col-centered">
-						<div style="margin-bottom:15px;" class="btn btn-default btn-lg btn-blue col-centered">Update Info</div>
-					</div>
-				</div>
-			</div>
-
-          <!--Messages Tab-->
-			<div style="height:700px" id="profile-messages">
-
-			</div>
-
-		</div>
-
+        </div>
 	</div>
 </div>
-
 <script>
-  $(document).ready(function(){
-      hideAll();
-      console.log(window.location.hash);
-      switch (window.location.hash) {
-          case '#profile':
-              $('#profile-tab').parent().addClass('active');
-              $('#profile-profile').show();
-              break;
-          case '#messages':
-              $('#messages-tab').parent().addClass('active');
-              $('#profile-messages').show();
-              break;
-          default :
-              $('#posts-tab').parent().addClass('active');
-              $('#profile-posts').show();
-              break;
-      }
-  });
-  $(document).ready(
-      $('.nav-tabs').on('click','a', function(){
-          console.log('test');
-        var tab = $(this).text();
-        hideAll();
-        switch (tab) {
-
-            case 'Profile':
-                $('#profile-profile').show();
+    $(document).ready(function(){
+        console.log(window.location.hash);
+        switch (window.location.hash) {
+            case '#profile':
+                $('a','#profile-tab').click();
                 break;
-            case 'Posts':
-                $('#profile-posts').show();
+            case '#messages':
+                $('a','#messages-tab').click();
                 break;
-            case 'Messages':
-                $('#profile-messages').show();
+            default :
+                $('a','#posts-tab').click();
                 break;
         }
-          $(this).closest('li').addClass('active');
-      })
-  );
-  function hideAll(){
-      $('#profile-profile').hide();
-      $('#profile-messages').hide();
-      $('#profile-posts').hide();
-      $('.tab').removeClass('active');
-  }
+    });
 </script>

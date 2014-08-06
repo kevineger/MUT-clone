@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
 
   get 'profile/show'
+  get 'profile/info'
   get 'profile/show2'
+  get 'profile/my_profile'
 
   ActiveAdmin.routes(self)
   resources :classified_categories, :path => "classifieds" do
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   resources :classified_posts, :path => "posts" do
     post 'relist', on: :member
     get 'from_category', on: :collection
+    get 'user', on: :collection
   end
 
 

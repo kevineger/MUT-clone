@@ -5,6 +5,9 @@ class ConversationsController < ApplicationController
   # GET /conversations.json
   def index
     @conversations = current_user.conversations
+    respond_to do |format|
+      format.js
+    end
   end
   # GET /conversations/1
   # GET /conversations/1.json
