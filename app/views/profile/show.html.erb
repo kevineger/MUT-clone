@@ -2,7 +2,7 @@
 	<div id="profile-container">
 		<h3>Kevin Eger</h3>
 		<ul class="nav nav-tabs" role="tablist">
-			<li id="posts-tab" class="active tab"><%= link_to 'Posts', user_classified_posts_path, :remote => true%></li>
+			<li id="posts-tab" class="active tab"><%= link_to 'Posts', "/profile/posts/#{@user.id}", :remote => true%></li>
             <li  id="profile-tab" class="tab"><%= link_to 'Profile', "/profile/info/#{@user.id}", :remote => true%></li>
             <% if current_user.id == @user.id %>
 			  <li id="messages-tab" class="tab"><%= link_to 'Messages', conversations_path, :remote => true%></li>

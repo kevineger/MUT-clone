@@ -94,12 +94,6 @@ class ClassifiedPostsController < ApplicationController
       format.js
     end
   end
-  def user
-    @posts = current_user.classified_posts
-    respond_to do |format|
-      format.js
-    end
-  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_classified_post

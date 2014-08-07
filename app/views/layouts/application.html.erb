@@ -35,9 +35,9 @@
               <li class="dropdown dropdown-blue pull-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="/profile/show#posts">Posts</a></li>
-                  <li><a href="/profile/show#profile">Profile</a></li>
-                  <li><a href="/profile/show#messages">Messages <span class="badge">6</span></a></li>
+                  <li><a href="/profile/<%=current_user.id%>">Posts</a></li>
+                  <li><a href="/profile<%=current_user.id%>">Profile</a></li>
+                  <li><a href="/profile/<%=current_user.id%>">Messages <span class="badge">6</span></a></li>
                   <li class="divider"></li>
                   <li>
                     <%= link_to 'Logout', main_app.destroy_user_session_path ,:method => :delete%>

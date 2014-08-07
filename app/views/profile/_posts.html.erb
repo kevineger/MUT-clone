@@ -1,0 +1,33 @@
+<div id="profile-posts">
+  <table style="margin-bottom:0px;" class="table table-striped">
+    <thead>
+
+    <tr>
+      <th>When</th>
+      <th>Title</th>
+      <th>Discription</th>
+      <%  if current_user.id == posts.first.user.id%>
+          <th>Edit</th>
+          <th>Delete</th>
+      <% else %>
+          <th>Message User</th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% posts.each do |post| %>
+        <tr>
+          <td><%= time_ago_in_words post.created_at%> Ago</td>
+          <td><%= post.title%></td>
+          <td><%= post.description%></td>
+          <%  if current_user.id == post.user.id%>
+              <td><%= button_to 'Edit',edit_classified_post_path(post),:class =>'btn btn-warning'%></td>
+              <td><%= button_to 'Delete',classified_post_path(post), :method => 'delete', :class =>'btn btn-danger'%></td>
+          <% else %>
+              <td><%= link_to 'Mail' ,new_conversation_path(:user => post.user.id, :post => post.id)%></td>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

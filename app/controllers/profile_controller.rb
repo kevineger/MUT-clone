@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
-  before_action :set_profile, only: [:show, :info]
-  before_action :authenticate_user!, only: [:show, :info]
+  before_action :set_profile, only: [:show, :info, :posts]
+  before_action :authenticate_user!, only: [:show, :info, :posts]
   def show
   end
   def show2
@@ -14,6 +14,9 @@ class ProfileController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+  def posts
+    @posts = @user.classified_posts
   end
   private
   def set_profile
