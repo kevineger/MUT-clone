@@ -4,6 +4,7 @@ class ConversationsController < ApplicationController
   # GET /conversations
   # GET /conversations.json
   def index
+    @message = Message.new
     @conversations = current_user.conversations
     respond_to do |format|
       format.js
@@ -13,6 +14,10 @@ class ConversationsController < ApplicationController
   # GET /conversations/1.json
   def show
     @message = Message.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /conversations/new

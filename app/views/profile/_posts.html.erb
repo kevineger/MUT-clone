@@ -21,7 +21,7 @@
           <td><%= post.title%></td>
           <td><%= post.description%></td>
           <%  if current_user.id == post.user.id%>
-              <td><%= button_to 'Edit',edit_classified_post_path(post),:class =>'btn btn-warning'%></td>
+              <td><%= button_to 'Edit',edit_classified_post_path(post),:class =>'btn btn-warning', :method => 'get'%></td>
               <td><%= button_to 'Delete',classified_post_path(post), :method => 'delete', :class =>'btn btn-danger'%></td>
           <% else %>
               <td><%= link_to 'Mail' ,new_conversation_path(:user => post.user.id, :post => post.id)%></td>

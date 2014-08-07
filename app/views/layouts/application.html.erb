@@ -33,7 +33,7 @@
             <% if defined?(current_user.email) %>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown dropdown-blue pull-right">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.email %> <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="/profile/<%=current_user.id%>">Posts</a></li>
                   <li><a href="/profile<%=current_user.id%>">Profile</a></li>

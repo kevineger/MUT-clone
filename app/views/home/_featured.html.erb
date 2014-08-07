@@ -4,7 +4,7 @@
       <%= image_tag post.image.url(:thumb), :class => 'pic-single center-pic'%>
     </div>
     <div class="row">
-      <h4 class="featured-title">HTML &amp; CSS</h4>
+      <h4 class="featured-title"><%= truncate(post.title, :length => 10)%></h4>
     </div>
   </div>
 <% end %>

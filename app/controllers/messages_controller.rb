@@ -22,10 +22,11 @@ class MessagesController < ApplicationController
 
   # POST /messages.json
   def create
-    @converstion = Conversation.find(message_params[:conversation_id])
+    @conversation = Conversation.find(message_params[:conversation_id])
     @message = Message.create(message_params)
+    @message = Message.new
     respond_to do |format|
-      format.html { redirect_to @converstion, notice: 'Message Sent' }
+      format.js
     end
   end
   # PATCH/PUT /messages/1
