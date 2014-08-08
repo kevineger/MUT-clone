@@ -37,7 +37,13 @@
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="/profile/<%=current_user.id%>">Posts</a></li>
                   <li><a href="/profile<%=current_user.id%>">Profile</a></li>
-                  <li><a href="/profile/<%=current_user.id%>">Messages <span class="badge">6</span></a></li>
+                  <li>
+                    <a href="/profile/<%=current_user.id%>">Messages
+                        <% if current_user.unread? %>
+                            <span class="badge pull-right alert-danger"><i class="fa fa-exclamation"></i></span>
+                        <% end %>
+                      </a>
+                  </li>
                   <li class="divider"></li>
                   <li>
                     <%= link_to 'Logout', main_app.destroy_user_session_path ,:method => :delete%>

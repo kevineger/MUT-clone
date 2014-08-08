@@ -23,6 +23,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @conversation = Conversation.find(message_params[:conversation_id])
+    new_message_alert! @conversation
     @message = Message.create(message_params)
     @message = Message.new
     respond_to do |format|

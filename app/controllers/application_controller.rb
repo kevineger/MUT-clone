@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
-
+  def new_message_alert!(conversation)
+    conversation.users.each do |user|
+      if user != current_user
+        user.unread = true
+        user.save!
+      end
+    end
+  end
   def forem_user
     current_user
   end
