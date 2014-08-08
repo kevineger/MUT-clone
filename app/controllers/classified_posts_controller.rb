@@ -16,7 +16,11 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts
   # GET /classified_posts.json
   def index
-    @classified_posts = apply_scopes(ClassifiedPost).all.paginate(:page => 1)
+    page = params[:page]
+    if !page
+      page = 1
+    end
+    @classified_posts = apply_scopes(ClassifiedPost).all.paginate(:page => page)
     @classified_categories = ClassifiedCategory.all
     respond_to do |format|
       format.html
@@ -82,16 +86,6 @@ class ClassifiedPostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to classified_posts_url, notice: 'Classified post was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-  def from_category
-    page = params[:page]
-    if !page
-      page = 1
-    end
-    @posts = apply_scopes(ClassifiedPost).paginate(:page => page)
-    respond_to do |format|
-      format.js
     end
   end
   private

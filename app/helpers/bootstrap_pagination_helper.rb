@@ -40,5 +40,8 @@ module BootstrapPaginationHelper
       attributes.delete(:classname)
       tag(:li, tag(:a, text, attributes), :class => classname)
     end
+    def url(target)
+      target
+    end
   end
 end

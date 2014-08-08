@@ -1,12 +1,11 @@
 <div id="filter-box">
-  <div class="box-nav">
     <!-- Category Menu -->
     <div class="row">
       <div class="menu visible-md visible-lg">
         <ul id="category-filter" class="menu-list">
-          <li class="active"><%= link_to 'All Categories', from_category_classified_posts_path(:cat_id => nil), :remote => true %></li>
+          <li class="active"><%= link_to 'All Categories', classified_posts_path%></li>
           <% categories.each do |category|%>
-              <li><a href="#" data-category="<%=category.id%>"><%=category.name %></a></li>
+              <li><%= link_to category.name, classified_posts_path(:category => category.id), data: { :category =>category.id } %></li>
           <% end%>
         </ul>
       </div><!-- /.sidebar-menu -->
@@ -15,9 +14,9 @@
     <div class="row">
       <div class="menu visible-md visible-lg">
         <ul id="sort-filter" class="menu-list">
-          <li class="active"><a href="#" data-sort="1">Date: Most Recent</a></li>
-          <li class=""><a href="#" data-sort="2">Price: Lowest First</a></li>
-          <li class=""><a href="#" data-sort="3">Price: Highest First</a></li>
+          <li class="active"><%= link_to 'Date: Most Recent',classified_posts_path(:sort => 1), date: { :sort => 1}%></li>
+          <li class=""><%= link_to 'Price: Lowest First',classified_posts_path(:sort => 2), date: { :sort => 2}%></li>
+          <li class=""><%= link_to 'Price: Highest First',classified_posts_path(:sort => 3), date: { :sort => 3}%></li>
         </ul>
       </div><!-- /.sort-menu -->
     </div>
@@ -25,15 +24,14 @@
     <div class="row">
       <div class="menu visible-md visible-lg">
         <ul id="price-filter" class="menu-list">
-          <div class="form-inline price-box">
-            <input id="low" type="text" class="input-mini" placeholder="Low">
-            ~
-            <input id="high" type="text" class="input-mini" placeholder="High">
-            <a href="#"><i id="price-go" class="glyphicon glyphicon-search price-search" type="submit"></i></a>
-          </div>
+          <form action="/posts" class="form-inline price-box">
+            <input id="low" name="price_low" type="text" class="input-mini" placeholder="Low">
+            <i class="fa fa-arrows-h" style="color:lightgrey"></i>
+            <input id="high" name="price_high" type="text" class="input-mini" placeholder="High">
+            <button><i id="price-go" class="glyphicon glyphicon-search price-search"></i></button>
+          </form>
         </ul>
       </div><!-- /.price-menu -->
     </div>
     <!-- Pagination -->
-  </div>
 </div>

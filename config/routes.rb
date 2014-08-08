@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   end
   resources :classified_posts, :path => "posts" do
     post 'relist', on: :member
-    get 'from_category', on: :collection
     get 'user', on: :collection
   end
 

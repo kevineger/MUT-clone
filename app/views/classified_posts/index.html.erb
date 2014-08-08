@@ -1,14 +1,13 @@
 <div id="classifieds-container" class="container">
   <div class="row">
-
     <div class="col-md-2">
       <%= render partial: 'classified_categories/filter_box', locals: {categories: @classified_categories} %>
     </div>
     <div class="col-md-10">
       <!-- Individual add item -->
-      <div id="post-grid">
-        <%= render partial: 'classified_posts/posts', locals: {posts: @classified_posts}  %>
-      </div>
+          <div id="post-grid">
+            <%= render partial: 'classified_posts/posts', locals: {posts: @classified_posts}  %>
+          </div>
     </div>
   </div>
 </div>
@@ -24,7 +23,8 @@
                 }, null, "script")
     }
     $(document).ready(function () {
-        $('#category-filter').on('click', 'a', function(){
+        $('#category-filter').on('click', 'a', function(e){
+            e.preventDefault();
             console.log('triggered');
             $('.active', '#category-filter').removeClass('active');
             $(this).closest('li').addClass('active');
@@ -32,23 +32,24 @@
         });
     });
     $(document).ready(function () {
-        $('#sort-filter').on('click', 'a', function(){
-            console.log('triggered');
+        $('#sort-filter').on('click', 'a', function(e){
+            e.preventDefault();
             $('.active', '#sort-filter').removeClass('active');
             $(this).closest('li').addClass('active');
             filter('/posts');
         });
     });
     $(document).ready(function () {
-        $('#price-go').on('click', function(){
+        $('.price-box').on('submit', function(e){
+            e.preventDefault();
             filter($('a.active', '.pagination').data('target'));
         });
     });
     $(document).ready(function () {
         $('a','.pagination').on('click', function(e){
-            console.log('button-clicked');
-            filter($(this).data('target'));
             e.preventDefault();
+            console.log('button-clicked');
+            filter('/posts?page='+$(this).data('target'));
         });
     });
     $(document).ready(function(){
