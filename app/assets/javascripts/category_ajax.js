@@ -11,10 +11,8 @@ $(document).ready(function(){
     $(window).scroll(function() {
         if ($(this).scrollTop() > offset) {
             $('#back-to-top').fadeIn(duration);
-            console.log("Fading in");
         } else {
             $('#back-to-top').fadeOut(duration);
-            console.log("Fading out");
         }
     });
 });

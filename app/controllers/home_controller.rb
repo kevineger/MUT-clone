@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @classified_post = ClassifiedPost.last
+    @posts = ClassifiedPost.recent.limit(15)
   end
 end

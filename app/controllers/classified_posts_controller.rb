@@ -1,12 +1,26 @@
 class ClassifiedPostsController < ApplicationController
   before_action :set_classified_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :new]
-  has_scope :category
-  has_scope :search_text
+  has_scope :category, :search_text, :price_high, :price_low
+  has_scope :recent, :type => :boolean, default: nil, allow_blank: true
+  has_scope :sort do |controller, scope,value|
+    case value
+      when '1'
+        scope.recent
+      when '2'
+        scope.sort_high
+      when '3'
+        scope.sort_low
+    end
+  end
   # GET /classified_posts
   # GET /classified_posts.json
   def index
-    @classified_posts = apply_scopes(ClassifiedPost).all.paginate(:page => 1)
+    page = params[:page]
+    if !page
+      page = 1
+    end
+    @classified_posts = apply_scopes(ClassifiedPost).all.paginate(:page => page)
     @classified_categories = ClassifiedCategory.all
     respond_to do |format|
       format.html
@@ -16,6 +30,7 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts/1
   # GET /classified_posts/1.json
   def show
+    @categories = ClassifiedCategory.all
   end
   # GET /classified_posts/new
   def new
@@ -71,16 +86,6 @@ class ClassifiedPostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to classified_posts_url, notice: 'Classified post was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-  def from_category
-    page = params[:page]
-    if !page
-      page = 1
-    end
-    @posts = apply_scopes(ClassifiedPost).paginate(:page => page)
-    respond_to do |format|
-      format.js
     end
   end
   private

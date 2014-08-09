@@ -4,12 +4,25 @@ body {
 	background-image: url('../images/ZenBG-1.png'), url('ZenBG-2.png');
 	background-repeat: repeat-x, repeat;
 }
+.body-pic {
+	z-index: -1;
+  position: absolute;
+  width:100%;
+  top:20%;
+  padding:20px;
+  opacity:.2;
+}
 h1 {
 	font-size:400%;
 	text-align:center
 }
 h4 {
 	color:#333;
+}
+.ad-container {
+	margin-left:10px;
+	margin-bottom:10px;
+	background-color: #F5F5F5;
 }
 .ad-frame {
 	height:310px;
@@ -20,12 +33,6 @@ h4 {
 }
 .ad-frame:hover {
 	background-color:#F5F5F5;
-}
-.ad-container {
-	margin-left:-10px;
-	margin-right:-10px;
-	margin-bottom:10px;
-	background-color: #F5F5F5;
 }
 .ad-full-pic {
 	width:400px;
@@ -43,15 +50,11 @@ h4 {
 	color: #000;
 }
 .ad-panel {
-	border-radius: 0;
-	margin-top:20px;
-	position:relative;
+	border-radius: 4px;
+	margin-left:10px;
 }
 .blue {
 	color: #013861;
-}
-.box-nav {
-	position:fixed;
 }
 .btn-back-to-top {
 	position:fixed;
@@ -95,7 +98,7 @@ h4 {
 	margin-bottom: 20px;
 }
 #btn-search {
-	color: #998D8A;
+	color: #CCC;
 	background-color: #004070;
 	border-color: #013861;
 }
@@ -110,7 +113,7 @@ h4 {
 	background-color: #013861;
 }
 .category-dropdown {
-	font-size: 20px;
+	padding:5px;
 }
 .category-name {
 	font-size: 30px;
@@ -123,12 +126,31 @@ h4 {
 }
 .col-centered {
 	float: none;
-	margin: 0 auto;
+	margin-left:auto;
+	margin-right:auto;
 }
 .contact-seller {
 	position:absolute;
 	bottom:0px;
 	left:20px;
+}
+.conversation-received, .conversation-sent {
+	border-radius:4px;
+}
+.conversation-received {
+	background-color: #E5E5E5;
+	color:#000;
+}
+.conversation-sent {
+	background-color: #1E93FD;
+	color:#FFF;
+}
+#conversation-show {
+	padding-right:15px;
+}
+.conversation-text {
+	font-size: 100%;
+	padding:10px;
 }
 #currently-browsing {
 	display:block;
@@ -171,19 +193,20 @@ h4 {
 	padding-top:20px;
 	margin:auto;
 }
-#grey-wrapper {
+/*#grey-wrapper {
 	background: #9DA5AF;
 	background-color: #9DA5AF;
 	border-bottom: 1px solid #013861;
 	height: 160px;
 	z-index: 2;
-}
+}*/
 #grey-background {
 	background-color: #F5F5F5;
-	/*margin:20px;*/
 	padding:20px;
 	border:1px solid #DDD;
 	border-radius:4px;
+	margin-left:10px;
+	margin-right:10px;
 }
 .home-feature {
 	margin:10px;
@@ -227,23 +250,30 @@ i.tw {
 .input-mini:visited {
 	color:#FFF;
 }
+#login {
+	color:#CCC;
+}
+#login:hover {
+	color:#FFF;
+}
 #message-user {
 	margin-bottom:0;
 }
 .navbar-blue {
 	background-color: #013861;
 }
-.navbar-blue .navbar-nav > .active {
-	color: #FFFFFF;
-	font-weight:bold;
+.navbar-blue .navbar-nav > li > a {
+	color:#CCC!important;
 }
 .navbar-blue .navbar-nav > .active > a, 
-.navbar-blue .navbar-nav > .active > a:hover, 
 .navbar-blue .navbar-nav > .active > a:focus {
 	background: #013861;
-	color: #FFFFFF;
+	color: #FFF!important;
 	font-weight:bold;
 	background-color:#004070;
+}
+.navbar-blue .navbar-nav > li > a:hover {
+	background-color:#003C69!important;
 }
 #navbar-blue-search {
 	background-color: #004070;
@@ -253,13 +283,7 @@ i.tw {
 .navbar-inner {
 	text-align: center;
 }
-.navbar-nav > li > a {
-	color:#ccc !important;
-}
-.navbar-nav > li > a:hover {
-	color:#FFF!important;
-	background-color:#003C69!important;
-}
+/*Gross fix to dropdown flashing black when you click it. Dayum*/
 .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
 	background-color: #004070!important;
 	color: white;
@@ -271,6 +295,18 @@ i.tw {
 .no-padding {
 	padding: 0 !important;
 }
+.pagination-custom a {
+	font-size:115%;
+	background-color: #013861!important;
+	border:none!important;
+	color:#CCC!important;
+}
+.pagination-custom .active a {
+	color:#FFF!important;
+	font-weight:bold!important;
+	background-color:#004070!important;
+}
+
 .pic-single {
 	max-height: 450px;
 	max-width: 450px;
@@ -292,13 +328,18 @@ i.tw {
 	text-align: center;
 }
 .price-search {
-	margin-left:10px;
+	background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  color:#CCC;
 }
 #profile-container {
 	background-color:#F5F5F5;
 	border:1px solid #DDD;
 	border-radius:4px;
-	margin:20px;
 	padding:15px;
 }
 #profile-container > .profile-container-inner {
@@ -306,6 +347,10 @@ i.tw {
 	border-left:1px solid #DDD;
 	border-right:1px solid #DDD;
 	border-bottom:1px solid #DDD;
+}
+#profile-messages {
+	height:700px;
+	padding:15px;
 }
 #profile-picture {
 	margin-top:100px;
@@ -340,6 +385,11 @@ i.tw {
 tr {
 	padding-top:50px;
 }
+.transparent {
+	zoom: 1;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
 #user-title {
 	font-size: 25px;
 	padding: 10px;
@@ -353,20 +403,17 @@ tr {
 .menu {
 	width: 100%;
 }
-
 .menu-list {
 	background-color: #013861;
 	font-size: 16px; 
 	padding-left: 0;
-	padding-top:7px;
-	padding-bottom:7px
+	padding-top:5px;
+	padding-bottom:5px;
+	border-radius:4px;
 }
-
 .menu-list > li {
 	display: block;
 }
-
-
 .menu-list > li > a {
 	font-family: 'Raleway', sans-serif;
 	padding: 10px 0 10px 10px; 

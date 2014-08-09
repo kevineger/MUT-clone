@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-
 <div class="container">
   <div class="row">
-
+    
     <!-- Navigation Sidebar -->
+    <div class="col-md-2">
+      <%= render partial: 'classified_categories/filter_box', locals: {categories: @categories} %>
+    </div>
 
-    <!-- Ad Information -->
-    <div class="col-md-6 col-md-offset-2">
+    <!-- Ad -->
+    <div class="col-md-6 no-padding">
       <div class="panel panel-default ad-panel">
         <div class="panel-heading">
           <%= @classified_post.title %>
@@ -23,14 +24,13 @@
     </div>
 
     <!-- User Information -->
-    <div class="col-md-3">
+    <div class="col-md-4 no-padding">
       <div class="panel panel-default ad-panel">
         <div class="panel-heading"><%=@classified_post.user.email%></div>
         <div class="panel-body">
             <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
-            <h4>Kevin Eger</h4>
-            <h5>University of British Columbia</h5>
-            <h5 id="message-user"><span class="glyphicon glyphicon-envelope"></span> Message this user</h5>
+            <h4><%= @classified_post.user.email%></h4>
+            <h5 id="message-user"><%= link_to new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) do %><span class="glyphicon glyphicon-envelope"></span> Message this user<% end %></h5>
         </div>
       </div>
     </div>

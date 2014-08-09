@@ -1,1 +1,7 @@
 $("#post-grid").html("<%= escape_javascript(render partial: 'posts', locals: {posts: @classified_posts} ) %>");
+$(document).ready(function () {
+    $('a','.pagination').on('click', function(e){
+        console.log('button-clicked');
+        filter('/posts?page='+$(this).data('target'));
+    });
+});
