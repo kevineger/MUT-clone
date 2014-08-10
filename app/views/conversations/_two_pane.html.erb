@@ -3,8 +3,8 @@
   	<div></div>
     <%= render partial: 'list', locals: {conversations: conversations }%>
   </div>
-  <div class="col-md-9">
-    <div id="conversation-show">
+  <div class="col-md-9 no-padding" style="height:100%;">
+    <div style="height:100%;" id="conversation-show">
     <%= render partial: 'show', locals: {messages: conversations.first.messages} %>
     </div>
   </div>
