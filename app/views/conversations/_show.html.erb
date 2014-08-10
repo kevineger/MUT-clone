@@ -1,14 +1,19 @@
-<% messages.each do |message| %>
-    <% if message.user.id == current_user.id %>
-        <div class="row conversation-message">
-            <p  class="conversation-text conversation-sent pull-right"><%= message.body %></p>
-        </div>
-    <% else %>
-        <div class="row conversation-message">
-            <p class="conversation-text conversation-received pull-left"><%= message.body %></p>
-        </div>
+<div style="padding-left:15px; padding-right:15px;" class="row">
+  <div id="conversation-scroll">
+    <% messages.each do |message| %>
+        <% if message.user.id == current_user.id %>
+            <div class="row conversation-message">
+                <p  class="conversation-text conversation-sent pull-right"><%= message.body %></p>
+            </div>
+        <% else %>
+            <div class="row conversation-message">
+                <p class="conversation-text conversation-received pull-left"><%= message.body %></p>
+            </div>
+        <% end %>
     <% end %>
-<% end %>
-<div class="row">
+  </div>
+</div>
+
+<div style="position:relative; bottom:0%; padding-right:15px;" class="row">
 	<%= render partial: '/messages/form', :locals =>{conversation: messages.first.conversation}%>
 </div>

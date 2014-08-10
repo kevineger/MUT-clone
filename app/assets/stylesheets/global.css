@@ -141,6 +141,13 @@ h4 {
 	background-color: #E5E5E5;
 	color:#000;
 }
+#conversation-scroll {
+	height:410px;
+	margin-bottom:10px;
+	padding-left:15px;
+	padding-right:15px;
+	overflow-y:auto;
+}
 .conversation-sent {
 	background-color: #1E93FD;
 	color:#FFF;
@@ -349,8 +356,10 @@ i.tw {
 	border-bottom:1px solid #DDD;
 }
 #profile-messages {
-	height:700px;
-	padding:15px;
+	height:650px;
+	padding-top:15px;
+	padding-left:15px;
+	padding-right:15px;
 }
 #profile-picture {
 	margin-top:100px;
