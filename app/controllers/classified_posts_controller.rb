@@ -35,7 +35,6 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts/new
   def new
     @classified_post = ClassifiedPost.new
-    @categories = ClassifiedCategory.all
   end
 
   # GET /classified_posts/1/edit

@@ -11,6 +11,9 @@ module Mut
     Rails.application.config.assets.precompile += %w( forem.css )
     Rails.application.config.assets.precompile += %w( forem.js )
     Rails.application.config.assets.precompile += ['active_admin.css']
+    Rails.application.config.action_view.field_error_proc = Proc.new { |html_tag, instance|
+      html_tag
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

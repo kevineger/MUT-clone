@@ -29,7 +29,7 @@ class ConversationsController < ApplicationController
     @subject
     if params.has_key?(:post)
       @post = ClassifiedPost.find(params[:post])
-      @subject = 'A message about your posting in the classifieds for: ' + @post.title
+      @subject = current_user.username + " - "+ (@post.title.to_s)
     end
     @conversation = Conversation.new
     @conversation.messages.build

@@ -37,9 +37,9 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.email %> <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="/profile/<%=current_user.id%>">Posts</a></li>
-                  <li><a href="/profile<%=current_user.id%>">Profile</a></li>
+                  <li><a href="/profile/<%=current_user.id%>#profile">Profile</a></li>
                   <li>
-                    <a href="/profile/<%=current_user.id%>">Messages
+                    <a href="/profile/<%=current_user.id%>#messages">Messages
                         <% if current_user.unread? %>
                             <span class="badge pull-right alert-danger"><i class="fa fa-exclamation"></i></span>
                         <% end %>

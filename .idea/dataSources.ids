@@ -608,6 +608,7 @@
       <column name="image_content_type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="image_file_size" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="image_updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="expiry" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="conversations" schema="" catalog="mutrails" type="TABLE">
@@ -618,6 +619,11 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="conversations_users" schema="" catalog="mutrails" type="TABLE">
+      <column name="conversation_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <index name="index_conversations_users_on_conversation_id_and_user_id" unique="false" columns="conversation_id,user_id"/>
     </table>
     <table name="forem_categories" schema="" catalog="mutrails" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -718,7 +724,7 @@
     <table name="messages" schema="" catalog="mutrails" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="body" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="body" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="conversation_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
@@ -746,15 +752,15 @@
       <column name="forem_admin" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
       <column name="forem_state" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" def="J3BlbmRpbmdfcmV2aWV3Jw=="/>
       <column name="forem_auto_subscribe" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="confirmation_token" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="confirmed_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="confirmation_sent_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="unconfirmed_email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="unread" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_users_on_confirmation_token" unique="true" columns="confirmation_token"/>
       <index name="index_users_on_email" unique="true" columns="email"/>
       <index name="index_users_on_reset_password_token" unique="true" columns="reset_password_token"/>
-    </table>
-    <table name="users_conversations" schema="" catalog="mutrails" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="message_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="SYSTEM TABLE">
       <column name="Host" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>

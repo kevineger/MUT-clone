@@ -12,6 +12,8 @@ class ClassifiedPost < ActiveRecord::Base
   scope :recent, -> {order('created_at DESC')}
   scope :sort_high, -> {order('price DESC')}
   scope :sort_low, ->{order('price ASC')}
+  # validations
+  validates :description,:title,:price, :user_id, :classified_category_id, presence: true
   self.per_page = 21
   has_attached_file :image,
                     :styles => { :thumb => "100x100>", :small => "250x250" ,:large => "500x500"},

@@ -4,7 +4,7 @@
       <div class="menu visible-md visible-lg">
         <ul id="category-filter" class="menu-list">
           <li class="active"><%= link_to 'All Categories', classified_posts_path%></li>
-          <% categories.each do |category|%>
+          <% ClassifiedCategory.all.each do |category|%>
               <li><%= link_to category.name, classified_posts_path(:category => category.id), data: { :category =>category.id } %></li>
           <% end%>
         </ul>

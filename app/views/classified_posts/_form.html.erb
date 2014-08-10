@@ -1,7 +1,16 @@
 <%= form_for @classified_post, :html => { :multipart => true, :class => 'col-md-10 no-padding'}  do |f| %>
   <div id="grey-background">
     <h2 class="form-title">Create a Listing</h2>
-    <form role="form">
+    <% if @classified_post.errors.any? %>
+        <div class="form-group">
+          <h5><%= pluralize(@classified_post.errors.count, "error") %> prevented this post from being created.</h5>
+          <ul>
+            <% @classified_post.errors.full_messages.each do |message| %>
+                <li style="color: red"><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
       <div id="item-title" class="form-group">
         <h2 class="field-title">Item Title</h2>
         <%= f.text_field :title, :class => 'form-control', :placeholder => "Post Title"%>
@@ -34,6 +43,5 @@
       <div class="row" style="text-align:center;">
         <%= f.submit :type => 'submit', :class=>'btn btn-default btn-lg btn-blue btn-post' %>
       </div>
-    </form>
   </div>
 <% end %>
