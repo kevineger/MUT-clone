@@ -1,0 +1,7 @@
+$('.tab').removeClass('active');
+$('#profile-tab').addClass('active');
+<% if current_user.id == @user.id%>
+    $('.profile-container-inner').html("<%= escape_javascript(render partial: 'my_profile') %>");
+<% else %>
+    $('.profile-container-inner').html("<%= escape_javascript(render partial: 'info') %>");
+<% end %>

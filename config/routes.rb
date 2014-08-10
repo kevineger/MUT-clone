@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :conversations
+  resources :conversations, :except => [:edit, :update]
 
-  resources :messages
+  resources :messages, :only => [:create]
 
 
-  get 'profile/show'
-  get 'profile/show2'
+  get 'profile/:id', to: 'profile#show'
+  get '/profile/info/:id', to: 'profile#info'
+  get '/profile/posts/:id', to: 'profile#posts'
 
   ActiveAdmin.routes(self)
   resources :classified_categories, :path => "classifieds" do
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :classified_posts, :path => "posts" do
     post 'relist', on: :member
-    get 'from_category', on: :collection
+    get 'user', on: :collection
   end
 
 

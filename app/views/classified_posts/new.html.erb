@@ -1,5 +1,11 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-2">
+    <%= render partial: 'classified_categories/filter_box', locals: {categories: @categories} %>
+  </div>
 <%= render 'form' %>
-
+</div>
 <!--
 <%= link_to 'Back', classified_posts_path %>
 -->
+</div>

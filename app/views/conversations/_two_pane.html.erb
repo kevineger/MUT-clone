@@ -1,0 +1,10 @@
+<div style="height:700px" id="profile-messages" class="row">
+  <div class="col-md-3">
+    <%= render partial: 'list', locals: {conversations: conversations }%>
+  </div>
+  <div class="col-md-9">
+    <div class="row" id="conversation-show">
+    <%= render partial: 'show', locals: {messages: conversations.first.messages} %>
+    </div>
+  </div>
+</div>

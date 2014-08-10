@@ -1,90 +1,70 @@
-<!-- Carousel
-     ================================================== -->
-<div style="border-bottom: 20px solid #013861;" id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="item active">
-      <%= image_tag("logoBWG.jpg") %>
-      <div class="container">
-        <div class="carousel-caption">
-          <p><a class="btn btn-lg btn-primary pull-right btn-blue" href="#" role="button">Explore MUT</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag("logoBWG.jpg") %>
-      <div class="container">
-        <div class="carousel-caption">
-          <p><a class="btn btn-lg btn-primary pull-right btn-blue" href="#" role="button">Explore MUT</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <%= image_tag("logoBWG.jpg") %>
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Headline 3</h1>
-          <p>Headline 3 Description</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Headline 3 Button</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div><!-- /.carousel -->
+<!-- Search Field -->
+<div class="container">
 
-<!-- Featured Articles
-================================================== -->
-<div class= "container">
-  <div  class="jumbotron featured-article-jumbotron">
-    <h1>Example Feature</h1>
-    <p>Featured content will go ere...</p>
-  </div>
-  <hr>
-  <div class="col-lg-offset-1 col-lg-10">
-    <div class="media">
-      <%= image_tag @classified_post.image.url(:thumb), :class => 'featured-pic pull-left' %>
-      <div class="media-body">
-        <h3 class="media-heading">Recent Classified Post</h3>
-        <hr/>
-          <h4 class="ad-item-title"><%=@classified_post.title%></h4>
-          <p class="ad-item-disc"><%=@classified_post.description%></p>
-            <p class="ad-item-disc"><%=format_timesince @classified_post.updated_at%></p>
-      </div>
-    </div>
-    <hr>
-    <div class="media">
-      <a class="pull-left" href="#">
-        <%= image_tag("picolasCage.jpg", :class => 'featured-pic') %>
-      </a>
-      <div class="media-body">
-        <h3 class="media-heading">Recent Forum Post</h3>
-        <p>
-          Example Price 2 </br>
-          Example Desc. 2 </br>
-          Example Info. 2
-        </p>
-      </div>
-    </div>
-    <hr>
-    <div class="media">
-      <a class="pull-left" href="#">
-        <%= image_tag("picolasCage.jpg", :class => 'featured-pic') %>
-      </a>
-      <div class="media-body">
-        <h3 class="media-heading">Article Title 3</h3>
-        <p>
-          Example Price 3 </br>
-          Example Desc. 3 </br>
-          Example Info. 3
-        </p>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div style="padding-top:150px;" class="row">
+        <h1>Search U of C Textbooks</h1> 
+
+          <%= form_tag(main_app.classified_posts_path, method: "get") do %>
+            <div id="home-search" class="input-group input-group-lg">
+              <input name="search_text" type="text" class="form-control ">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Search</button>
+              </span>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <!-- Featured Carousel -->
+      <div id="myCarousel" class="featured-carousel carousel slide" data-ride="carousel">
+        <!-- CAROUSEL INDICATORS -->
+        <!-- <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol> -->
+
+        <div class="carousel-inner">
+          <div class="item active">
+            <% @posts.paginate(:page => 1, :per_page => 3).each do |post| %>
+                <%= render partial: '/home/featured', locals: {post:post} %>
+            <% end %>
+          </div>
+
+          <div class="item">
+            <% @posts.paginate(:page => 2, :per_page => 3).each do |post| %>
+                <%= render partial: '/home/featured', locals: {post:post} %>
+            <% end %>
+          </div>
+
+          <div class="item">
+            <% @posts.paginate(:page => 3, :per_page => 3).each do |post| %>
+                <%= render partial: '/home/featured', locals: {post:post} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="btn-group">
+        <a class="btn btn-default btn-lg" target="_blank" title="Like on Facebook" href="http://www.facebook.com">
+          <i class="fa fa-thumbs-o-up fa-lg fb"></i>
+        </a>
+        <button class="btn btn-default btn-lg disabled">Like and Follow</button>
+        <a class="btn btn-default btn-lg" target="_blank" title="Follow on Twitter" href="http://www.twitter.com">
+          <i class="fa fa-twitter fa-lg tw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.container -->

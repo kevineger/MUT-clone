@@ -1,15 +1,26 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /conversations
   # GET /conversations.json
   def index
+    user = User.find(current_user.id)
+    user.unread = false
+    user.save!
+    @message = Message.new
     @conversations = current_user.conversations
+    respond_to do |format|
+      format.js
+    end
   end
   # GET /conversations/1
   # GET /conversations/1.json
   def show
     @message = Message.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /conversations/new
@@ -36,7 +47,8 @@ class ConversationsController < ApplicationController
     @conversation.users << User.find(conversation_params[:user_id])
     respond_to do |format|
       if @conversation.save
-        format.html { redirect_to @conversation, notice: 'Conversation was successfully created.' }
+        new_message_alert! @conversation
+        format.html { redirect_to '/profile/'+current_user.id.to_s+'#messages', notice: 'Conversation was successfully created.' }
         format.json { render :show, status: :created, location: @conversation }
       else
         format.html { render :new }
@@ -44,6 +56,7 @@ class ConversationsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /conversations/1
   # PATCH/PUT /conversations/1.json

@@ -1,28 +1,39 @@
-.account-title {
-	font-size: 30px;
-	border-bottom: 1px solid #DDDDDD;
-	margin-top:10px;
+body {
+	/*Background built from Zen BG - http://mudcu.be/bg/*/
+	background: #ffffff;
+	background-image: url('../images/ZenBG-1.png'), url('ZenBG-2.png');
+	background-repeat: repeat-x, repeat;
+}
+h1 {
+	font-size:400%;
+	text-align:center
+}
+h4 {
+	color:#333;
 }
 .ad-frame {
 	height:310px;
-	padding:15px;
+	padding:10px;
 	position:relative;
 	text-align: center;
+	background-color:#FFF;
 }
 .ad-frame:hover {
-	background-color:#D8DBED;
+	background-color:#F5F5F5;
 }
 .ad-container {
-	margin-bottom:30px;
-	background-color: #F2F2F2;
+	margin-left:-10px;
+	margin-right:-10px;
+	margin-bottom:10px;
+	background-color: #F5F5F5;
 }
 .ad-full-pic {
 	width:400px;
 	height:400px;
 	display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom:20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom:20px;
 }
 .ad-info {
 	position:absolute;
@@ -39,9 +50,6 @@
 .blue {
 	color: #013861;
 }
-.btn-account {
-	margin:10px;
-}
 .btn-back-to-top {
 	position:fixed;
 	bottom:10px;
@@ -54,15 +62,20 @@
 	border:#013861;
 }
 .btn-blue:hover {
-	background-color:#005899; 
+	background-color:#004070; 
 	color:#FFFFFF;
-	border:#013861;
+	border-color:#004070;
+}
+.btn-group {
+	position:relative;
+	display:inline-block;
+	vertical-align:middle;
 }
 .btn-login {
-  margin-top:8px;
-  color:#999999;
-  border:#FFFFFF;
-  background-color:#222222;
+	margin-top:8px;
+	color:#999999;
+	border:#FFFFFF;
+	background-color:#222222;
 }
 .btn-login:hover {
 	background-color:#222222;
@@ -81,13 +94,17 @@
 #btn-search {
 	color: #998D8A;
 	background-color: #004070;
-	border-color: #004070;
+	border-color: #013861;
+}
+.carousel-control.left, .carousel-control.right {
+	background-image: none;
+	color:#013861;
 }
 .carousel-indicators li {
 	background-color: #013861;
 }
 .carousel-indicators .active {
-  background-color: #013861;
+	background-color: #013861;
 }
 .category-dropdown {
 	font-size: 20px;
@@ -101,10 +118,18 @@
 	display:block;
 	margin:auto;
 }
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
 .contact-seller {
 	position:absolute;
 	bottom:0px;
 	left:20px;
+}
+#currently-browsing {
+	display:block;
+	text-align: center;
 }
 .disc {
 	font-size: 16px;
@@ -113,15 +138,23 @@
 	margin:20px;
 	font-size:60px;
 }
-.featured-article-jumbotron {
-	background-color: #FFF;
+.featured-carousel {
+	margin:50px;
+}
+#post_X:hover {
+	color:#FFF;
+}
+.featured-item:hover,
+.featured-item:hover a {
+	color:#FFF;
 }
 .featured-pic {
 	max-height:200px;
 	max-width:200px;
-	padding: 15px;
-	/*display:inline-block;
-	vertical-align: middle;*/
+}
+.featured-title {
+	font-size:200%;
+	text-align:center;
 }
 .field-title {
 	padding-top:10px;
@@ -143,77 +176,97 @@
 	z-index: 2;
 }
 #grey-background {
-	background-color: #F2F2F2;
-	/*min-height:600px;*/
-	margin:20px;
+	background-color: #F5F5F5;
+	/*margin:20px;*/
 	padding:20px;
+	border:1px solid #DDD;
+	border-radius:4px;
+}
+.home-feature {
+	margin:10px;
 }
 .home-link {
 	position:relative;
 	height:42px;
-	width:42px;
+	/*width:42px;*/
 	top:5px;
 	margin-right:10px;
+}
+i.fb {
+	color: #3b5998;
+	margin-right:4px;
+	margin-left:4px;
+}
+i.tw {
+	color:#00aced;
 }
 #info-container {
 	min-height:800px;
 	width:inherit;
-	background-color: #F2F2F2;
+	background-color: #F5F5F5;
 }
-#items-bought {
-	float: left;
-	padding-left: 10px;
-	/*color: #000;*/
+.input-mini {
+	width:60px;
+	background-color:#004070;
+	border-color:#013861;
+	text-align:center;
+	border: 0;
+	padding: 5px;
+	color:#FFF;
 }
-#items-listed {
-	padding-right: 10px;
-	border-right: 1px solid #c3c3c3;
-	float: left;
-	/*color: #000;*/
+.input-mini:focus {
+	color:#FFF;
+	box-shadow:0px 0px 5px #6192D1;
+	-webkit-box-shadow: 0px 0px 5px  #6192D1;
+	-webkit-padding: 1px;
+	border:transparent;
 }
-#items-sold {
-	padding: 0 10px;
-	border-right: 1px solid #c3c3c3;
-	float: left;
-	/*color: #000;*/
+.input-mini:visited {
+	color:#FFF;
 }
-#name {
-	font-size: 40px;
-	color: #004070;
-}
-#name-container {
-	margin-top:25px;
-}
-.navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-	background-color: #004070;
-	color: white;
+#message-user {
+	margin-bottom:0;
 }
 .navbar-blue {
 	background-color: #013861;
 }
 .navbar-blue .navbar-nav > .active {
-  color: #FFFFFF;
-  font-weight:bold;
+	color: #FFFFFF;
+	font-weight:bold;
 }
 .navbar-blue .navbar-nav > .active > a, 
 .navbar-blue .navbar-nav > .active > a:hover, 
 .navbar-blue .navbar-nav > .active > a:focus {
-  background: #013861;
-  color: #FFFFFF;
-  font-weight:bold;
-  background-color:#004070;
+	background: #013861;
+	color: #FFFFFF;
+	font-weight:bold;
+	background-color:#004070;
 }
 #navbar-blue-search {
 	background-color: #004070;
 	border-color: #013861;
-	color: #FFFFFF;
+	color: #FFF;
 }
-#page-header {
-	height: 100px;
-	width:100%;
-	background-color: #D8DBED;
-	position:relative;
-	border-bottom: 1px solid #004070
+.navbar-inner {
+	text-align: center;
+}
+.navbar-nav > li > a {
+	color:#ccc !important;
+}
+.navbar-nav > li > a:hover {
+	color:#FFF!important;
+	background-color:#003C69!important;
+}
+.navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+	background-color: #004070!important;
+	color: white;
+}
+.nav-tabs > li > a,
+.nav-tabs > li > a:active {
+	color:#000!important;
+}
+.no-padding {
+	padding: 0 !important;
 }
 .pic-single {
 	max-height: 450px;
@@ -229,6 +282,30 @@
 }
 .post-row {
 	margin-top:20px;
+}
+.price-box {
+	padding:10px;
+	display:block;
+	text-align: center;
+}
+.price-search {
+	margin-left:10px;
+}
+#profile-container {
+	background-color:#F5F5F5;
+	border:1px solid #DDD;
+	border-radius:4px;
+	margin:20px;
+	padding:15px;
+}
+#profile-container > .profile-container-inner {
+	background-color:#FFF;
+	border-left:1px solid #DDD;
+	border-right:1px solid #DDD;
+	border-bottom:1px solid #DDD;
+}
+#profile-picture {
+	margin-top:100px;
 }
 .sale-history {
 	position: absolute;
@@ -264,4 +341,42 @@ tr {
 	font-size: 25px;
 	padding: 10px;
 	border-bottom: 1px solid #013861;
+}
+
+
+
+/*...............*/
+
+.menu {
+	width: 100%;
+}
+
+.menu-list {
+	background-color: #013861;
+	font-size: 16px; 
+	padding-left: 0;
+	padding-top:7px;
+	padding-bottom:7px
+}
+
+.menu-list > li {
+	display: block;
+}
+
+
+.menu-list > li > a {
+	font-family: 'Raleway', sans-serif;
+	padding: 10px 0 10px 10px; 
+	text-decoration: none; 
+	display: block;
+	color:#CCC; 
+}
+.menu-list > .active > a {
+	color: #FFFFFF;
+	font-weight:bold;
+	background-color:#004070;
+}
+.menu-list > li > a:hover {
+	color:#FFF;
+	background-color:#003C69;
 }

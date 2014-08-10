@@ -1,5 +1,5 @@
 # rails g migration add_confirmable_to_devise
-class Addc  onfirmable< ActiveRecord::Migration
+class Addconfirmable< ActiveRecord::Migration
   def self.up
     add_column :users, :confirmation_token, :string
     add_column :users, :confirmed_at,       :datetime

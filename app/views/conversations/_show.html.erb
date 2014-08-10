@@ -1,0 +1,12 @@
+<% messages.each do |message| %>
+    <% if message.user.id == current_user.id %>
+        <div class="row" style="background-color: lightblue">
+            <p  class="pull-right"><%= message.body %></p>
+        </div>
+    <% else %>
+        <div class="row" style="background-color: lightgrey">
+            <p ><%= message.body %></p>
+        </div>
+    <% end %>
+<% end %>
+<%= render partial: '/messages/form', :locals =>{conversation: messages.first.conversation}%>
