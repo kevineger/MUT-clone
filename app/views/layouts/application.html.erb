@@ -70,9 +70,16 @@
       </div>
 
       <%= yield %>
-        <p id="notice"><%= notice %></p>
       <!--<div class="row">-->
         <!--<small>Copyright 2014. My Uni.</small>-->
       <!--</div>-->
+    <% if notice %>
+        <script>
+          $(document).ready(function(){
+            toastr.options.closeButton = true;
+            toastr.info('<%=notice %>');
+          })
+        </script>
+    <% end %>
     </body>
 </html>

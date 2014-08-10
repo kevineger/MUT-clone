@@ -14,9 +14,9 @@
     <div class="row">
       <div class="menu visible-md visible-lg">
         <ul id="sort-filter" class="menu-list">
-          <li class="active"><%= link_to 'Date: Most Recent',classified_posts_path(:sort => 1), date: { :sort => 1}%></li>
-          <li class=""><%= link_to 'Price: Lowest First',classified_posts_path(:sort => 2), date: { :sort => 2}%></li>
-          <li class=""><%= link_to 'Price: Highest First',classified_posts_path(:sort => 3), date: { :sort => 3}%></li>
+          <li class="active"><%= link_to 'Date: Most Recent',classified_posts_path(:sort => 1), data: { :sort => 1}%></li>
+          <li class=""><%= link_to 'Price: Lowest First',classified_posts_path(:sort => 2), data: { :sort => 2}%></li>
+          <li class=""><%= link_to 'Price: Highest First',classified_posts_path(:sort => 3), data: { :sort => 3}%></li>
         </ul>
       </div><!-- /.sort-menu -->
     </div>
