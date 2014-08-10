@@ -1,61 +1,64 @@
 <div id="classifieds-container" class="container">
   <div class="row">
     <div class="col-md-2">
+      <!-- Filter Box -->
       <%= render partial: 'classified_categories/filter_box', locals: {categories: @classified_categories} %>
     </div>
     <div class="col-md-10">
       <!-- Individual add item -->
-          <div id="post-grid">
-            <%= render partial: 'classified_posts/posts', locals: {posts: @classified_posts}  %>
-          </div>
+      <div id="post-grid">
+        <%= render partial: 'classified_posts/posts', locals: {posts: @classified_posts}  %>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Javascript -->
 <script>
-    function filter(target){
-        $.get(target,
-                {
-                    category: $('a',$('.active','#category-filter')).data('category'),
-                    sort: $('a',$('.active','#sort-filter')).data('sort'),
-                    price_low: $('#low').val(),
-                    price_high:$('#high').val(),
-                    search_text:$('#navbar-blue-search').val()
-                }, null, "script")
-    }
-    $(document).ready(function () {
-        $('#category-filter').on('click', 'a', function(e){
-            e.preventDefault();
-            console.log('triggered');
-            $('.active', '#category-filter').removeClass('active');
-            $(this).closest('li').addClass('active');
-            filter('/posts');
-        });
-    });
-    $(document).ready(function () {
-        $('#sort-filter').on('click', 'a', function(e){
-            e.preventDefault();
-            $('.active', '#sort-filter').removeClass('active');
-            $(this).closest('li').addClass('active');
-            filter('/posts');
-        });
-    });
-    $(document).ready(function () {
-        $('.price-box').on('submit', function(e){
-            e.preventDefault();
-            filter($('a.active', '.pagination').data('target'));
-        });
-    });
-    $(document).ready(function () {
-        $('a','.pagination').on('click', function(e){
-            e.preventDefault();
-            console.log('button-clicked');
-            filter('/posts?page='+$(this).data('target'));
-        });
-    });
-    $(document).ready(function(){
-       $('.navbar-form').on('submit',function(e){
-           e.preventDefault();
-           filter();
-       });
-    });
+function filter(target){
+  $.get(target,
+  {
+    category: $('a',$('.active','#category-filter')).data('category'),
+    sort: $('a',$('.active','#sort-filter')).data('sort'),
+    price_low: $('#low').val(),
+    price_high:$('#high').val(),
+    search_text:$('#navbar-blue-search').val()
+  }, null, "script")
+}
+$(document).ready(function () {
+  $('#category-filter').on('click', 'a', function(e){
+    e.preventDefault();
+    console.log('triggered');
+    $('.active', '#category-filter').removeClass('active');
+    $(this).closest('li').addClass('active');
+    filter('/posts');
+  });
+});
+$(document).ready(function () {
+  $('#sort-filter').on('click', 'a', function(e){
+    e.preventDefault();
+    $('.active', '#sort-filter').removeClass('active');
+    $(this).closest('li').addClass('active');
+    filter('/posts');
+  });
+});
+$(document).ready(function () {
+  $('.price-box').on('submit', function(e){
+    e.preventDefault();
+    filter($('a.active', '.pagination').data('target'));
+  });
+});
+$(document).ready(function () {
+  $('a','.pagination').on('click', function(e){
+    e.preventDefault();
+    console.log('button-clicked');
+    filter('/posts?page='+$(this).data('target'));
+  });
+});
+$(document).ready(function(){
+ $('.navbar-form').on('submit',function(e){
+   e.preventDefault();
+   filter();
+ });
+});
 </script>

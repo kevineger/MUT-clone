@@ -1,38 +1,39 @@
-<%= form_for @classified_post, :html => { :multipart => true, :class => 'col-md-10'}  do |f| %>
-
-    <div id="grey-background">
-      <h2 class="form-title">Create a Listing</h2>
-      <form role="form">
-        <div id="item-title" class="form-group">
-          <h2 class="field-title">Item Title</h2>
-          <%= f.text_field :title, :class => 'form-control', :placeholder => "Post Title"%>
-        </div>
-        <div id="item-category" class="form-group">
-          <h2 class="field-title">Select a Category</h2>
-          <select name="classified_post[classified_category_id]" class="category-dropdown">
-            <option value="" disabled selected style="display:none;">Select A Category</option>
-            <%= options_from_collection_for_select(ClassifiedCategory.all, :id, :name) %>
-          </select>
-        </div>
-        <div id="item-price" class="form-group">
-          <h2 class="field-title">Item Price</h2>
-          <%= f.text_field :price, :class => 'form-control', :placeholder => "Item Price"%>
-        </div>
-        <div id="item-disc" class="from-group">
-          <h2 class="field-title">Item Discription</h2>
-          <%= f.text_area :description, :style => 'resize:none;', :class => 'form-control', :placeholder => "Item Discription", :rows => '6'%>
-        </div>
-        <div id="item-pic" class="form-group">
-          <h2 class="field-title">Item Picture</h2>
-          <%= f.file_field :image, :class => 'pic-input'%>
-          <p class="help-block">Select a picture for your post</p>
-        </div>
-        <div id="item-concent" class="checkbox">
-          <label>
-            <input type="checkbox"> I Agree to the posting guidelines and regulations
-          </label>
-        </div>
+<%= form_for @classified_post, :html => { :multipart => true, :class => 'col-md-10 no-padding'}  do |f| %>
+  <div id="grey-background">
+    <h2 class="form-title">Create a Listing</h2>
+    <form role="form">
+      <div id="item-title" class="form-group">
+        <h2 class="field-title">Item Title</h2>
+        <%= f.text_field :title, :class => 'form-control', :placeholder => "Post Title"%>
+      </div>
+      <div id="item-category" class="form-group">
+        <h2 class="field-title">Select a Category</h2>
+        <select name="classified_post[classified_category_id]" class="category-dropdown">
+          <option value="" disabled selected style="display:none;">Select A Category</option>
+          <%= options_from_collection_for_select(ClassifiedCategory.all, :id, :name) %>
+        </select>
+      </div>
+      <div id="item-price" class="form-group">
+        <h2 class="field-title">Item Price</h2>
+        <%= f.text_field :price, :class => 'form-control', :placeholder => "Item Price"%>
+      </div>
+      <div id="item-disc" class="from-group">
+        <h2 class="field-title">Item Discription</h2>
+        <%= f.text_area :description, :style => 'resize:none;', :class => 'form-control', :placeholder => "Item Discription", :rows => '6'%>
+      </div>
+      <div id="item-pic" class="form-group">
+        <h2 class="field-title">Item Picture</h2>
+        <%= f.file_field :image, :class => 'pic-input'%>
+        <p class="help-block">Select a picture for your post</p>
+      </div>
+      <div id="item-concent" class="checkbox">
+        <label>
+          <input type="checkbox"> I Agree to the posting guidelines and regulations
+        </label>
+      </div>
+      <div class="row" style="text-align:center;">
         <%= f.submit :type => 'submit', :class=>'btn btn-default btn-lg btn-blue btn-post' %>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
 <% end %>

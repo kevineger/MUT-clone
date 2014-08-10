@@ -1,12 +1,14 @@
 <% messages.each do |message| %>
     <% if message.user.id == current_user.id %>
-        <div class="row" style="background-color: lightblue">
-            <p  class="pull-right"><%= message.body %></p>
+        <div class="row conversation-message">
+            <p  class="conversation-text conversation-sent pull-right"><%= message.body %></p>
         </div>
     <% else %>
-        <div class="row" style="background-color: lightgrey">
-            <p ><%= message.body %></p>
+        <div class="row conversation-message">
+            <p class="conversation-text conversation-received pull-left"><%= message.body %></p>
         </div>
     <% end %>
 <% end %>
-<%= render partial: '/messages/form', :locals =>{conversation: messages.first.conversation}%>
+<div class="row">
+	<%= render partial: '/messages/form', :locals =>{conversation: messages.first.conversation}%>
+</div>

@@ -3,11 +3,10 @@
 		<h3><%= @user.email%></h3>
 		<ul class="nav nav-tabs" role="tablist">
 			<li id="posts-tab" class="active tab"><%= link_to 'Posts', "/profile/posts/#{@user.id}", :remote => true%></li>
-            <li  id="profile-tab" class="tab"><%= link_to 'Profile', "/profile/info/#{@user.id}", :remote => true%></li>
-            <% if current_user.id == @user.id %>
+      <li  id="profile-tab" class="tab"><%= link_to 'Profile', "/profile/info/#{@user.id}", :remote => true%></li>
+      <% if current_user.id == @user.id %>
 			  <li id="messages-tab" class="tab"><%= link_to 'Messages', conversations_path, :remote => true%></li>
-            <% end %>
-            <% %>
+      <% end %>
 			<li  class="pull-right"><%= button_to 'Create a Post',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue", :method=> "get" %></li>
 		</ul>
 		<div class="profile-container-inner">
