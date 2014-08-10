@@ -23,10 +23,10 @@
 
           <div id="main-navbar-collapse" class="collapse navbar-collapse">
             <ul class = "nav navbar-nav navbar-left">
-              <li class = "<%= 'active' if params[:action] == 'index' %>">
+              <li class = "<%= 'active' if params[:action] == 'index' && params[:controller] == 'classified_posts' %>">
                 <%= link_to 'Browse', main_app.classified_posts_path %>
               </li>
-              <li class = "<%= 'active' if params[:action] == 'new' %>">
+              <li class = "<%= 'active' if params[:action] == 'new' && params[:controller] == 'classified_posts'%>">
                 <%= link_to 'Create a Post', new_classified_post_path %>
               </li>
             </ul>
