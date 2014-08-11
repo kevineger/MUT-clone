@@ -1,11 +1,16 @@
 <div id="profile-messages" class="row">
   <div class="col-md-3">
-  	<div></div>
+    <% if conversations.first %>
     <%= render partial: 'list', locals: {conversations: conversations }%>
+    <% else %>
+        <h4>No Messages Found</h4>
+    <% end %>
   </div>
   <div class="col-md-9 no-padding" style="height:100%;">
     <div style="height:100%;" id="conversation-show">
-    <%= render partial: 'show', locals: {messages: conversations.first.messages} %>
+      <% if conversations.first %>
+        <%= render partial: 'show', locals: {messages: conversations.first.messages} %>
+      <% end %>
     </div>
   </div>
 </div>
