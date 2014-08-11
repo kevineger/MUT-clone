@@ -13,5 +13,9 @@ ActiveAdmin.register ClassifiedCategory do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
+  controller do
+    def permitted_params
+      params.permit!
+    end
+  end
 end
