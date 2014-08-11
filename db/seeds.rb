@@ -10,6 +10,7 @@ user = User.new(
     :email                 => "admin@admin.com",
     :password              => "password",
     :password_confirmation => "password",
+    :username => "admin",
     :forem_admin => true
 )
 user.skip_confirmation!
@@ -18,6 +19,7 @@ user = User.new(
     :email                 => "user1@user.com",
     :password              => "password",
     :password_confirmation => "password",
+    :username => "user1",
     :forem_admin => true
 )
 user.skip_confirmation!
@@ -26,6 +28,7 @@ user = User.new(
     :email                 => "user2@user.com",
     :password              => "password",
     :password_confirmation => "password",
+    :username => "user2",
     :forem_admin => true
 )
 user.skip_confirmation!
@@ -34,6 +37,7 @@ user = User.new(
     :email                 => "user3@user.com",
     :password              => "password",
     :password_confirmation => "password",
+    :username => "user3",
     :forem_admin => true
 )
 user.skip_confirmation!
@@ -54,7 +58,7 @@ i=0
 30.times do
   post = ClassifiedPost.new(title: 'This is a title for post '+i.to_s,description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mi in elit feugiat faucibus. Sed at feugiat ante. Aenean in velit at arcu pretium ultricies. Ut id porta diam. Suspendisse semper at est ac dictum.',
                             price: (20 + Random.rand(10000)/100),classified_category: ClassifiedCategory.order("RAND()").first, user: User.order("RAND()").first, expiry: Time.now)
-  post.image = File.open(Rails.root.to_s + '/db/sample.png')
+  post.image = File.open(Rails.root.to_s + '/db/sample.jpg')
   post.save!
   i+=1
 end
