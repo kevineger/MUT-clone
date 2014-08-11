@@ -78,6 +78,15 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  config.action_mailer.default_url_options = {:host => 'http://evening-bayou-6334.herokuapp.com/'}
+  ActionMailer::Base.smtp_settings = {
+      :address        => "smtp.mailgun.org",
+      :port           => "25",
+      :authentication => :plain,
+      :user_name      => 'postmaster@sandbox76a8bdd5d8dc4b84b39eae59ceeabf34.mailgun.org',
+      :password       => 'password',
+      :domain         => 'sandbox76a8bdd5d8dc4b84b39eae59ceeabf34.mailgun.org'
+  }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
     config.paperclip_defaults = {
