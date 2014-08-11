@@ -9,5 +9,5 @@
   <p>Sent From <%= t.user.email %></p>
 <% end %>
   <hr/>
-<%= render '/messages/form', :locals =>{:message=>@message}%>
+<%= render '/messages/form', :locals =>{:message=>@message, :conversation =>@conversation.id}%>
 </div>

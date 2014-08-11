@@ -1,6 +1,13 @@
 <div class="container">
-  <div class="row row-centered">
-    <div class="col-md-6 col-md-offset-2">
+  <div class="row">
+    
+    <!-- Navigation Sidebar -->
+    <div class="col-md-2">
+      <%= render partial: 'classified_categories/filter_box', locals: {categories: @categories} %>
+    </div>
+
+    <!-- Ad -->
+    <div class="col-md-6 no-padding">
       <div class="panel panel-default ad-panel">
         <div class="panel-heading">
           <%= @classified_post.title %>
@@ -14,20 +21,19 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+
+    <!-- User Information -->
+    <div class="col-md-4 no-padding">
       <div class="panel panel-default ad-panel">
-        <div class="panel-heading"><%=@classified_post.user.email%></div>
+        <div class="panel-heading"><%=@classified_post.user.username%></div>
         <div class="panel-body">
-          <!-- <div class="row"> -->
             <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
-            <h4>Kevin Eger</h4>
-            <h5>University of British Columbia</h5>
-            <% if defined? current_user.email %>
-                <h5><span class="glyphicon glyphicon-envelope"></span><%=link_to 'Message This User',new_conversation_path(:user => current_user.id, :post => @classified_post.id) %></h5>
-            <% end %>
+            <h4><%= @classified_post.user.username%></h4>
+            <h5 id="message-user"><%= link_to new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) do %><span class="glyphicon glyphicon-envelope"></span> Message this user<% end %></h5>
         </div>
       </div>
     </div>
+
   </div>
   <div class="row">
     <%= link_to 'Edit', edit_classified_post_path(@classified_post) %> |

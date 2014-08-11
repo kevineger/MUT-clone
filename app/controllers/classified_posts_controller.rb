@@ -1,17 +1,37 @@
 class ClassifiedPostsController < ApplicationController
   before_action :set_classified_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :new]
+  has_scope :category, :search_text, :price_high, :price_low
+  has_scope :sort do |controller, scope,value|
+    case value
+      when '1'
+        scope.recent
+      when '2'
+        scope.sort_low
+      when '3'
+        scope.sort_high
 
+    end
+  end
   # GET /classified_posts
   # GET /classified_posts.json
   def index
-    @classified_posts = ClassifiedPost.all
+    page = params[:page]
+    if !page
+      page = 1
+    end
+    @classified_posts = apply_scopes(ClassifiedPost).all.paginate(:page => page)
+    @classified_categories = ClassifiedCategory.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
-
   # GET /classified_posts/1
   # GET /classified_posts/1.json
   def show
+    @categories = ClassifiedCategory.all
   end
-
   # GET /classified_posts/new
   def new
     @classified_post = ClassifiedPost.new
@@ -20,12 +40,19 @@ class ClassifiedPostsController < ApplicationController
   # GET /classified_posts/1/edit
   def edit
   end
+  def relist
+    @classified_post = ClassifiedPost.find(params[:id])
+    @classified_post.expiry = Time.now
+    @classified_post.save
+    render nothing: true
+  end
 
   # POST /classified_posts
   # POST /classified_posts.json
   def create
     @classified_post = ClassifiedPost.new(classified_post_params)
     @classified_post.user = current_user
+    @classified_post.expiry = Time.now
     respond_to do |format|
       if @classified_post.save
         format.html { redirect_to @classified_post, notice: 'Classified post was successfully created.' }
@@ -58,31 +85,6 @@ class ClassifiedPostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to classified_posts_url, notice: 'Classified post was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-  def from_category
-    page = params[:page]
-    if !page
-      page = 1
-    end
-    @category = params[:cat_id]
-    @search = params[:search]
-    @posts
-    if(@search==''||!@search)
-      if(@category == ''|| !@category||@category=='0')
-        @posts = ClassifiedPost.all.paginate(:page => page)
-      else
-        @posts = ClassifiedCategory.find(@category).classified_posts.paginate(:page => page)
-      end
-    else
-      if(@category == ''|| !@category||@category=='0')
-        @posts = ClassifiedPost.where(["title like ?", "%#{@search}%"]).paginate(:page => page)
-      else
-        @posts = ClassifiedCategory.find(@category).classified_posts.where(["title like ?", "%#{@search}%"]).paginate(:page => page)
-      end
-    end
-    respond_to do |format|
-      format.js
     end
   end
   private

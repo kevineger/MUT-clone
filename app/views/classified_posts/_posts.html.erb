@@ -1,19 +1,30 @@
-<% posts.each do |post| %>
-    <div class="col-sm-4 col-md-4">
-      <%= link_to(post) do %>
-          <div class="ad-container">
-            <div class="ad-frame">
-              <%=image_tag post.image.url(:small), :class => 'featured-pic center-pic' %>
-              <div class="ad-info">
-                <h4 class="ad-item-title"><%=post.title%></h4>
-                <h5>Price: <%=post.price%></h5>
-                <p><%=format_timesince post.updated_at%></p>
-              </div>
+<div class="row">
+  <% posts.each do |post| %>
+    <div class="col-sm-4 col-md-4 no-padding">
+      <div class="ad-container">
+        <%= link_to(post) do %>
+          <div class="ad-frame">
+            <%=image_tag post.image.url(:small), :class => 'featured-pic center-pic' %>
+            <div class="ad-info">
+              <h4 class="ad-item-title"><%=post.title%></h4>
+              <h5>Price: <%=number_to_currency(post.price, :unit => "$")%></h5>
+              <p><%=format_timesince post.updated_at%></p>
             </div>
           </div>
-      <% end %>
-    </div><% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- Filter Error Catch -->
+<% if posts.size == 0 %>
 <div class="text-center">
-  <%= will_paginate @posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer',
-      :class => 'pagination', :params => { :category_id => category, :controller => 'classified_posts', :action => 'from_category'}%>
+  <h4 style="font-size:200%;">There are no posts with your selected search filter</h4>
+</div>
+<% end %>
+
+<!-- Pagination at Bottom of Screen -->
+<div class="row text-center">
+  <%= will_paginate posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer', :class => 'pagination-custom pagination'%>
 </div>

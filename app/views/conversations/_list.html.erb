@@ -1,0 +1,5 @@
+<ul class="list-group">
+  <% conversations.each do |conversation| %>
+      <li class="list-group-item"><%=link_to conversation.subject, conversation_path(conversation), remote: true %></li>
+  <% end %>
+</ul>

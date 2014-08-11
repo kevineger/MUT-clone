@@ -1,0 +1,37 @@
+<div id="filter-box">
+    <!-- Category Menu -->
+    <div class="row">
+      <div class="menu visible-md visible-lg">
+        <ul id="category-filter" class="menu-list">
+          <li class="active"><%= link_to 'All Categories', classified_posts_path%></li>
+          <% ClassifiedCategory.all.each do |category|%>
+              <li><%= link_to category.name, classified_posts_path(:category => category.id), data: { :category =>category.id } %></li>
+          <% end%>
+        </ul>
+      </div><!-- /.sidebar-menu -->
+    </div>
+    <!-- Sort Menu -->
+    <div class="row">
+      <div class="menu visible-md visible-lg">
+        <ul id="sort-filter" class="menu-list">
+          <li class="active"><%= link_to 'Date: Most Recent',classified_posts_path(:sort => 1), data: { :sort => 1}%></li>
+          <li class=""><%= link_to 'Price: Lowest First',classified_posts_path(:sort => 2), data: { :sort => 2}%></li>
+          <li class=""><%= link_to 'Price: Highest First',classified_posts_path(:sort => 3), data: { :sort => 3}%></li>
+        </ul>
+      </div><!-- /.sort-menu -->
+    </div>
+    <!-- Price Menu -->
+    <div class="row">
+      <div class="menu visible-lg">
+        <ul id="price-filter" class="menu-list">
+          <form action="/posts" class="form-inline price-box">
+            <input id="low" name="price_low" type="text" class="input-mini" placeholder="Low">
+            <i class="fa fa-arrows-h" style="color:#CCC;"></i>
+            <input id="high" name="price_high" type="text" class="input-mini" placeholder="High">
+            <button class="price-search"><i id="price-go" class="fa fa-search"></i></button>
+          </form>
+        </ul>
+      </div><!-- /.price-menu -->
+    </div>
+    <!-- Pagination -->
+</div>

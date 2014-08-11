@@ -5,20 +5,55 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
+user = User.new(
+    :email                 => "admin@admin.com",
+    :password              => "password",
+    :password_confirmation => "password",
+    :forem_admin => true
+)
+user.skip_confirmation!
+user.save!
+user = User.new(
+    :email                 => "user1@user.com",
+    :password              => "password",
+    :password_confirmation => "password",
+    :forem_admin => true
+)
+user.skip_confirmation!
+user.save!
+user = User.new(
+    :email                 => "user2@user.com",
+    :password              => "password",
+    :password_confirmation => "password",
+    :forem_admin => true
+)
+user.skip_confirmation!
+user.save!
+user = User.new(
+    :email                 => "user3@user.com",
+    :password              => "password",
+    :password_confirmation => "password",
+    :forem_admin => true
+)
+user.skip_confirmation!
+user.save!
+
 ClassifiedCategory.delete_all
-ClassifiedCategory.create(name: 'Category 1', icon: 'placeholder')
-ClassifiedCategory.create(name: 'Category 2', icon: 'placeholder')
-ClassifiedCategory.create(name: 'Category 3', icon: 'placeholder')
-ClassifiedCategory.create(name: 'Category 4', icon: 'placeholder')
-ClassifiedCategory.create(name: 'Category 5', icon: 'placeholder')
-ClassifiedCategory.create(name: 'Category 6', icon: 'placeholder')
-ClassifiedCategory.create(name: 'Category 7', icon: 'placeholder')
-ClassifiedCategory.create(name: 'Category 8', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Computer Science', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Biology', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Chemistry', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Human Kinetics', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Nursing', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Engineering', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Pharmacy', icon: 'placeholder')
+ClassifiedCategory.create(name: 'Sculpting', icon: 'placeholder')
 
 ClassifiedPost.delete_all
 i=0
 30.times do
-  post = ClassifiedPost.new(title: 'This is a title for post '+i.to_s,description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mi in elit feugiat faucibus. Sed at feugiat ante. Aenean in velit at arcu pretium ultricies. Ut id porta diam. Suspendisse semper at est ac dictum.',  price: 19.99,classified_category: ClassifiedCategory.first, user: User.first)
+  post = ClassifiedPost.new(title: 'This is a title for post '+i.to_s,description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mi in elit feugiat faucibus. Sed at feugiat ante. Aenean in velit at arcu pretium ultricies. Ut id porta diam. Suspendisse semper at est ac dictum.',
+                            price: (20 + Random.rand(10000)/100),classified_category: ClassifiedCategory.order("RAND()").first, user: User.order("RAND()").first, expiry: Time.now)
   post.image = File.open(Rails.root.to_s + '/db/sample.png')
   post.save!
   i+=1

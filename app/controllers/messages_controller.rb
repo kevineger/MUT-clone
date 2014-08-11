@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create, :new]
   # GET /messages
   # GET /messages.json
   def index
@@ -15,7 +15,6 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
   end
-
   # GET /messages/1/edit
   def edit
   end
@@ -23,9 +22,12 @@ class MessagesController < ApplicationController
 
   # POST /messages.json
   def create
+    @conversation = Conversation.find(message_params[:conversation_id])
+    new_message_alert! @conversation
     @message = Message.create(message_params)
+    @message = Message.new
     respond_to do |format|
-      format.html { redirect_to @message, notice: 'Message was successfully created.' }
+      format.js
     end
   end
   # PATCH/PUT /messages/1
@@ -57,6 +59,6 @@ class MessagesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:name, :body, :subject, conversations_attributes: [:subject])
+      params.require(:message).permit(:body, :user_id, :conversation_id)
     end
 end

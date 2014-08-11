@@ -5,9 +5,9 @@ class ClassifiedCategoriesController < ApplicationController
   # GET /classified_categories.json
   def index
     @classified_categories = ClassifiedCategory.all
-    @posts = ClassifiedPost.paginate(:page => 1)
+    @posts = ClassifiedPost.where('expiry > ?', 30.days.ago).paginate(:page => 1)
+    @message = Message.new
   end
-
   # GET /classified_categories/1
   # GET /classified_categories/1.json
   def show

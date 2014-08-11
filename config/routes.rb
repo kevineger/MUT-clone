@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :conversations
+  resources :conversations, :except => [:edit, :update]
 
-  resources :messages
+  resources :messages, :only => [:create]
 
 
-  get 'profile/show'
-  get 'profile/show2'
+  get 'profile/:id', to: 'profile#show'
+  get '/profile/info/:id', to: 'profile#info'
+  get '/profile/posts/:id', to: 'profile#posts'
 
   ActiveAdmin.routes(self)
   resources :classified_categories, :path => "classifieds" do
@@ -15,7 +16,8 @@ Rails.application.routes.draw do
     end
   end
   resources :classified_posts, :path => "posts" do
-    get 'from_category', on: :collection
+    post 'relist', on: :member
+    get 'user', on: :collection
   end
 
 
@@ -26,7 +28,7 @@ Rails.application.routes.draw do
   # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
   mount Forem::Engine, :at => '/forums'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

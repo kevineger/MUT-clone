@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715024616) do
+ActiveRecord::Schema.define(version: 20140810195221) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140715024616) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "expiry"
   end
 
   create_table "conversations", force: true do |t|
@@ -162,7 +163,7 @@ ActiveRecord::Schema.define(version: 20140715024616) do
 
   create_table "messages", force: true do |t|
     t.string   "name"
-    t.string   "body"
+    t.text     "body"
     t.integer  "user_id"
     t.integer  "conversation_id"
     t.datetime "created_at"
@@ -185,14 +186,17 @@ ActiveRecord::Schema.define(version: 20140715024616) do
     t.boolean  "forem_admin",            default: false
     t.string   "forem_state",            default: "pending_review"
     t.boolean  "forem_auto_subscribe",   default: false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.boolean  "unread"
+    t.string   "username"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "users_conversations", force: true do |t|
-    t.integer "message_id"
-    t.integer "user_id"
-  end
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
