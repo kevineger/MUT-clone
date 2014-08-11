@@ -2,7 +2,7 @@ class ClassifiedPostsController < ApplicationController
   before_action :set_classified_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :new]
   has_scope :category, :search_text, :price_high, :price_low
-  has_scope :sort do |controller, scope,value|
+  has_scope :sort, allow_blank: true, default: '1' do |controller, scope,value|
     case value
       when '1'
         scope.recent
