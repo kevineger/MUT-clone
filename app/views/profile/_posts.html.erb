@@ -7,7 +7,9 @@
       <th>When</th>
       <th>Title</th>
       <th>Discription</th>
+      <th>Expiring</th>
       <%  if current_user.id == posts.first.user.id%>
+          <th>Relist</th>
           <th>Edit</th>
           <th>Delete</th>
       <% else %>
@@ -22,7 +24,15 @@
               <td><%= time_ago_in_words post.created_at%> Ago</td>
               <td><%= post.title%></td>
               <td><%= post.description%></td>
+              <td>
+                <% if (post.expiry.to_date - Time.now.to_date).to_i >0 %>
+                    <%= (post.expiry.to_date - Time.now.to_date).to_i %> days from now
+                <% else  %>
+                    Expired
+                <% end %>
+              </td>
               <%  if current_user.id == post.user.id%>
+                  <td><%= button_to 'Relist',relist_classified_post_path(post),:class =>'btn btn-info', :method => 'post'%></td>
                   <td><%= button_to 'Edit',edit_classified_post_path(post),:class =>'btn btn-warning', :method => 'get'%></td>
                   <td><%= button_to 'Delete',classified_post_path(post), :method => 'delete', :class =>'btn btn-danger'%></td>
               <% else %>

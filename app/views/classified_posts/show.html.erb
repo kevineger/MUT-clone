@@ -17,6 +17,7 @@
           <div class="disc-container">
             <p class="disc"><%=@classified_post.description%></p>
             <p>$<%=@classified_post.price %></p>
+            <p class="pull-right"><%=format_timesince @classified_post.updated_at%></p>
           </div>
         </div>
       </div>

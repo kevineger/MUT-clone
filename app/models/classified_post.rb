@@ -9,6 +9,7 @@ class ClassifiedPost < ActiveRecord::Base
   scope :search_text, -> (title) { where("title like ?", "%#{title}%")}
   scope :price_low, -> (price_low) { where("price > ?", price_low)}
   scope :price_high, -> (price_high) { where("price < ?", price_high)}
+  scope :current, -> {where("expiry > ?", Time.now)}
   scope :recent, -> {order('created_at DESC')}
   scope :sort_high, -> {order('price DESC')}
   scope :sort_low, ->{order('price ASC')}

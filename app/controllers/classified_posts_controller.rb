@@ -1,7 +1,8 @@
 class ClassifiedPostsController < ApplicationController
-  before_action :set_classified_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_classified_post, only: [:show, :edit, :update, :destroy, :relist]
   before_action :authenticate_user!, only: [:create, :new]
   has_scope :category, :search_text, :price_high, :price_low
+  has_scope :current, type: :boolean, allow_blank: true, default: 1
   has_scope :sort, allow_blank: true, default: '1' do |controller, scope,value|
     case value
       when '1'
@@ -10,7 +11,6 @@ class ClassifiedPostsController < ApplicationController
         scope.sort_low
       when '3'
         scope.sort_high
-
     end
   end
   # GET /classified_posts
@@ -41,10 +41,10 @@ class ClassifiedPostsController < ApplicationController
   def edit
   end
   def relist
-    @classified_post = ClassifiedPost.find(params[:id])
-    @classified_post.expiry = Time.now
-    @classified_post.save
-    render nothing: true
+    @classified_post.expiry = 30.days.from_now
+    if @classified_post.save
+      redirect_to '/profile/'+current_user.id.to_s, notice: 'Post Relisted'
+      end
   end
 
   # POST /classified_posts
@@ -52,7 +52,7 @@ class ClassifiedPostsController < ApplicationController
   def create
     @classified_post = ClassifiedPost.new(classified_post_params)
     @classified_post.user = current_user
-    @classified_post.expiry = Time.now
+    @classified_post.expiry = 30.days.from_now
     respond_to do |format|
       if @classified_post.save
         format.html { redirect_to @classified_post, notice: 'Classified post was successfully created.' }
