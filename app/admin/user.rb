@@ -3,13 +3,14 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs "User" do
       f.input :email
+      f.input :username
       f.input :password
       f.input :password_confirmation
       f.input :forem_admin
     end
     f.actions
   end
-  permit_params(:email, :password, :password_confirmation, :forem_admin)
+  permit_params(:email, :password,:username :password_confirmation, :forem_admin)
   controller do
     def update
       if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
