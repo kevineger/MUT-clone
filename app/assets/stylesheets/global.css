@@ -1,8 +1,6 @@
 body {
 	/*Background built from Zen BG - http://mudcu.be/bg/*/
-	background: #ffffff;
-	background-image: url('../images/ZenBG-1.png'), url('ZenBG-2.png');
-	background-repeat: repeat-x, repeat;
+	background: #D4D4D5;
 }
 .body-pic {
 	z-index: -1;
