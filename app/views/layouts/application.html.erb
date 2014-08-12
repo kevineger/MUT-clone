@@ -76,8 +76,15 @@
     <% if notice %>
         <script>
           $(document).ready(function(){
-            toastr.options.closeButton = true;
+            
+            toastr.options: {
+    
+              "positionClass": "toast-bottom-right",
+
+            }
             toastr.info('<%=notice %>');
+            
+             //show when the button is clicked
           })
         </script>
     <% end %>
