@@ -102,6 +102,12 @@ h4 {
 	background-color: #004070;
 	border-color: #013861;
 }
+.caption {
+	padding-top:0px!important;
+	padding-left:10px;
+	padding-right:10px;
+	color:#333;
+}
 .carousel-control.left, .carousel-control.right {
 	background-image: none;
 	color:#013861;
@@ -173,6 +179,17 @@ h4 {
 	margin-bottom:0px;
 	font-size:60px;
 }
+.explore-container {
+	padding:15px;
+	margin:60px;
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius:10px;
+}
+.search-container {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius:10px;
+	padding:20px;
+}
 .featured-carousel {
 	margin:50px;
 }
@@ -203,13 +220,6 @@ h4 {
 	padding-top:20px;
 	margin:auto;
 }
-/*#grey-wrapper {
-	background: #9DA5AF;
-	background-color: #9DA5AF;
-	border-bottom: 1px solid #013861;
-	height: 160px;
-	z-index: 2;
-}*/
 #grey-background {
 	background-color: #F5F5F5;
 	padding:20px;
@@ -338,7 +348,7 @@ i.tw {
 	text-align: center;
 }
 .price-search {
-	background-color: Transparent;
+  background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
   cursor:pointer;
@@ -376,6 +386,11 @@ i.tw {
 	float: left;
 	display: block;
 }
+.section-title {
+	text-align:center;
+	margin-bottom:50px;
+	font-weight:bold;
+}
 .span-ad-container {
 	background-color:blue;
 	margin-top:20px;
@@ -401,6 +416,17 @@ tr {
 	zoom: 1;
 	filter: alpha(opacity=50);
 	opacity: 0.5;
+}
+.thumbnail {
+	text-align:center;
+	border:none;
+	background:transparent;
+}
+.thumbnail .caption p {
+	color:#333333;
+}
+.thumb-pic {
+	font-size:100px;
 }
 #user-title {
 	font-size: 25px;
