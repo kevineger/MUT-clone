@@ -26,10 +26,23 @@
         <h2 class="field-title">Item Price</h2>
         <%= f.text_field :price, :class => 'form-control', :placeholder => "Item Price"%>
       </div>
+    <div>
+      <h2 class="field-title">Item Author</h2>
+      <%= f.text_field :author, :class => 'form-control', :placeholder => "Item Author"%>
+    </div>
+    <div>
+      <h2 class="field-title">Item Edition</h2>
+      <%= f.text_field :edition, :class => 'form-control', :placeholder => "Item Edition"%>
+    </div>
+    <div>
+      <h2 class="field-title">Item ISBN</h2>
+      <%= f.text_area :isbn, :class => 'form-control', :placeholder => "Item ISBN"%>
+    </div>
       <div id="item-disc" class="from-group">
-        <h2 class="field-title">Item Discription</h2>
-        <%= f.text_area :description, :style => 'resize:none;', :class => 'form-control', :placeholder => "Item Discription", :rows => '6'%>
+        <h2 class="field-title">Item Description</h2>
+        <%= f.text_area :description, :style => 'resize:none;', :class => 'form-control', :placeholder => "Item Description", :rows => '6'%>
       </div>
+
       <div id="item-pic" class="form-group">
         <h2 class="field-title">Item Picture</h2>
         <%= f.file_field :image, :class => 'pic-input'%>

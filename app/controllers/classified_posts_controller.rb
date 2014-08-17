@@ -1,6 +1,8 @@
 class ClassifiedPostsController < ApplicationController
   before_action :set_classified_post, only: [:show, :edit, :update, :destroy, :relist]
   before_action :authenticate_user!, only: [:create, :new]
+  before_action :belongs_to?, only: [:edit, :destroy, :relist, :update]
+
   has_scope :category, :search_text, :price_high, :price_low
   has_scope :current, type: :boolean, allow_blank: true, default: 1
   has_scope :sort, allow_blank: true, default: '1' do |controller, scope,value|
@@ -95,6 +97,11 @@ class ClassifiedPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def classified_post_params
-      params.require(:classified_post).permit(:title,:description,:image,:price,:classified_category_id)
+      params.require(:classified_post).permit(:title,:description,:image,:price,:classified_category_id, :isbn,:author,:edition)
+    end
+    def belongs_to?
+      unless @classified_post.user_id == current_user.id
+        redirect_to classified_post_path @classified_post
+      end
     end
 end

@@ -11,13 +11,22 @@
       <div class="panel panel-default ad-panel">
         <div class="panel-heading">
           <%= @classified_post.title %>
+          <% if current_user.id == @classified_post.user_id %>
+              <p class="pull-right">
+                <%= link_to edit_classified_post_path(@classified_post) do %>
+                    <i class="fa fa-pencil"></i>
+                <% end %>
+              </p>
+          <% end %>
         </div>
         <div class="panel-body">
           <%= image_tag @classified_post.image.url(:large), :class => 'pic-single center-pic'%>
           <div class="disc-container">
             <p class="disc"><%=@classified_post.description%></p>
             <p>$<%=@classified_post.price %></p>
+
             <p class="pull-right"><%=format_timesince @classified_post.updated_at%></p>
+
           </div>
         </div>
       </div>
@@ -36,10 +45,7 @@
     </div>
 
   </div>
-  <div class="row">
-    <%= link_to 'Edit', edit_classified_post_path(@classified_post) %> |
-    <%= link_to 'Back', classified_posts_path %>
-  </div>
+
 </div>
 
 

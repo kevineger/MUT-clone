@@ -1,6 +1,7 @@
 class ClassifiedPost < ActiveRecord::Base
   belongs_to :classified_category
   belongs_to :user
+  has_many :comments
 
   #possible filters
   # scope :price_upper, -> (price_lower) { where location_id: location_id }
