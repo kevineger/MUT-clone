@@ -7,7 +7,7 @@ class ClassifiedPost < ActiveRecord::Base
   # scope :price_upper, -> (price_lower) { where location_id: location_id }
   # scope :price_lower, -> (price_upper) { where }
   scope :category, -> (category) {where classified_category_id: category}
-  scope :search_text, -> (title) { where("title like ?", "%#{title}%")}
+  scope :search_text, -> (title) { where("LOWER(title) LIKE LOWER(?)", "%#{title}%")}
   scope :price_low, -> (price_low) { where("price > ?", price_low)}
   scope :price_high, -> (price_high) { where("price < ?", price_high)}
   scope :current, -> {where("expiry > ?", Time.now)}
