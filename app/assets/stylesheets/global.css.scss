@@ -370,6 +370,19 @@ i.tw {
 	border-right:1px solid #DDD;
 	border-bottom:1px solid #DDD;
 }
+#profile-counters {
+	text-transform:uppercase;
+	vertical-align: baseline;
+	margin-top:20px;
+	margin-left:20px;
+	margin-right:20px;
+}
+#profile-counters .profile-count-num {
+	font-size:30px;
+}
+#profile-counters td {
+	padding-right: 20px;
+}
 #profile-messages {
 	height:650px;
 	padding-top:15px;
@@ -377,7 +390,7 @@ i.tw {
 	padding-right:15px;
 }
 #profile-picture {
-	margin-top:100px;
+	margin-top:10%;
 }
 .sale-history {
 	position: absolute;
