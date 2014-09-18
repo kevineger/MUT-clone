@@ -11,6 +11,7 @@ class ProfileController < ApplicationController
     end
   end
   def my_profile
+    include Devise::Controllers::Helpers
     respond_to do |format|
       format.js
     end
