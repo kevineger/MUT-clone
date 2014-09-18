@@ -6,5 +6,4 @@ development:
   username: mut_auth
   password: mutra1ls
   host: 127.0.0.1
-  port: 3306m
-
+  port: 3306

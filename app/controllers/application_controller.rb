@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
 
   def authenticate_active_admin_user!
     authenticate_user!
-    unless current_user.forem_admin
+    unless current_user.admin
       flash[:alert] = "Unauthorized Access!"
       redirect_to root_path
     end
-    end
+  end
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
     protected
