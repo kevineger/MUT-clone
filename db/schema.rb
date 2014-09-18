@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 20140918183900) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "expiry"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_update_at"
   end
 
   create_table "conversations", force: true do |t|
