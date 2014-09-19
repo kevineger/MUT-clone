@@ -11,7 +11,7 @@ user = User.new(
     :password              => "password",
     :password_confirmation => "password",
     :username => "admin",
-    :forem_admin => true
+    :admin => true
 )
 user.skip_confirmation!
 user.save!
@@ -20,7 +20,7 @@ user = User.new(
     :password              => "password",
     :password_confirmation => "password",
     :username => "user1",
-    :forem_admin => true
+    :admin => true
 )
 user.skip_confirmation!
 user.save!
@@ -29,7 +29,7 @@ user = User.new(
     :password              => "password",
     :password_confirmation => "password",
     :username => "user2",
-    :forem_admin => true
+    :admin => true
 )
 user.skip_confirmation!
 user.save!
@@ -38,7 +38,7 @@ user = User.new(
     :password              => "password",
     :password_confirmation => "password",
     :username => "user3",
-    :forem_admin => true
+    :admin => true
 )
 user.skip_confirmation!
 user.save!
