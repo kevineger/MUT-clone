@@ -14,17 +14,24 @@
 	</div>
 </div>
 <script>
+    var current = "<%= params[:controller] %>";
     $(document).ready(function(){
         console.log(window.location.hash);
+        if(current == 'registrations'){
+            window.location.hash = '#profile';
+        }
         switch (window.location.hash) {
             case '#profile':
                 $('a','#profile-tab').click();
+
                 break;
             case '#messages':
                 $('a','#messages-tab').click();
+
                 break;
             default :
                 $('a','#posts-tab').click();
+
                 break;
         }
     });
