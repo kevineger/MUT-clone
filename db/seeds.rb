@@ -58,8 +58,8 @@ i=0
 images = ['/db/images/chemistry.jpg','/db/images/engineering.jpg','/db/images/hkin.jpg','/db/images/math1700.jpg','/db/images/nursing.jpg','/db/images/pharmacy.jpeg','/db/images/pilates.jpg']
 30.times do
   image = images.sample
-  post = ClassifiedPost.new(title: 'This is a title for post '+i.to_s,description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mi in elit feugiat faucibus. Sed at feugiat ante. Aenean in velit at arcu pretium ultricies. Ut id porta diam. Suspendisse semper at est ac dictum.',
-                            price: (20 + Random.rand(10000)/100),classified_category: ClassifiedCategory.order("RAND()").first, user: User.order("RAND()").first, expiry: 30.days.from_now)
+  post = ClassifiedPost.new(title: 'A Great Book #'+i.to_s,description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mi in elit feugiat faucibus. Sed at feugiat ante. Aenean in velit at arcu pretium ultricies. Ut id porta diam. Suspendisse semper at est ac dictum.',
+                            price: (20 + Random.rand(10000)/100),classified_category: ClassifiedCategory.order("RAND()").first, user: User.order("RAND()").first, expiry: 30.days.from_now, author: "George RR Martin", edition:"2nd edition", isbn:"0-7645-26413")
   post.image = File.open(Rails.root.to_s + image)
   post.save!
   i+=1
