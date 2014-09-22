@@ -10,7 +10,6 @@
   <!-- BACKEND: If on homepage, do not render image, else render image -->
   <!--
   <%= image_tag("logoWG.png",:class => 'body-pic') %>
--->
       <!-- Top Navbar
       ================================================== -->
       <div class = "navbar navbar-blue navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,18 +38,23 @@
               <li class="dropdown dropdown-blue pull-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user.email %> <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="/profile/<%=current_user.id%>">Posts</a></li>
-                  <li><a href="/profile/<%=current_user.id%>#profile">Profile</a></li>
+                  <li><a href="/profile/<%=current_user.id%>"><span class="glyphicon glyphicon-list"></span> Posts</a></li>
+                  <li><a href="/profile/<%=current_user.id%>#profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+
                   <li>
-                    <a href="/profile/<%=current_user.id%>#messages">Messages
+                    <a href="/profile/<%=current_user.id%>#messages"><span class="glyphicon glyphicon-envelope"></span>
+                      Messages
                         <% if current_user.unread? %>
                             <span class="badge pull-right alert-danger"><i class="fa fa-exclamation"></i></span>
                         <% end %>
                       </a>
                   </li>
+                  <li><a href="/profile/<%=current_user.id%>#settings"> <span class="glyphicon-cog glyphicon"></span> Settings</a></li>
                   <li class="divider"></li>
                   <li>
-                    <%= link_to 'Logout', main_app.destroy_user_session_path ,:method => :delete%>
+                    <%= link_to  main_app.destroy_user_session_path ,:method => :delete do%>
+                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                    <% end %>
                   </li>
                 </ul>
               </li>

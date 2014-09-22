@@ -1,42 +1,34 @@
 <div id="profile-profile">
-  <!-- <div class="row">
+  <div class="row">
     <div class="col-lg-12">
       <div class="col-lg-8">
-
-        Account Owner Viewing
-        <form role="form">
+        <%= form_for(@user, :url => { :action => "update", :controller => 'registrations' }) do |f|%>
           <div id="item-title" class="form-group">
-            <h2 class="field-title">First Name</h2>
-            <input type ="text" class="form-control" placeholder="Big">
+            <h2 class="field-title">Username</h2>
+            <%= f.text_field :username, :class => 'form-control'%>
           </div>
-          <div id="item-title" class="form-group">
-            <h2 class="field-title">Last Name</h2>
-            <input type ="text" class="form-control" placeholder="Dick">
-          </div>
-
-          <h2 class="field-title">School</h2>
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdown-profile" data-toggle="dropdown">
-              Select your University
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-profile">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">U of C</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">UBCO</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">U of A</a></li>
-            </ul>
-          </div>
-
           <div id="item-title" class="form-group">
             <h2 class="field-title">Email</h2>
-            <input type ="text" class="form-control" placeholder="big.dick@dicks.com">
+            <%= f.text_field :email, :class => 'form-control'%>
           </div>
-          <div id="item-title" class="form-group">
-            <h2 class="field-title">Password</h2>
-            <input type ="text" class="form-control">
+          <div id="update-password-button" class="form-group">
+            <button type="button" class="btn btn-default"> Update Password?</button>
           </div>
-        </form>
-
+          <div id="hidden-password-fields" class="well">
+            <div id="item-title" class="form-group">
+              <h2 class="field-title">Password</h2>
+              <%= f.password_field :password, :class => 'form-control', :autocomplete => :off%>
+            </div>
+            <div id="item-title" class="form-group">
+              <h2 class="field-title">Password Confirm</h2>
+              <%= f.password_field :password_confirmation, :class => 'form-control', :autocomplete => :off%>
+            </div>
+            <div class="form-group">
+               <button type="button" id="password-fields-collapse" class="btn btn-defualt"><span class="glyphicon glyphicon-collapse-up"></span></button>
+            </div>
+          </div>
+            <%= f.submit :type => 'submit', :class=>'btn btn-default btn-blue btn-post'%>
+        <% end %>
       </div>
       <div class="col-lg-4">
         <div id="profile-picture">
@@ -57,49 +49,19 @@
         </div>
       </div>
     </div>
-  </div> -->
-  <div class="row">
-    <div class="col-md-6">
-      <div class="pull-right">
-        <div id="profile-picture">
-          <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <h2>Kevin Eger</h2>
-      <h3 style="margin:0; padding:0;">University of Calgary</h3>
-      <div class="row">
-        <div id="profile-counters">
-          <table>
-            <tr>
-              <td>
-                <span class="profile-count-num">4</span>
-                <br>
-                Posts
-              </td>
-              <td>
-                <span class="profile-count-num">2</span>
-                <br>
-                Sold
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-          <div class="row">
-              <div style="margin:20px;" class="btn-group">
-                <a class="btn btn-default btn-lg" target="_blank" title="View Facebook Profile" href="http://www.facebook.com">
-                  <i class="fa fa-facebook fa-lg fb"></i>
-                </a>
-                <a class="btn btn-default btn-lg" target="_blank" title="View Twitter Profile" href="http://www.twitter.com">
-                  <i class="fa fa-twitter fa-lg tw"></i>
-                </a>
-              </div>
-          </div>
-    </div>
   </div>
-
-
-
 </div>
+<script>
+  $(document).ready(function(){
+    $('#hidden-password-fields').hide();
+    $('button','#update-password-button').on('click', function(){
+        $('#hidden-password-fields').show();
+        $(this).hide();
+    });
+      $('#password-fields-collapse').on('click', function(){
+          $('#hidden-password-fields').hide();
+          $('button','#update-password-button').show();
+      });
+
+  });
+</script>

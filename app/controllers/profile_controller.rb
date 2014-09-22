@@ -5,12 +5,18 @@ class ProfileController < ApplicationController
   end
   def show2
   end
+  def settings
+    respond_to do |format|
+      format.js
+    end
+  end
   def info
     respond_to do |format|
       format.js
     end
   end
   def my_profile
+    include Devise::Controllers::Helpers
     respond_to do |format|
       format.js
     end

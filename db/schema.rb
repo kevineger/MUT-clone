@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 20140918183900) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_update_at"
+    t.string   "author"
+    t.string   "edition"
+    t.string   "isbn"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "comment"
+    t.integer  "classified_post"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "conversations", force: true do |t|

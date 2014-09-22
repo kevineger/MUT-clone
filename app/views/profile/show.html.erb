@@ -6,6 +6,7 @@
       <li  id="profile-tab" class="tab"><%= link_to 'Profile', "/profile/info/#{@user.id}", :remote => true%></li>
       <% if current_user.id == @user.id %>
 			  <li id="messages-tab" class="tab"><%= link_to 'Messages', conversations_path, :remote => true%></li>
+              <li id="settings-tab" class="tab"><%= link_to 'Settings',"/profile/settings/#{@user.id}", :remote => true%></li>
       <% end %>
 			<li  class="pull-right"><%= button_to 'Create a Post',new_classified_post_path, :id=> "", :class=> "btn btn-md btn-blue", :method=> "get" %></li>
 		</ul>
@@ -14,17 +15,28 @@
 	</div>
 </div>
 <script>
+    var current = "<%= params[:controller] %>";
     $(document).ready(function(){
         console.log(window.location.hash);
+        if(current == 'registrations'){
+            window.location.hash = '#profile';
+        }
         switch (window.location.hash) {
             case '#profile':
                 $('a','#profile-tab').click();
+
                 break;
             case '#messages':
                 $('a','#messages-tab').click();
+
+                break;
+            case '#settings':
+                $('a','#settings-tab').click();
+
                 break;
             default :
                 $('a','#posts-tab').click();
+
                 break;
         }
     });
