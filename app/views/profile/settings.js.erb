@@ -1,0 +1,3 @@
+$('.tab').removeClass('active');
+$('#settings-tab').addClass('active');
+$('.profile-container-inner').html("<%= escape_javascript(render partial: 'settings', locals: {posts: @posts}) %>");

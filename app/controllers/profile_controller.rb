@@ -5,6 +5,11 @@ class ProfileController < ApplicationController
   end
   def show2
   end
+  def settings
+    respond_to do |format|
+      format.js
+    end
+  end
   def info
     respond_to do |format|
       format.js

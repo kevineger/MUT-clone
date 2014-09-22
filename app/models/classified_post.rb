@@ -1,4 +1,5 @@
 class ClassifiedPost < ActiveRecord::Base
+  before_validation :strip_price
   belongs_to :classified_category
   belongs_to :user
   has_many :comments
@@ -15,10 +16,21 @@ class ClassifiedPost < ActiveRecord::Base
   scope :sort_high, -> {order('price DESC')}
   scope :sort_low, ->{order('price ASC')}
   # validations
-  validates :description,:title,:price, :user_id, :classified_category_id, presence: true
+  validates :description,:title,:price,:author,:isbn, :user_id, :classified_category_id, presence: true
+  validates :terms, acceptance: true
+  validates :price, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0, :less_than => 1000}
   self.per_page = 21
+
+
+
+  #paperclip stuff
   has_attached_file :image,
                     :styles => { :thumb => "100x100>", :small => "250x250" ,:large => "500x500"},
                     :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
+
+  private
+  def strip_price
+    self.price = price.sub('(/\D[^\.]/g');
+  end
 end
