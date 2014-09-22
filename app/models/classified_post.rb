@@ -1,5 +1,4 @@
 class ClassifiedPost < ActiveRecord::Base
-  before_validation :strip_price
   belongs_to :classified_category
   belongs_to :user
   has_many :comments
@@ -28,9 +27,4 @@ class ClassifiedPost < ActiveRecord::Base
                     :styles => { :thumb => "100x100>", :small => "250x250" ,:large => "500x500"},
                     :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
-
-  private
-  def strip_price
-    self.price = price.sub('(/\D[^\.]/g');
-  end
 end
