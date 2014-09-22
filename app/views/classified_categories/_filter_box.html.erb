@@ -11,6 +11,13 @@
       </div><!-- /.sidebar-menu -->
     </div>
     <!-- Sort Menu -->
+  <div class="row">
+    <div class="menu visible-lg">
+      <div class="menu-list">
+        <%= collection_select(:post, :category_id, ClassifiedCategory.all, :id, :name) %>
+      </div>
+    </div>
+  </div>
     <div class="row">
       <div class="menu visible-md visible-lg">
         <ul id="sort-filter" class="menu-list">
@@ -35,3 +42,8 @@
     </div>
     <!-- Pagination -->
 </div>
+<script>
+  $(document).ready(function(){
+      $('#post_category_id').chosen();
+  })
+</script>
