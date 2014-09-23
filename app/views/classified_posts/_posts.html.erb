@@ -5,7 +5,7 @@
         <%= link_to(post) do %>
           <div class="ad-frame">
             <%=image_tag post.image.url(:small), :class => 'featured-pic center-pic' %>
-            <div class="ad-info">
+            <div class="ad-info" style="margin-left:25%">
               <h4 class="ad-item-title"><%=post.title%></h4>
               <h5>Price: <%=number_to_currency(post.price, :unit => "$")%></h5>
               <p><%=format_timesince post.updated_at%></p>
