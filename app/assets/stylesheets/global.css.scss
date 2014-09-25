@@ -2,22 +2,26 @@ $accent-color: #013861;
 /*$background: #D7DCE0;*/
 $background: #FFF;
 $foreground: #FFF;
-body {
-	/*Background built from Zen BG - http://mudcu.be/bg/*/
-	background: $background;
-}
-.body-pic {
+
+/*.body-pic {
   z-index: -1;
   position: absolute;
   width:100%;
   top:25%;
   padding:20px;
   opacity:.2;
-}
+}*/
 h1 {
 	font-size:300%;
 	text-align:center;
 	margin-top:0;
+}
+.ad-frame h2 {
+	font-size:150%;
+	text-align:center;
+	margin:0;
+	margin-top:10px;
+	padding:0;
 }
 h4 {
 	color:#333;
@@ -29,12 +33,11 @@ h4 {
 .ad-frame {
 	height:310px;
 	padding:10px;
-	position:relative;
 	text-align: center;
 }
-.ad-frame:hover {
+/*.ad-frame:hover {
 	
-}
+}*/
 .ad-full-pic {
 	width:400px;
 	height:400px;
@@ -153,6 +156,11 @@ h4 {
 	font-size: 100%;
 	padding:10px;
 }
+.disc-container {
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:20px;
+}
 .grey-container {
 	/*background-color: rgba(0, 0, 0, 0.06);*/
 	border-radius:10px;
@@ -163,8 +171,8 @@ h4 {
 	margin:50px;
 }
 .featured-pic {
-	max-height:200px;
-	max-width:200px;
+	max-height:230px;
+	max-width:230px;
 	box-shadow: 0px 0px 22px 0px rgba(50, 50, 50, 0.4);
 }
 .featured-pic:hover {
@@ -419,6 +427,10 @@ tr {
 
 
 /*...............*/
+#filter-box {
+	width:150px;
+	position:fixed;
+}
 
 .menu {
 	width: 100%;
