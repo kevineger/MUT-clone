@@ -25,5 +25,9 @@ module Mut
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    unless Rails.env.production?
+      ENV['RECAPTCHA_PUBLIC_KEY'] = '6LfUIfcSAAAAAIv1gPjUDrRw5mwTFJw4wZ5Ju8zQ'
+      ENV['RECAPTCHA_PRIVATE_KEY'] = '6LfUIfcSAAAAALv_mHll-5FeVUCbzYRxVt_HIrvF'
+    end
   end
 end
