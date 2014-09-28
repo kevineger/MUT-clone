@@ -24,9 +24,10 @@
     <div class="row">
       <div class="menu visible-lg">
         <ul id="price-filter" class="menu-list">
+          <h5><strong>Filter Price</strong></h5>
           <form action="/posts" class="row form-inline price-box">
             <input id="low" name="price_low" type="text" class="input-mini" placeholder="Low">
-            <i class="fa fa-arrows-h" style="color:#CCC;"></i>
+            <i class="fa fa-arrows-h" style="color:#000;"></i>
             <input id="high" name="price_high" type="text" class="input-mini" placeholder="High">
             <button class="price-search"><i id="price-go" class="fa fa-search"></i></button>
           </form>
@@ -35,3 +36,18 @@
     </div>
     <!-- Pagination -->
 </div>
+
+// <script>
+//   $(document).ready(function(){
+
+//     $('.menu-list a').css('opacity', 0.9);  
+
+//     $('.menu-list li').hover(  
+//        function(){  
+//           $(this).find('a').stop().fadeTo('slow', 1);  
+//        },  
+//        function(){  
+//           $(this).find('a').stop().fadeTo('slow', 0.4);  
+//        });  
+//   });  
+// </script>
