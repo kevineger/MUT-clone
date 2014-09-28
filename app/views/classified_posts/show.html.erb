@@ -10,8 +10,8 @@
     <div class="col-md-6">
       <div class="panel panel-default ad-panel">
         <div class="panel-heading">
-          <p><strong><%= @classified_post.title %></strong></p>
-          <% if current_user.id == @classified_post.user_id %>
+          <p><%= @classified_post.title %></p>
+          <% if user_signed_in? && current_user.id == @classified_post.user_id %>
               <p class="pull-right">
                 Edit your post
                 <%= link_to edit_classified_post_path(@classified_post) do %>
@@ -49,7 +49,7 @@
     <!-- User Information -->
     <div class="col-md-4 no-padding">
       <div class="panel panel-default ad-panel">
-        <div class="panel-heading"><p><strong><%=@classified_post.user.username%></strong></p></div>
+        <div class="panel-heading"><p><%=@classified_post.user.username%></p></div>
         <div class="panel-body">
             <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
             <h4 id="message-user" style="text-align:center;"><%= link_to new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) do %><span class="glyphicon glyphicon-envelope"></span> Message this user<% end %></h4>
