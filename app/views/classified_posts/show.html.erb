@@ -10,11 +10,12 @@
     <div class="col-md-6">
       <div class="panel panel-default ad-panel">
         <div class="panel-heading">
-          <%= @classified_post.title %>
+          <p><strong><%= @classified_post.title %></strong></p>
           <% if current_user.id == @classified_post.user_id %>
               <p class="pull-right">
+                Edit your post
                 <%= link_to edit_classified_post_path(@classified_post) do %>
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil" style="color:#013861;"></i>
                 <% end %>
               </p>
           <% end %>
@@ -48,11 +49,10 @@
     <!-- User Information -->
     <div class="col-md-4 no-padding">
       <div class="panel panel-default ad-panel">
-        <div class="panel-heading"><%=@classified_post.user.username%></div>
+        <div class="panel-heading"><p><strong><%=@classified_post.user.username%></strong></p></div>
         <div class="panel-body">
             <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
-            <h4><%= @classified_post.user.username%></h4>
-            <h5 id="message-user"><%= link_to new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) do %><span class="glyphicon glyphicon-envelope"></span> Message this user<% end %></h5>
+            <h4 id="message-user" style="text-align:center;"><%= link_to new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) do %><span class="glyphicon glyphicon-envelope"></span> Message this user<% end %></h4>
         </div>
       </div>
     </div>

@@ -56,6 +56,18 @@ h4 {
 .ad-panel {
 	border-radius: 4px;
 	margin-left:10px;
+	border: 1px solid #013861;
+}
+.ad-panel .panel-heading {
+	border-bottom: 1px solid #013861;
+	height:50px;
+}
+.ad-panel > .panel-heading > p {
+	float:left;
+	margin-bottom:0!important;
+	font-size:120%;
+	padding-top:7px;
+	/*padding-bottom:15px;*/
 }
 .blue {
 	color: $accent-color;
@@ -77,11 +89,7 @@ h4 {
 	border-color:#004070;
 }
 .btn-group {
-	position: absolute;
-	bottom:10px;
-	right:25%;
-	left:50%;
-	margin-left:-138px;
+	margin-top:20px;
 }
 .btn-post {
 	min-width:150px;
@@ -162,7 +170,6 @@ h4 {
 	margin-top:20px;
 }
 .grey-container {
-	/*background-color: rgba(0, 0, 0, 0.06);*/
 	border-radius:10px;
 	padding:20px;
 	margin:40px;
@@ -197,10 +204,11 @@ h4 {
 #grey-background {
 	background-color: #F5F5F5;
 	padding:20px;
-	border:1px solid #DDD;
+	border:1px solid #013861;
 	border-radius:4px;
 	margin-left:10px;
 	margin-right:10px;
+	margin-bottom:20px;
 }
 .home-link {
 	position:relative;
