@@ -1,22 +1,27 @@
 $accent-color: #013861;
-$background: #D7DCE0;
+/*$background: #D7DCE0;*/
+$background: #FFF;
 $foreground: #FFF;
-body {
-	/*Background built from Zen BG - http://mudcu.be/bg/*/
-	background: $background;
-}
-.body-pic {
+
+/*.body-pic {
   z-index: -1;
   position: absolute;
   width:100%;
   top:25%;
   padding:20px;
   opacity:.2;
-}
+}*/
 h1 {
 	font-size:300%;
 	text-align:center;
 	margin-top:0;
+}
+.ad-frame h2 {
+	font-size:150%;
+	text-align:center;
+	margin:0;
+	margin-top:10px;
+	padding:0;
 }
 h4 {
 	color:#333;
@@ -24,18 +29,15 @@ h4 {
 .ad-container {
 	margin-left:10px;
 	margin-bottom:10px;
-	background-color: #F5F5F5;
 }
 .ad-frame {
 	height:310px;
 	padding:10px;
-	position:relative;
 	text-align: center;
-	background-color:$foreground;
 }
-.ad-frame:hover {
-	background-color:#F5F5F5;
-}
+/*.ad-frame:hover {
+	
+}*/
 .ad-full-pic {
 	width:400px;
 	height:400px;
@@ -48,12 +50,24 @@ h4 {
 	position:absolute;
 	bottom:4px;
 	margin-left:15px;
-	text-align: left;
+	text-align: center;
 	color: #000;
 }
 .ad-panel {
 	border-radius: 4px;
 	margin-left:10px;
+	border: 1px solid #013861;
+}
+.ad-panel .panel-heading {
+	border-bottom: 1px solid #013861;
+	height:50px;
+}
+.ad-panel > .panel-heading > p {
+	float:left;
+	margin-bottom:0!important;
+	font-size:120%;
+	padding-top:7px;
+	/*padding-bottom:15px;*/
 }
 .blue {
 	color: $accent-color;
@@ -75,23 +89,7 @@ h4 {
 	border-color:#004070;
 }
 .btn-group {
-	position:relative;
-	display:inline-block;
-	vertical-align:middle;
-}
-.btn-login {
-	margin-top:8px;
-	color:#999999;
-	border:$foreground;
-	background-color:#222222;
-}
-.btn-login:hover {
-	background-color:#222222;
-}
-.btn-new-post {
-	position:absolute;
-	right:15px;
-	top: 0px;
+	margin-top:20px;
 }
 .btn-post {
 	min-width:150px;
@@ -103,6 +101,15 @@ h4 {
 	color: #CCC;
 	background-color: #004070;
 	border-color: $accent-color;
+}
+.btn-home-search {
+	border:2px solid #004070; 
+	border-left:none;
+}
+.btn-home-search:hover {
+	border:2px solid #004070; 
+	border-left:none;
+	box-shadow: 0px 0px 22px 0px rgba(50, 50, 50, 0.4);
 }
 .caption {
 	padding-top:0px!important;
@@ -123,11 +130,6 @@ h4 {
 .category-dropdown {
 	padding:5px;
 }
-.category-name {
-	font-size: 30px;
-	margin:0px;
-	padding:0px;
-}
 .center-pic {
 	display:block;
 	margin:auto;
@@ -136,11 +138,6 @@ h4 {
 	float: none;
 	margin-left:auto;
 	margin-right:auto;
-}
-.contact-seller {
-	position:absolute;
-	bottom:0px;
-	left:20px;
 }
 .conversation-received, .conversation-sent {
 	border-radius:4px;
@@ -167,46 +164,26 @@ h4 {
 	font-size: 100%;
 	padding:10px;
 }
-#currently-browsing {
-	display:block;
-	text-align: center;
-}
-.disc {
-	font-size: 16px;
-}
 .disc-container {
-	margin-top:15px;
-	margin-left:15px;
-	margin-right:15px;
-	margin-bottom:0px;
-	font-size:60px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:20px;
 }
-.explore-container {
-	padding:15px;
-	margin:60px;
-	background-color: rgba(0, 0, 0, 0.06);
-	border-radius:10px;
-}
-.search-container {
-	background-color: rgba(0, 0, 0, 0.06);
+.grey-container {
 	border-radius:10px;
 	padding:20px;
-	margin-top:40px;
+	margin:40px;
 }
 .featured-carousel {
 	margin:50px;
 }
-#post_X:hover {
-	color:$foreground;
-}
-.featured-item:hover,
-.featured-item:hover a {
-	color:$foreground;
-}
 .featured-pic {
-	max-height:200px;
-	max-width:200px;
+	max-height:230px;
+	max-width:230px;
 	box-shadow: 0px 0px 22px 0px rgba(50, 50, 50, 0.4);
+}
+.featured-pic:hover {
+	box-shadow: 0px 0px 22px 0px rgba(50, 50, 50, 0.8);
 }
 .featured-title {
 	font-size:200%;
@@ -227,18 +204,15 @@ h4 {
 #grey-background {
 	background-color: #F5F5F5;
 	padding:20px;
-	border:1px solid #DDD;
+	border:1px solid #013861;
 	border-radius:4px;
 	margin-left:10px;
 	margin-right:10px;
-}
-.home-feature {
-	margin:10px;
+	margin-bottom:20px;
 }
 .home-link {
 	position:relative;
 	height:42px;
-	/*width:42px;*/
 	top:5px;
 	margin-right:10px;
 }
@@ -404,6 +378,12 @@ i.tw {
 	float: left;
 	display: block;
 }
+.search-field {
+	color:#000;
+}
+.search-field:focus {
+	box-shadow: 0px 0px 22px 0px rgba(50, 50, 50, 0.6);
+}
 .section-title {
 	text-align:center;
 	margin-bottom:50px;
@@ -455,6 +435,10 @@ tr {
 
 
 /*...............*/
+#filter-box {
+	width:150px;
+	position:fixed;
+}
 
 .menu {
 	width: 100%;

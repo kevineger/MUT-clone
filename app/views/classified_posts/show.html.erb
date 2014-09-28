@@ -7,14 +7,15 @@
     </div>
 
     <!-- Ad -->
-    <div class="col-md-6 no-padding">
+    <div class="col-md-6">
       <div class="panel panel-default ad-panel">
         <div class="panel-heading">
-          <%= @classified_post.title %>
+          <p><strong><%= @classified_post.title %></strong></p>
           <% if current_user.id == @classified_post.user_id %>
               <p class="pull-right">
+                Edit your post
                 <%= link_to edit_classified_post_path(@classified_post) do %>
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil" style="color:#013861;"></i>
                 <% end %>
               </p>
           <% end %>
@@ -22,12 +23,24 @@
         <div class="panel-body">
           <%= image_tag @classified_post.image.url(:large), :class => 'pic-single center-pic'%>
           <div class="disc-container">
-            <p class="disc"><%=@classified_post.description%></p>
-            <p>$<%=@classified_post.price %></p>
-            <p><%=@classified_post.author %></p>
-            <p><%=@classified_post.edition %></p>
-            <p><%=@classified_post.isbn %></p>
-            <p class="pull-right"><%=format_timesince @classified_post.updated_at%></p>
+            <div class="row">
+              <div class="col-md-7" style="border-right:1px solid #DDD;">
+                <p><%=@classified_post.description%></p>
+              </div>
+              <div class="col-md-5">
+                <p><strong>Author</strong>: <%=@classified_post.author %></p>
+                <p><strong>Edition</strong>: <%=@classified_post.edition %></p>
+                <p><strong>ISBN</strong>: <%=@classified_post.isbn %></p>
+              </div>
+            </div>
+            <div class="row" style="border-top:1px solid #DDD; margin-top:5px; padding-top:15px;">
+            <div class="col-md-6">
+              <p style="font-size:150%; margin-bottom:0; text-align:left;"><strong>Price</strong>: $<%=@classified_post.price %></p>
+            </div>
+              <div class="col-md-6">
+                <p style="margin-bottom:0; text-align:right;"><strong>Last Updated</strong>:  <%=format_timesince @classified_post.updated_at%></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -36,11 +49,10 @@
     <!-- User Information -->
     <div class="col-md-4 no-padding">
       <div class="panel panel-default ad-panel">
-        <div class="panel-heading"><%=@classified_post.user.username%></div>
+        <div class="panel-heading"><p><strong><%=@classified_post.user.username%></strong></p></div>
         <div class="panel-body">
             <%= image_tag 'picolasCage.jpg', :class => 'featured-pic center-pic' %>
-            <h4><%= @classified_post.user.username%></h4>
-            <h5 id="message-user"><%= link_to new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) do %><span class="glyphicon glyphicon-envelope"></span> Message this user<% end %></h5>
+            <h4 id="message-user" style="text-align:center;"><%= link_to new_conversation_path(:user => @classified_post.user.id, :post => @classified_post.id) do %><span class="glyphicon glyphicon-envelope"></span> Message this user<% end %></h4>
         </div>
       </div>
     </div>

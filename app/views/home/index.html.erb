@@ -1,96 +1,101 @@
 <div class="container">
-  <%= image_tag("logoBGCut.png",:style => 'position:relative; width: 100%;') %>
-  <div class="row">
+<div class="row" style="padding-top:15%;">
     <div class="col-lg-10 col-centered">
-      <div class="search-container">
-        <h1>Search <strong>Calgary</strong> Textbooks</h1> 
+      <%= image_tag("logoBGCut.png",:style => 'position:relative; width: 100%;') %>
+      <div class="grey-container">
+        <!-- <h1>Search <strong>Calgary</strong> Textbooks</h1>  -->
         <%= form_tag(main_app.classified_posts_path, method: "get") do %>
-          <div id="home-search" class="input-group input-group-lg">
-            <input name="search_text" type="text" class="form-control ">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="submit">Search</button>
-            </span>
-          </div>
+        <div id="home-search" class="input-group input-group-lg">
+          <input name="search_text" type="text" class="form-control search-field" style="border:2px solid #004070" placeholder="Search Calgary Textbooks">
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-home-search" type="submit">Search</button>
+          </span>
+        </div>
         <% end %>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
-      <!-- Featured Carousel -->
-      <div id="myCarousel" class="featured-carousel carousel slide" data-ride="carousel">
-
-        <div class="carousel-inner">
-          <div class="item active">
-            <% @posts.paginate(:page => 1, :per_page => 3).each do |post| %>
-                <%= render partial: '/home/featured', locals: {post:post} %>
-            <% end %>
-          </div>
-
-          <div class="item">
-            <% @posts.paginate(:page => 2, :per_page => 3).each do |post| %>
-                <%= render partial: '/home/featured', locals: {post:post} %>
-            <% end %>
-          </div>
-
-          <div class="item">
-            <% @posts.paginate(:page => 3, :per_page => 3).each do |post| %>
-                <%= render partial: '/home/featured', locals: {post:post} %>
-            <% end %>
+  <!-- Carousel -->
+<!--   <div class="row">
+    <div class="col-lg-12">
+      <div class="grey-container">
+        <div id="myCarousel" class="featured-carousel carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="item active">
+              <% @posts.paginate(:page => 1, :per_page => 3).each do |post| %>
+              <%= render partial: '/home/featured', locals: {post:post} %>
+              <% end %>
+            </div>
+            <div class="item">
+              <% @posts.paginate(:page => 2, :per_page => 3).each do |post| %>
+              <%= render partial: '/home/featured', locals: {post:post} %>
+              <% end %>
+            </div>
+            <div class="item">
+              <% @posts.paginate(:page => 3, :per_page => 3).each do |post| %>
+              <%= render partial: '/home/featured', locals: {post:post} %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div><!-- /.carousel -->
-  </div>
-
-
-  <div class="explore-container">
-    <div class="section-title">
-      <h2 style="font-size:40px;">Explore <strong>MyUniTrade</strong></h2>
-    </div>
-    <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <i class="fa fa-book fa-fw thumb-pic"></i>
-          <div class="caption">
-            <h3>What is MUT?</h3>
-            <p>MyUniTrade marketplace brings students together, enabling them to buy, sell, and trade amongst one another. Buy/sell used textbooks and other goods here!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <i class="fa fa-users thumb-pic"></i>
-          <div class="caption">
-            <h3>Community</h3>
-            <p>MyUniTrade thrives on bringing together a diverse community across the entire campus. With users in every degree, MUT offers a central spot to trade textbooks.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <i class="fa fa-child thumb-pic"></i>
-          <div class="caption">
-            <h3>Totally Free</h3>
-            <p>The best thing about MyUniTrade is that it is entirely free! Students pay enough for textbooks, new or old; and we believe it is vital to provide our service 100% free.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <i class="fa fa-cogs thumb-pic"></i>
-          <div class="caption">
-            <h3>The Team</h3>
-            <p>Build by students, for students. MyUniTrade is founded by four university students like yourself. Click to discover team members.</p>
-          </div>
-        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
+  </div> -->
+
+  <!-- Explore -->
+<!--   <div class="row">
+    <div class="col-lg-12">
+      <div class="grey-container">
+        <div class="section-title">
+          <h2 style="font-size:40px;">Explore <strong>MyUniTrade</strong></h2>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+              <i class="fa fa-book fa-fw thumb-pic"></i>
+              <div class="caption">
+                <h3>What is MUT?</h3>
+                <p>MyUniTrade marketplace brings students together, enabling them to buy, sell, and trade amongst one another. Buy/sell used textbooks and other goods here!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+              <i class="fa fa-users thumb-pic"></i>
+              <div class="caption">
+                <h3>Community</h3>
+                <p>MyUniTrade thrives on bringing together a diverse community across the entire campus. With users in every degree, MUT offers a central spot to trade textbooks.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+              <i class="fa fa-child thumb-pic"></i>
+              <div class="caption">
+                <h3>Totally Free</h3>
+                <p>The best thing about MyUniTrade is that it is entirely free! Students pay enough for textbooks, new or old; and we believe it is vital to provide our service 100% free.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+              <i class="fa fa-cogs thumb-pic"></i>
+              <div class="caption">
+                <h3>The Team</h3>
+                <p>Build by students, for students. MyUniTrade is founded by four university students like yourself. Click to discover team members.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+  <!-- Facebook and Twitter -->
+<!--   <div class="row">
     <div class="col-md-12 text-center">
       <div class="btn-group">
         <a class="btn btn-default btn-lg" target="_blank" title="Like on Facebook" href="http://www.facebook.com">
@@ -102,9 +107,17 @@
         </a>
       </div>
     </div>
-  </div>
-  <br/>
-  <br/>
-  <br/>
+  </div> -->
 
-</div><!-- /.container -->
+  <div class="btn-group">
+    <a class="btn btn-default btn-lg" title="Like on Facebook" href="http://www.facebook.com">
+      <i class="fa fa-thumbs-o-up fa-lg fb"></i>
+    </a>
+    <button class="btn btn-default btn-lg disabled">Like and Follow</button>
+    <a class="btn btn-default btn-lg" title="Follow on Twitter" href="http://www.twitter.com">
+      <i class="fa fa-twitter fa-lg tw"></i>
+    </a>
+  </div>
+</div>
+
+</div>
