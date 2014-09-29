@@ -1,16 +1,7 @@
 $accent-color: #013861;
-/*$background: #D7DCE0;*/
 $background: #FFF;
 $foreground: #FFF;
 
-/*.body-pic {
-  z-index: -1;
-  position: absolute;
-  width:100%;
-  top:25%;
-  padding:20px;
-  opacity:.2;
-}*/
 h1 {
 	font-size:300%;
 	text-align:center;
@@ -47,7 +38,6 @@ h4 {
 	margin-bottom:20px;
 }
 .ad-info {
-	position:absolute;
 	bottom:4px;
 	margin-left:15px;
 	text-align: center;
@@ -437,7 +427,6 @@ tr {
 /*...............*/
 #filter-box {
 	width:170px;
-	position:fixed;
 }
 
 .menu {
