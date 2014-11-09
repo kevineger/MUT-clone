@@ -7,7 +7,7 @@
         <%=image_tag post.image.url(:small), :class => 'featured-pic center-pic' %>
         <% end %>
         <h4><%=post.title%></h4>
-        <h4>$<%=post.price%></h4>
+        <h4>$<%=number_with_precision(post.price, :precision => 2)%></h4>
       </div>
     </div>
   </div>
