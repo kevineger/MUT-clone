@@ -1,7 +1,9 @@
 $accent-color: #013861;
 $background: #FFF;
 $foreground: #FFF;
-
+body {
+	font-family: 'Lato', sans-serif;
+}
 h1 {
 	font-size:300%;
 	text-align:center;
@@ -17,6 +19,9 @@ h1 {
 h4 {
 	color:#333;
 }
+th {
+	text-align: center;
+}
 .ad-container {
 	margin-left:10px;
 	margin-bottom:10px;
@@ -26,9 +31,6 @@ h4 {
 	padding:10px;
 	text-align: center;
 }
-/*.ad-frame:hover {
-	
-}*/
 .ad-full-pic {
 	width:400px;
 	height:400px;
@@ -57,7 +59,6 @@ h4 {
 	margin-bottom:0!important;
 	font-size:120%;
 	padding-top:7px;
-	/*padding-bottom:15px;*/
 }
 .blue {
 	color: $accent-color;
@@ -118,6 +119,7 @@ h4 {
 	background-color: $accent-color;
 }
 .category-dropdown {
+	height:34px;
 	padding:5px;
 }
 .center-pic {
@@ -175,11 +177,10 @@ h4 {
 	text-align:center;
 }
 .field-title {
+	font-family: 'Oxygen', sans-serif;
 	padding-top:10px;
 	padding-right:10px;
-	font-size: 14px;
-	font-variant: small-caps;
-	text-shadow: 0 0 1px rgba(0,0,0,0.3);
+	font-size: 16px;
 }
 .form-title {
 	text-align:center;
@@ -221,22 +222,22 @@ i.tw {
 }
 .input-mini {
 	width:60px;
-	background-color:#F5F5F5;
-	border:1px, solid, $accent-color;
-	text-align:center;
-	box-shadow: 0;
-	padding: 5px;
-	color:#000;
 }
-.input-mini:focus {
-	color:#000;
-	box-shadow:0px 0px 5px #6192D1;
-	-webkit-box-shadow: 0px 0px 5px  #6192D1;
-	-webkit-padding: 1px;
-	border:transparent;
+input.rounded {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 0px 0px 4px 5px #f5f5f5;
+	font-size: 18px;
+	padding: 4px 9px;
+	outline: 0;
+	-webkit-appearance: none;
 }
-.input-mini:visited {
-	color:$foreground;
+input.rounded:focus {
+	box-shadow: 0px 0px 4px 5px #EBEBEB;
 }
 #login {
 	color:#CCC;
@@ -246,6 +247,10 @@ i.tw {
 }
 #message-user {
 	margin-bottom:0;
+}
+.nav {
+	font-family: 'Oxygen', sans-serif;
+	font-size:110%;
 }
 .navbar-blue {
 	background-color: $accent-color;
@@ -257,7 +262,7 @@ i.tw {
 .navbar-blue .navbar-nav > .active > a:focus {
 	background: $accent-color;
 	color: $foreground!important;
-	font-weight:bold;
+	font-weight:600;
 	background-color:#004070;
 }
 .navbar-blue .navbar-nav > li > a:hover {
@@ -294,22 +299,10 @@ i.tw {
 	font-weight:bold!important;
 	background-color:#004070!important;
 }
-
 .pic-single {
 	max-height: 450px;
 	max-width: 450px;
 	box-shadow: 8px 7px 22px 0px rgba(50, 50, 50, .5);
-}
-.post-jumbotron {
-	margin:20px;
-	padding:15px;
-	position:relative;
-}
-.post-name {
-	padding:0px;
-}
-.post-row {
-	margin-top:20px;
 }
 .price-box {
 	padding:10px;
@@ -359,77 +352,20 @@ i.tw {
 #profile-picture {
 	margin-top:10%;
 }
-.sale-history {
-	position: absolute;
-	right: 20px;
-	margin-top: 85px;
-	font-size: 14px;
-	color: rgb(95, 95, 95);
-	float: left;
-	display: block;
-}
 .search-field {
 	color:#000;
 }
 .search-field:focus {
 	box-shadow: 0px 0px 22px 0px rgba(50, 50, 50, 0.6);
 }
-.section-title {
-	text-align:center;
-	margin-bottom:50px;
-	font-weight:bold;
-}
-.span-ad-container {
-	background-color:blue;
-	margin-top:20px;
-	width:640px;
-	height:640px;
-}
-.span-ad-discription {
-	background-color:white;
-	width:600px;
-	height:180px;
-}
-.span-ad-poster {
-	background-color:blue;
-	margin-top:20px;
-	margin-left:20px;
-	width:320px;
-	height:640px;
-}
 tr {
 	padding-top:50px;
 }
-.transparent {
-	zoom: 1;
-	filter: alpha(opacity=50);
-	opacity: 0.5;
-}
-.thumbnail {
-	text-align:center;
-	border:none;
-	background:transparent;
-}
-.thumbnail .caption p {
-	color:#333333;
-}
-.thumb-pic {
-	font-size:100px;
-}
-#user-title {
-	font-size: 25px;
-	padding: 10px;
-	border-bottom: 1px solid $accent-color;
-}
-
-
-
 /*...............*/
 #filter-box {
 	width:170px;
 	position:fixed;
 }
-
 .menu {
 	width: 100%;
 }
@@ -446,15 +382,17 @@ tr {
 	display: block;
 }
 .menu-list > li > a {
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Oxygen', sans-serif;
 	padding: 10px 0 10px 10px; 
 	text-decoration: none; 
 	display: block;
 	color:black;
 }
 .menu-list > h5 {
-	text-align:center;
-	padding:0;
+	font-family: 'Oxygen', sans-serif;
+	font-weight:bold;
+	color:black;
+	padding-left:10px;
 	font-size: 16px; 
 	margin-bottom:5px;
 	margin-top:5px;
@@ -464,6 +402,6 @@ tr {
 	background-color:#F5F5F5;
 }
 .menu-list > li > a:hover {
-	color:$foreground;
-	background-color:$accent-color;
+	color:#000;
+	background-color:#E9F1F7;
 }

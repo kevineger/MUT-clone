@@ -7,32 +7,21 @@
         <%=image_tag post.image.url(:small), :class => 'featured-pic center-pic' %>
         <% end %>
         <h4><%=post.title%></h4>
-          </div>
-        </div>
+        <h4>$<%=post.price%></h4>
       </div>
-      <% end %>
     </div>
+  </div>
+  <% end %>
+</div>
 
-    <!-- Filter Error Catch -->
-    <% if posts.size == 0 %>
-    <div class="text-center">
-      <h4 style="font-size:200%;">There are no posts with your selected search filter</h4>
-    </div>
-    <% end %>
+<!-- Filter Error Catch -->
+<% if posts.size == 0 %>
+<div class="text-center">
+  <h4 style="font-size:200%;">There are no posts with your selected search filter</h4>
+</div>
+<% end %>
 
-    <!-- Pagination at Bottom of Screen -->
-    <div class="row text-center">
-      <%= will_paginate posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer', :class => 'pagination-custom pagination'%>
-    </div>
-    <script>
-      // $(document).ready(function(){
-      //   $('.ad-frame').on('mouseenter',function(){
-      //    $(this).fadeTo("medium" , 0.5, function() {
-      //     $(this).mouseout(function(){
-      //       $(this).fadeTo('fast',1,function(){
-      //     });
-      //    ); 
-      //   });
-      //  });
-      // });
-    </script>
+<!-- Pagination at Bottom of Screen -->
+<div class="row text-center">
+  <%= will_paginate posts , :renderer => 'BootstrapPaginationHelper::LinkRenderer', :class => 'pagination-custom pagination'%>
+</div>
