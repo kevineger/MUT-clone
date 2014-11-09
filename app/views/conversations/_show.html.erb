@@ -1,3 +1,4 @@
+<h2 style="margin-top:0; text-align:center;"> <%= messages.first.conversation.users.first.username %> </h2>
 <div style="padding-left:15px; padding-right:15px;" class="row">
   <div id="conversation-scroll">
     <% messages.first.conversation.users.each do |user|%>
@@ -6,15 +7,15 @@
         <% end %>
       <% end %>
     <% messages.each do |message| %>
-        <% if message.user.id == current_user.id %>
-            <div class="row conversation-message">
-                <p  class="conversation-text conversation-sent pull-right"><%= message.body %></p>
-            </div>
-        <% else %>
-            <div class="row conversation-message">
-                <p class="conversation-text conversation-received pull-left"><%= message.body %></p>
-            </div>
-        <% end %>
+    <% if message.user.id == current_user.id %>
+    <div class="row conversation-message">
+      <p  class="conversation-text conversation-sent pull-right"><%= message.body %></p>
+    </div>
+    <% else %>
+    <div class="row conversation-message">
+      <p class="conversation-text conversation-received pull-left"><%= message.body %></p>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>
