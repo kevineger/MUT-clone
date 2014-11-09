@@ -97,7 +97,7 @@ class ClassifiedPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def classified_post_params
-      params.require(:classified_post).permit(:title,:description,:image,:price,:classified_category_id, :isbn,:author,:edition,:terms)
+      params.require(:classified_post).permit(:title,:description,:image,:price,:classified_category_id, :isbn,:author,:edition,:terms, :course_name)
     end
     def belongs_to?
       unless @classified_post.user_id == current_user.id

@@ -20,11 +20,11 @@ class ClassifiedPost < ActiveRecord::Base
   validates :price, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0, :less_than => 1000}
   self.per_page = 21
 
-
+  validates :title, length: { minimum: 5,maximum: 40 }
 
   #paperclip stuff
   has_attached_file :image,
                     :styles => { :thumb => "100x100>", :small => "250x250" ,:large => "500x500"},
-                    :default_url => "/images/:style/missing.png"
+                    :default_url => "/assets/:style/missing.gif"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
 end

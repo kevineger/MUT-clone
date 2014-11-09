@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918183900) do
+ActiveRecord::Schema.define(version: 20141109210825) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140918183900) do
     t.string   "author"
     t.string   "edition"
     t.string   "isbn"
+    t.string   "course_name"
   end
 
   create_table "comments", force: true do |t|
@@ -203,6 +204,10 @@ ActiveRecord::Schema.define(version: 20140918183900) do
     t.string   "unconfirmed_email"
     t.boolean  "unread"
     t.string   "username"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

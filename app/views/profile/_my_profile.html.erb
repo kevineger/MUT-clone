@@ -11,17 +11,23 @@
           <h2 class="field-title">Email</h2>
           <%= f.text_field :email, :class => 'form-control'%>
       </div>
+        <div id="item-pic" class="form-group">
+          <h2 class="field-title">Item Picture</h2>
+          <%= f.file_field :image, :class => 'pic-input'%>
+          <p class="help-block">Update your profile picture</p>
+        </div>
       <div id="update-password-button" class="form-group" style="margin-top:30px;">
           <button type="button" class="btn btn-default"> Update Password</button>
       </div>
+
       <div id="hidden-password-fields" class="well">
           <div id="item-title" class="form-group">
             <h2 class="field-title" style="padding-top:0;">New Password</h2>
-            <%= f.password_field :password, :class => 'form-control', :autocomplete => :off%>
+            <%= f.password_field :password, :class => 'form-control', :disabled => 'disabled'%>
         </div>
         <div id="item-title" class="form-group">
             <h2 class="field-title">Confirm New Password</h2>
-            <%= f.password_field :password_confirmation, :class => 'form-control', :autocomplete => :off%>
+            <%= f.password_field :password_confirmation, :class => 'form-control', :disabled => 'disabled'%>
         </div>
         <div class="form-group" style="margin-bottom:0;">
          <button type="button" id="password-fields-collapse" class="btn btn-defualt">Close</button>
@@ -33,7 +39,7 @@
 <div class="col-lg-4">
     <div id="profile-picture">
         <div class="row">
-            <img class="featured-pic center-pic" src="/assets/htmlcss.jpg">
+          <%= image_tag @user.image.url(:default),:class => "featured-pic center-pic" %>
         </div>
         <div class="row">
             <div class="col-lg-12" style="text-align:center">
@@ -76,12 +82,17 @@
 $(document).ready(function(){
   $('#hidden-password-fields').hide();
   $('button','#update-password-button').on('click', function(){
+      $("#user_password").removeAttr("disabled");
+      $("#user_password_confirmation").removeAttr("disabled");
     $('#hidden-password-fields').show();
     $(this).hide();
 });
   $('#password-fields-collapse').on('click', function(){
     $('#hidden-password-fields').hide();
     $('button','#update-password-button').show();
+
+      $("#user_password").attr("disabled", "disabled");
+      $("#user_password_confirmation").attr("disabled", "disabled");
 });
 
 });

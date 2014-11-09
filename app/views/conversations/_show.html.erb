@@ -1,5 +1,10 @@
 <div style="padding-left:15px; padding-right:15px;" class="row">
   <div id="conversation-scroll">
+    <% messages.first.conversation.users.each do |user|%>
+        <%if user.id != current_user.id%>
+            <%= user.username%>
+        <% end %>
+      <% end %>
     <% messages.each do |message| %>
         <% if message.user.id == current_user.id %>
             <div class="row conversation-message">

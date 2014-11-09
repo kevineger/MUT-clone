@@ -17,6 +17,9 @@ class ConversationsController < ApplicationController
   # GET /conversations/1.json
   def show
     @message = Message.new
+    @conversation.users.each do |user|
+      @other_user = user
+    end
     respond_to do |format|
       format.js
       format.html
