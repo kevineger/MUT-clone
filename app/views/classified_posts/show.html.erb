@@ -24,10 +24,10 @@
           <%= image_tag @classified_post.image.url(:large), :class => 'pic-single center-pic'%>
           <div class="disc-container">
             <div class="row">
-              <div class="col-md-7" style="border-right:1px solid #DDD;">
+              <div class="col-md-7">
                 <p><%=@classified_post.description%></p>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-5" style="border-left:1px solid #DDD;">
                 <p><strong>Author</strong>: <%=@classified_post.author %></p>
                 <p><strong>Edition</strong>: <%=@classified_post.edition %></p>
                 <p><strong>ISBN</strong>: <%=@classified_post.isbn %></p>
