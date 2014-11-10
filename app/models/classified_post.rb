@@ -17,7 +17,7 @@ class ClassifiedPost < ActiveRecord::Base
   # validations
   validates :description,:title,:price,:author,:isbn, :user_id, :classified_category_id, presence: true
   validates :terms, acceptance: true
-  validates :price, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0, :less_than => 1000}
+  validates :price, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }
   self.per_page = 21
 
   validates :title, length: { minimum: 5,maximum: 40 }
