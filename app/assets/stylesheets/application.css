@@ -14,6 +14,7 @@
  *= require bootstrap
  *= require font-awesome
  *= require dashboard.css
+ *= require animate.css
  *= require global
  *= require toastr
  *= require_self
