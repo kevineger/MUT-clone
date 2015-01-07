@@ -24,12 +24,14 @@
     <div class="row">
       <div class="menu visible-lg">
         <ul id="price-filter" class="menu-list">
-          <li class="active"><a href="#">Filter Price</a></li>
+          <li class="active">
+            <a href="#">Filter Price<i class="pull-right fa fa-usd" style="color: gray; padding-right: 20px"></i></a>
+          </li>
           <!-- <h5>Filter Price</h5> -->
           <form action="/posts" class="row form-inline price-box">
-            <input id="low" name="price_low" type="text" class="input-mini rounded" placeholder="Low">
+            <input id="low" name="price_low" type="text" class="input-mini rounded" placeholder="10">
             <i class="fa fa-arrows-h" style="color:#000;"></i>
-            <input id="high" name="price_high" type="text" class="input-mini rounded" placeholder="High">
+            <input id="high" name="price_high" type="text" class="input-mini rounded" placeholder="100">
             <button class="price-search"><i id="price-go" class="fa fa-search"></i></button>
           </form>
         </ul>
