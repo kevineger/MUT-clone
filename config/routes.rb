@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/profile/info/:id', to: 'profile#info'
   get '/profile/posts/:id', to: 'profile#posts'
   get '/profile/settings/:id', to: 'profile#settings'
+  get '/about', to: 'about#about_us'
 
   ActiveAdmin.routes(self)
   resources :classified_categories, :path => "classifieds" do

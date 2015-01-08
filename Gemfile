@@ -3,7 +3,7 @@ gem 'font-awesome-sass'
 gem 'mysql'
 gem 'bootstrap-sass'
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'will_paginate', '3.0.5'
+gem 'will_paginate'
 gem 'devise'
 gem 'mailboxer'
 gem 'has_scope'
@@ -12,7 +12,7 @@ gem 'aws-sdk'
 gem 'sendgrid'
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.2'
 
 
 # Use SCSS for stylesheets
@@ -39,7 +39,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'newrelic_rpm',group: :production
 
-gem 'pg', group: :production
+gem 'pg'
+gem 'pg_search'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7's
