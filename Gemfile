@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'font-awesome-sass'
 gem 'mysql'
 gem 'bootstrap-sass'
