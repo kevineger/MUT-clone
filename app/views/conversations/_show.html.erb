@@ -1,7 +1,7 @@
 
 <% messages.first.conversation.users.each do |user|%>
     <%if user.id != current_user.id%>
-        <h2 style="margin-top:0; text-align:center;">  <%= user.username%></h2>
+         <h3 style="margin-top:0; text-align:center; color: grey;"><%= user.username%></h3>
     <% end %>
 <% end %>
 <div style="padding-left:15px; padding-right:15px;" class="row">

@@ -32,7 +32,7 @@ class ConversationsController < ApplicationController
     @subject
     if params.has_key?(:post)
       @post = ClassifiedPost.find(params[:post])
-      @subject = current_user.username + " - "+ (@post.title.to_s)
+      @subject = @post.title.to_s
     end
     @conversation = Conversation.new
     @conversation.messages.build

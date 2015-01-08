@@ -1,5 +1,13 @@
 <ul class="list-group">
   <% conversations.each do |conversation| %>
-      <li class="list-group-item"><%=link_to conversation.subject, conversation_path(conversation), remote: true %></li>
+      <li class="list-group-item"><%=link_to conversation.subject, conversation_path(conversation), remote: true %>
+        <br/>
+      <span style="font-size: 12px">
+        <% conversation.messages.first.conversation.users.each do |user|%>
+            <%if user.id != current_user.id%>
+                - <%= user.username%>
+            <% end %>
+        <% end %>
+      </span></li>
   <% end %>
 </ul>

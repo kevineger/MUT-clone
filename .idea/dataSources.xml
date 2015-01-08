@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2642046741">
+  <component name="DataSourceManagerImpl" format="xml" hash="2405257568">
     <data-source source="LOCAL" name="MySQL - mutrails@localhost" uuid="31905d6f-766a-4fa2-b651-8e219124bf4b">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -17,7 +17,7 @@
     <data-source source="LOCAL" name="Rails mut: development" uuid="07e0bb66-2877-4e8d-8d87-23ecad676d22">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1:3306/mutrails</jdbc-url>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/mutrails</jdbc-url>
       <user-name>mut_auth</user-name>
       <user-password>dfc7dfdfdfdedfd8dfcbdf9bdfc6dfd9</user-password>
       <libraries />
@@ -45,6 +45,15 @@
         <property name="ssl" value="true" />
         <property name="sslfactory" value="org.postgresql.ssl.NonValidatingFactory" />
       </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - mutrails@localhost" uuid="2f671080-7724-42fe-8476-d253266ecdbd">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/mutrails</jdbc-url>
+      <user-name>mut_auth</user-name>
+      <user-password>dfc7dfdfdfdedfd8dfcbdf9bdfc6dfd9</user-password>
       <libraries />
     </data-source>
   </component>
