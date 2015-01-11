@@ -51,6 +51,7 @@ class ConversationsController < ApplicationController
     respond_to do |format|
       if @conversation.save
         new_message_alert! @conversation
+        MessageNotifier.deliver_send_first_message_notification(@conversation.get_other_user(current_user),new_message)
         format.html { redirect_to '/profile/'+current_user.id.to_s+'#messages', notice: 'Conversation was successfully created.' }
         format.json { render :show, status: :created, location: @conversation }
       else

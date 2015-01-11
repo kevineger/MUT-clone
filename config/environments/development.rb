@@ -27,9 +27,9 @@ Rails.application.configure do
       :address        => "smtp.mailgun.org",
       :port           => "25",
       :authentication => :plain,
-      :user_name      => 'postmaster@sandbox76a8bdd5d8dc4b84b39eae59ceeabf34.mailgun.org',
-      :password       => 'password',
-      :domain         => 'sandbox76a8bdd5d8dc4b84b39eae59ceeabf34.mailgun.org'
+      :user_name      => 'postmaster@mg.myunitrade.com',
+      :password       => 'f1882402d7c88debcd5bcba63f4a3e7b',
+      :domain         => 'mg.myunitrade.com'
   }
   ActionMailer::Base.delivery_method = :smtp
   # Adds additional error checking when serving assets at runtime.
