@@ -4,6 +4,6 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<p>You received a message about your post ! <a href="http://beta.myunitrade.com">Click to respond</a></p>
+<p>You received a message about your post ! <a href="<%=root_path+/profile/+@conversation.get_other_user(current_user).id%>">Click to respond</a></p>
 </body>
 </html>

@@ -46,12 +46,13 @@ class ConversationsController < ApplicationController
   # POST /conversations.json
   def create
     @conversation = Conversation.new(conversation_params.except(:user_id))
+    other_user = User.find(conversation_params[:user_id])
     @conversation.users << current_user
-    @conversation.users << User.find(conversation_params[:user_id])
+    @conversation.users << other_user
     respond_to do |format|
       if @conversation.save
         new_message_alert! @conversation
-        MessageNotifier.send_first_message_notification(@conversation.get_other_user(current_user),new_message).deliver
+        MessageNotifier.send_first_message_notification(other_user,@conversation).deliver
         format.html { redirect_to '/profile/'+current_user.id.to_s+'#messages', notice: 'Conversation was successfully created.' }
         format.json { render :show, status: :created, location: @conversation }
       else
