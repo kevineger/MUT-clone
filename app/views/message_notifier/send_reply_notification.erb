@@ -4,6 +4,6 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<p>You received a reply to your message ! <a href="<%=root_path+/profile/+@conversation.get_other_user(current_user).id%>">Click to respond</a></p>
+<p>You received a reply to your message ! <a href="<%=root_path+'/profile'+@to.id.to_s%>">Click to respond</a></p>
 </body>
 </html>
