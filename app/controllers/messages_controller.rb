@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find(message_params[:conversation_id])
     new_message_alert! @conversation
     new_message = Message.create(message_params)
-    MessageNotifier.deliver_send_reply_notification(@conversation.get_other_user(current_user),new_message)
+    MessageNotifier.send_reply_notification(@conversation.get_other_user(current_user),new_message).deliver
     @message = Message.new
     respond_to do |format|
       format.js
