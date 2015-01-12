@@ -4,11 +4,11 @@ class Conversation < ActiveRecord::Base
   has_many :messages
   belongs_to :classified_post
   accepts_nested_attributes_for :messages
-  def get_other_user(current_user)
-    other_user = nil
-    self.users.each do |user|
-      other_user = user unless user == current_user
+  def get_other_user(current_user_id)
+    if self.users.first.id == current_user_id
+      self.users.first
+    else
+      self.users.second
     end
-    other_user
   end
 end
