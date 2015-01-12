@@ -1,10 +1,10 @@
 <div id="classifieds-container" class="container">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
       <!-- Filter Box -->
       <%= render partial: 'classified_categories/filter_box', locals: {categories: @classified_categories} %>
     </div>
-    <div class="col-md-10">
+    <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 col-xs-8 col-xs-offset-4">
       <!-- Individual add item -->
       <div id="post-grid">
         <%= render partial: 'classified_posts/posts', locals: {posts: @classified_posts}  %>
