@@ -2,6 +2,6 @@
 <br>
 <br>
 <p>You have received a new private message at <a href="http://myunitrade.com"></a> from <%=@from.username%> regarding <%=@conversation.subject%>,<br>
-  <br><i><%=@conversation.messages.first%></i><br>
+  <br><i><%=@conversation.messages.first.body%></i><br>
   <br><a href="http://myunitrade.com/profile/<%=@to.id.to_s%>">Respond to this message at MyUniTrade</a>
 </p>

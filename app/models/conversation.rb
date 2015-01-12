@@ -6,9 +6,9 @@ class Conversation < ActiveRecord::Base
   accepts_nested_attributes_for :messages
   def get_other_user(current_user_id)
     if self.users.first.id == current_user_id
-      self.users.first
-    else
       self.users.second
+    else
+      self.users.first
     end
   end
 end
