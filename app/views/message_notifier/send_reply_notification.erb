@@ -1,7 +1,6 @@
 <p><%=@to.username%>,</p>
 <br>
-<br>
-<p>You have received a reply to your message at <a href="http://myunitrade.com"></a> from <%=@from.username%> regarding <%=@message.conversation.subject%>,<br>
+<p>You have received a reply to your message at <a href="http://myunitrade.com">MyUniTrade</a> from <%=@from.username%> regarding <strong><%=@message.conversation.subject%></strong>,<br>
   <br><i><%=@message.body%></i><br>
-  <br><a href="http://myunitrade.com/profile/<%=@to.id.to_s%>">Respond to this message at MyUniTrade</a>
+  <br><a href="http://myunitrade.com/profile/<%=@to.id.to_s%>">Respond to this message at <strong>MyUniTrade</strong></a>
 </p>
