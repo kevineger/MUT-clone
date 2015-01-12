@@ -15,6 +15,9 @@ body {
     font-family: 'Lato', sans-serif;
   }
 }
+p {
+	line-height: 115%;
+}
 h1 {
   font-size:300%;
   text-align:center;
@@ -405,6 +408,12 @@ input.rounded:focus {
 }
 tr {
   padding-top:50px;
+}
+.team-contact {
+	font-size:300%;
+}
+.team-frame {
+	margin:20px;
 }
 /*...............*/
 #filter-box {
