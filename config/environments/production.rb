@@ -78,7 +78,7 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = {:host => 'http://beta.myunitrade.com/'}
+  config.action_mailer.default_url_options = {:host => 'http://myunitrade.com/'}
   ActionMailer::Base.smtp_settings = {
       :address        => "smtp.mailgun.org",
       :port           => "25",
