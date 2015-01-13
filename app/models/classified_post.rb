@@ -26,6 +26,6 @@ class ClassifiedPost < ActiveRecord::Base
   #paperclip stuff
   has_attached_file :image,
                     :styles => { :thumb => "100x100>", :small => "250x250" ,:large => "500x500"},
-                    :default_url => "/:style/missing.gif"
+                    :default_url => "/assets/:style/missing.gif"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png']
 end
